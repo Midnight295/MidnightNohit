@@ -1,0 +1,62 @@
+Mods: {
+	MidnightNohit: {
+		Configs: {
+			CalNohitConfig: {
+				DisplayName: Calamity Config
+				Headers.CalamityNohit: Calamity Nohitting
+
+				DQDebuffs: {
+					Label: DQ Debuffs
+					Tooltip: Instantly kills the player when inflicted with Holy Inferno, Vulnurability Hex, or Madness
+				}
+
+				DisableRippers: {
+					Label: Disable Rippers
+					Tooltip: ""
+				}
+
+				disablebgs: {
+					Label: disablebgs
+					Tooltip: ""
+				}
+			}
+
+			NohitConfig: {
+				DisplayName: Nohitting Config
+				Headers.Nohit: Nohitting Config
+
+				defiled: {
+					Label: Defiled
+					Tooltip: ""
+				}
+
+				DisableIframes: {
+					Label: Disable Iframes
+					Tooltip: Disables all forms of Iframes.
+				}
+
+				DisableDebuffs: {
+					Label: Disable Debuffs
+					Tooltip: Having negative life regen will instantly kill you (NOT RECOMMENDED WITH CALAMITY MOD ENABLED)
+				}
+
+				InstantKill: {
+					Label: Instant Kill
+					Tooltip: ""
+				}
+
+				InventoryStations: {
+					Label: Inventory Stations
+					Tooltip: ""
+				}
+			}
+
+			Defiled: {
+				Tooltip: Disables winged flight. True Defiled disables rocket boot flight and select mounts
+				Off.Label: Disabled
+				Normal.Label: Normal
+				True.Label: True
+			}
+		}
+	}
+}

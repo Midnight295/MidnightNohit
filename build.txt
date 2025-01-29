@@ -1,0 +1,4 @@
+displayName = midnights Nohitting Mod
+author = midnight.
+version = 0.1
+weakReferences = CalamityMod
