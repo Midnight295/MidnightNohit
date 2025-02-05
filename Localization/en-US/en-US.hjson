@@ -5,14 +5,9 @@ Mods: {
 				DisplayName: Calamity Config
 				Headers.CalamityNohit: Calamity Nohitting
 
-				DQDebuffs: {
-					Label: DQ Debuffs
-					Tooltip: Instantly kills the player when inflicted with Holy Inferno, Vulnurability Hex, or Madness
-				}
-
 				DisableRippers: {
 					Label: Disable Rippers
-					Tooltip: ""
+					Tooltip: Toggles whether or not to prevent the Rage and Adrenaline bars from ever incrementing
 				}
 
 				disablebgs: {
@@ -23,7 +18,12 @@ Mods: {
 
 			NohitConfig: {
 				DisplayName: Nohitting Config
-				Headers.Nohit: Nohitting Config
+
+				Headers: {
+					Nohit: Nohitting Config
+					Debuffs: Debuffs
+					UI: UI
+				}
 
 				defiled: {
 					Label: Defiled
@@ -36,18 +36,43 @@ Mods: {
 				}
 
 				DisableDebuffs: {
-					Label: Disable Debuffs
+					Label: Disable All Debuffs
 					Tooltip: Having negative life regen will instantly kill you (NOT RECOMMENDED WITH CALAMITY MOD ENABLED)
 				}
 
 				InstantKill: {
 					Label: Instant Kill
-					Tooltip: ""
+					Tooltip: Toggles whether or not the player instantly dies on hit
 				}
 
 				InventoryStations: {
 					Label: Inventory Stations
-					Tooltip: ""
+					Tooltip: Buff stations will grant you their buff when in the inventory
+				}
+
+				DQDebuffs: {
+					Label: Disable Rule Specific Debuffs
+					Tooltip: Instantly kills you if you have a debuff that would disqualify a nohit
+				}
+
+				MNLTimer: {
+					Label: Boss Timer
+					Tooltip: Toggles whether or not to display a timer that shows you how long you've been fighting a boss for
+				}
+
+				MNLX: {
+					Label: Boss Timer X Position
+					Tooltip: Changes the Boss Timer's position on the X axis
+				}
+
+				MNLY: {
+					Label: Boss Timer Y Position
+					Tooltip: Changes the Boss Timer's position on the Y axis
+				}
+
+				MNLChatMessage: {
+					Label: Minimum Nohit Length Chat Message
+					Tooltip: "Toggles whether or not a chat message appears whenever you are under or over MNL"
 				}
 			}
 

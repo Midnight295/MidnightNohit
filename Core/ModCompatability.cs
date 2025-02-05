@@ -19,5 +19,20 @@ namespace MidnightNohit.Core
 
             public static Mod Mod => ModLoader.GetMod(Name);
         }
+
+        public static class FargoSouls
+        {
+            public const string Name = "FargowiltasSouls";
+            public static bool Loaded => ModLoader.HasMod(Name);
+            public static Mod Mod = ModLoader.GetMod(Name);
+        }
+
+        public static class Infernum
+        {
+            public const string Name = "InfernumMode";
+            public static bool Loaded => ModLoader.HasMod(Name);
+            public static Mod Mod => ModLoader.GetMod(Name);
+            public static bool InfernumDifficulty => Loaded && (bool)Mod.Call("GetInfernumActive");
+        }
     }
 }

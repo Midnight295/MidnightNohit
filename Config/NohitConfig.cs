@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MidnightNohit.Content.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -21,9 +22,19 @@ namespace MidnightNohit.Config
         //[Slider]
         //[DrawTicks]
         //public Defiled defiled;
+        [DefaultValue(false)]
+        public bool InstantKill;
 
         [DefaultValue(false)]
         public bool DisableIframes;
+
+        [DefaultValue(true)]
+        public bool MNLChatMessage;
+
+        [DefaultValue(true)]
+        public bool InventoryStations;
+
+        [Header("Debuffs")]
 
         [DefaultValue(false)]
         public bool DisableDebuffs;
@@ -31,10 +42,17 @@ namespace MidnightNohit.Config
         [DefaultValue(true)]
         public bool DQDebuffs;
 
-        [DefaultValue(false)]
-        public bool InstantKill;
+        [Header("UI")]
 
         [DefaultValue(true)]
-        public bool InventoryStations;
+        public bool MNLTimer;
+
+        [Range(0f, 10f)]
+        [DefaultValue(MnlTimer.defaultX / 10)]
+        public float MNLX;
+
+        [Range(0f, 10f)]
+        [DefaultValue(MnlTimer.defaultY / 10)]
+        public float MNLY;
     }
 }

@@ -18,6 +18,7 @@ namespace MidnightNohit.Core.ModPlayers
         int timetowait;
         public override void PreUpdate()
         {
+
             Player player = Main.LocalPlayer;
             if (NohitConfig.Instance.DisableIframes)
             {
@@ -31,11 +32,37 @@ namespace MidnightNohit.Core.ModPlayers
 
             if (NohitConfig.Instance.DisableDebuffs)
             {
-                if (player.lifeRegen <= 0)
+                if (player.lifeRegen < 0)
                 {
                     Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.NegativeRegen", Player.name)), 1000, 0, false);
                 }
             }
+
+            if (NohitUtils.IsAnyBossesAlive())
+            {
+                NohitUtils.MNLTimer();
+                NohitUtils.ShouldDisplayMNL = true;
+            }
+            else
+            {
+                --NohitUtils.MainTimer;
+                --NohitUtils.TrueTimer;
+                NohitUtils.MainTimer = 0;
+                NohitUtils.Minutes = 0;
+                NohitUtils.Seconds = 0;
+                if (NohitUtils.ShouldDisplayMNL && ++NohitUtils.Wait >= 2)
+                {
+                    NohitUtils.SendMNLMessage();
+                }
+                else if (!NohitUtils.ShouldDisplayMNL)
+                {
+                    NohitUtils.Wait = 0;
+                    NohitUtils.TrueTimer = 0;
+                }
+                    
+                    
+            }
+                
 
             /*Player player = Main.LocalPlayer;
             if (NohitConfig.Instance.defiled == Defiled.Normal)
