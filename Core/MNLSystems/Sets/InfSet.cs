@@ -30,6 +30,7 @@ using CalamityMod.NPCs.SupremeCalamitas;
 using CalamityMod.NPCs.Yharon;
 using CalamityMod.World;
 using InfernumMode;
+using InfernumMode.Content.BehaviorOverrides.BossAIs.GreatSandShark;
 using InfernumMode.Core.GlobalInstances.Systems;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,7 @@ namespace MidnightNohit.Core.MNLSystems.Sets
             [NPCID.DukeFishron] = 3900,
             [ModContent.NPCType<RavagerBody>()] = 4500,
             [NPCID.CultistBoss] = 4200,
+            [ModContent.NPCType<BereftVassal>()] = 6000,
             [ModContent.NPCType<AstrumDeusHead>()] = 5400,
             [NPCID.MoonLordCore] = 6000,
             // PostMoonlord
