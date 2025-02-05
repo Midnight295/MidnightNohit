@@ -36,11 +36,10 @@ namespace MidnightNohit.Config
 
         [Header("Debuffs")]
 
-        [DefaultValue(false)]
-        public bool DisableDebuffs;
-
-        [DefaultValue(true)]
-        public bool DQDebuffs;
+        [DefaultValue(0)]
+        [Slider]
+        [DrawTicks]
+        public Debuffs debuffs;
 
         [Header("UI")]
 

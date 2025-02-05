@@ -28,7 +28,7 @@ namespace MidnightNohit.Core.ModPlayers
     {
         public override void PreUpdate()
         {
-            if (NohitConfig.Instance.DQDebuffs == true)
+            if (NohitConfig.Instance.debuffs == Debuffs.Specific)
             {
                 if (Player.FindBuffIndex(ModContent.BuffType<HolyInferno>()) > -1)
                     Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.HInferno")), 1000.0, 0, false);

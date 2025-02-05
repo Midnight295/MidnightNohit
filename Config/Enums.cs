@@ -12,4 +12,11 @@ namespace MidnightNohit.Config
         Normal,
         True,
     }
+
+    public enum Debuffs
+    {
+        Off,
+        Specific,
+        All,
+    }
 }

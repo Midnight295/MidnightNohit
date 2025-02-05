@@ -30,7 +30,7 @@ namespace MidnightNohit.Core.ModPlayers
                 player.hurtCooldowns[1] = 0;             
             }
 
-            if (NohitConfig.Instance.DisableDebuffs)
+            if (NohitConfig.Instance.debuffs == Debuffs.All)
             {
                 if (player.lifeRegen < 0)
                 {
