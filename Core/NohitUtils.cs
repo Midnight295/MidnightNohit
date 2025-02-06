@@ -24,7 +24,7 @@ namespace MidnightNohit.Core
 
         public static bool ShouldDisplayMNL = false;
         public static int Wait;
-        public static void ReplaceItem(this Player player, Item itemToReplace, int itemIDtoReplaceWith)
+        public static void SwitchItem(this Player player, Item itemToReplace, int itemIDtoReplaceWith)
         {
             bool foundSlot = false;
             for (int i = 0; i < player.inventory.Length; i++)

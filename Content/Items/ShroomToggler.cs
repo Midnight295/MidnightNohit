@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +27,8 @@ namespace MidnightNohit.Content.Items
         public override bool CanRightClick() => true;
         public override void RightClick(Player player)
         {
-            player.ReplaceItem(Item, ModContent.ItemType<ShroomTogglerT1>());
+            player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT1>());
+            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
         }
     }
 
@@ -49,7 +51,8 @@ namespace MidnightNohit.Content.Items
         public override bool CanRightClick() => true;
         public override void RightClick(Player player)
         {
-            player.ReplaceItem(Item, ModContent.ItemType<ShroomTogglerT2>());
+            player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT2>());
+            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
         }
     }
 
@@ -72,7 +75,8 @@ namespace MidnightNohit.Content.Items
         public override bool CanRightClick() => true;
         public override void RightClick(Player player)
         {
-            player.ReplaceItem(Item, ModContent.ItemType<ShroomTogglerT3>());
+            player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT3>());
+            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
         }
     }
 
@@ -95,7 +99,8 @@ namespace MidnightNohit.Content.Items
         public override bool CanRightClick() => true;
         public override void RightClick(Player player)
         {
-            player.ReplaceItem(Item, ModContent.ItemType<ShroomToggler>());
+            player.SwitchItem(Item, ModContent.ItemType<ShroomToggler>());
+            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
         }
     }
 }
