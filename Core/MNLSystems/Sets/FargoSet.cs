@@ -68,7 +68,7 @@ namespace MidnightNohit.Core.MNLSystems.Sets
 
         public static void Load()
         {
-            MNLSet infset = new MNLSet(FargoMNLS, () =>
+            MNLSet fargoset = new MNLSet(FargoMNLS, () =>
             {
                 if (!WorldSavingSystem.EternityMode)
                     return MNLWeight.None;
@@ -78,7 +78,7 @@ namespace MidnightNohit.Core.MNLSystems.Sets
 
                 return MNLWeight.Eternity;
             });
-            MNLSystem.RegisterSet(infset);
+            MNLSystem.RegisterSet(fargoset);
         }
     }
 }

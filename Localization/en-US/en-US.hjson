@@ -89,7 +89,7 @@ Mods: {
 			}
 
 			Debuffs: {
-				Tooltip: "Toggles whether or not to instantly kill you under certain debuffs, or under all debuffs"
+				Tooltip: Toggles whether or not to instantly kill you under certain debuffs, or under all debuffs
 				Off.Label: Off
 				Specific.Label: Specific
 				All.Label: All

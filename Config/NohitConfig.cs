@@ -10,6 +10,7 @@ using Terraria.ModLoader.Config;
 
 namespace MidnightNohit.Config
 {
+    [BackgroundColor(25, 25, 112, 216)]
     public class NohitConfig : ModConfig
     {
         public static NohitConfig Instance => ModContent.GetInstance<NohitConfig>();

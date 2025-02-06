@@ -12,6 +12,7 @@ namespace MidnightNohit.Config
 {
     [JITWhenModsEnabled(ModCompatability.Calamity.Name)]
     [ExtendsFromMod(ModCompatability.Calamity.Name)]
+    [BackgroundColor(49, 32, 36, 216)]
     public class CalNohitConfig : ModConfig
     {
         public static CalNohitConfig Instance => ModContent.GetInstance<CalNohitConfig>();
@@ -23,6 +24,7 @@ namespace MidnightNohit.Config
         [Header("CalamityNohit")]
 
         [DefaultValue(false)]
+        [BackgroundColor(192, 54, 64, 192)]
         public bool DisableRippers;
 
     }

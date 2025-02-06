@@ -16,6 +16,7 @@ namespace MidnightNohit.Core.ModPlayers
     public class NohitPlayer : ModPlayer
     {
         int timetowait;
+        public int lastbosstype;
         public override void PreUpdate()
         {
 
@@ -53,14 +54,13 @@ namespace MidnightNohit.Core.ModPlayers
                 if (NohitUtils.ShouldDisplayMNL && ++NohitUtils.Wait >= 2)
                 {
                     NohitUtils.SendMNLMessage();
+                    
                 }
                 else if (!NohitUtils.ShouldDisplayMNL)
                 {
                     NohitUtils.Wait = 0;
                     NohitUtils.TrueTimer = 0;
-                }
-                    
-                    
+                }                   
             }
                 
 
@@ -86,6 +86,12 @@ namespace MidnightNohit.Core.ModPlayers
                 Player.buffImmune[BuffID.DarkMageBookMount] = true;
                 //Player.buffImmune[BuffID.
             }*/
+        }
+
+        public override void UpdateDead()
+        {
+            lastbosstype = 0;
+            base.UpdateDead();
         }
 
         /*private void NoWings()
@@ -118,6 +124,19 @@ namespace MidnightNohit.Core.ModPlayers
                 }
                 Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse, proj.Name, Player.name)), 1000, 0, false);
             };
+        }
+    }
+
+    public class MNLGlobalNPC : GlobalNPC
+    {
+        public override void OnKill(NPC npc)
+        {
+            NohitPlayer modPlayer = Main.LocalPlayer.GetModPlayer<NohitPlayer>();
+            if (npc.boss)
+            {
+                modPlayer.lastbosstype = npc.type;
+            }
+            base.OnKill(npc);
         }
     }
 }

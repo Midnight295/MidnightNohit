@@ -2,6 +2,8 @@ HInferno: " was burnt into sinless ash"
 VHex: "'s mental fortitude faded away"
 Madness: " went mad"
 NegativeRegen: "'s life force melted away"
+Baron: " asphyxiated"
+GodEater: " felt divine wrath"
 
 InstantKill: {
 	1: "{1} was shattered into a million pieces by {0}"
