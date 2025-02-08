@@ -1,25 +1,59 @@
 ShroomToggler: {
 	DisplayName: Shroom Toggler (Disabled)
-	Tooltip: Switches between shroom modes when right clicked in the inventory. Currently disabled
+	Tooltip:
+		'''
+		Switches between shroom modes
+		Right click to switch to Tier 1
+		'''
 }
 
 ShroomTogglerT1: {
 	DisplayName: Shroom Toggler (Tier 1)
-	Tooltip: Switches between shroom modes when right clicked in the inventory. Active: Tier 1
+	Tooltip:
+		'''
+		Switches between shroom modes
+		Right click to switch to Tier 2
+		'''
 }
 
 ShroomTogglerT2: {
 	DisplayName: Shroom Toggler (Tier 2)
-	Tooltip: Switches between shroom modes when right clicked in the inventory. Active: Tier 2
+	Tooltip:
+		'''
+		Switches between shroom modes
+		Right click to switch to Tier 3
+		'''
 }
 
 ShroomTogglerT3: {
 	DisplayName: Shroom Toggler (Tier 3)
-	Tooltip: Switches between shroom modes when right clicked in the inventory. Active: Tier 3
+	Tooltip:
+		'''
+		Switches between shroom modes 
+		Right click to disable
+		'''
 }
 
 SwiftTerminus: {
 	DisplayName: Primordial Artifact
 	Tooltip: Immediately activates Boss Rush upon use. Right click to modify the events starting point
 	ChatMessage: Tier {0} : {1}
+}
+
+PhaseSkipPreventerDisabled: {
+	DisplayName: Phase Skip Preventer (Disabled)
+	Tooltip:
+		'''
+		Prevents Mutant from skipping his second phase
+		Right click to enable
+		'''
+}
+
+PhaseSkipPreventerEnabled: {
+	DisplayName: Phase Skip Preventer (Enabled)
+	Tooltip:
+		'''
+		Prevents Mutant from skipping his second phase
+		Right click to disable
+		'''
 }

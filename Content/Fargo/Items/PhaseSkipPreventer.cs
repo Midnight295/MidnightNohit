@@ -16,6 +16,7 @@ namespace MidnightNohit.Content.Fargo.Items
 {
     public class PhaseSkipPreventerDisabled : ModItem
     {
+        public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
         public override void SetDefaults()
         {
             Item.width = 38;
@@ -35,6 +36,7 @@ namespace MidnightNohit.Content.Fargo.Items
 
     public class PhaseSkipPreventerEnabled : ModItem
     {
+        public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
         public override void SetDefaults()
         {
             Item.width = 38;
@@ -44,8 +46,13 @@ namespace MidnightNohit.Content.Fargo.Items
         }
 
         public override void UpdateInventory(Player player)
-        {
-            WorldSavingSystem.SkipMutantP1 -= 1;
+        {   
+            if (WorldSavingSystem.SkipMutantP1 != 0)
+            {
+                WorldSavingSystem.SkipMutantP1 = 0;
+            }
+                
+            //Main.NewText(WorldSavingSystem.SkipMutantP1.ToString());
         }
 
         public override bool CanUseItem(Player player) => false;

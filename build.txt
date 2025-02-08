@@ -1,4 +1,4 @@
 displayName = midnights Nohitting Mod
 author = midnight.
-version = 0.1
+version = 1.0
 weakReferences = CalamityMod, InfernumMode, FargowiltasSouls
