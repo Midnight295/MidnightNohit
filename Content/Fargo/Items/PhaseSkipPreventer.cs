@@ -14,6 +14,8 @@ using FargowiltasSouls.Core.Systems;
 
 namespace MidnightNohit.Content.Fargo.Items
 {
+    [JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
+    [ExtendsFromMod(ModCompatability.FargoSouls.Name)]
     public class PhaseSkipPreventerDisabled : ModItem
     {
         public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
@@ -34,6 +36,8 @@ namespace MidnightNohit.Content.Fargo.Items
         }   
     }
 
+    [JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
+    [ExtendsFromMod(ModCompatability.FargoSouls.Name)]
     public class PhaseSkipPreventerEnabled : ModItem
     {
         public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
