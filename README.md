@@ -1,3 +1,5 @@
+midnights Nohitting Mod
+
 Ingame description:
 
 A mod designed for nohitters, built with compatability in mind.
