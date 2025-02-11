@@ -1,22 +1,14 @@
 ﻿using MidnightNohit.Config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Localization;
-using CalamityMod.Items.Dyes.HairDye;
+
 
 namespace MidnightNohit.Core.ModPlayers
 {
     public class NohitPlayer : ModPlayer
     {
-        int timetowait;
-        public int lastbosstype;
         public override void PreUpdate()
         {
 
@@ -42,25 +34,13 @@ namespace MidnightNohit.Core.ModPlayers
             if (NohitUtils.IsAnyBossesAlive())
             {
                 NohitUtils.MNLTimer();
-                NohitUtils.ShouldDisplayMNL = true;
             }
             else
             {
                 --NohitUtils.MainTimer;
-                --NohitUtils.TrueTimer;
                 NohitUtils.MainTimer = 0;
                 NohitUtils.Minutes = 0;
-                NohitUtils.Seconds = 0;
-                if (NohitUtils.ShouldDisplayMNL && ++NohitUtils.Wait >= 2)
-                {
-                    NohitUtils.SendMNLMessage();
-                    
-                }
-                else if (!NohitUtils.ShouldDisplayMNL)
-                {
-                    NohitUtils.Wait = 0;
-                    NohitUtils.TrueTimer = 0;
-                }                   
+                NohitUtils.Seconds = 0;             
             }
                 
 
@@ -94,6 +74,11 @@ namespace MidnightNohit.Core.ModPlayers
             base.UpdateDead();
         }
 
+        public override void OnRespawn()
+        {
+            base.OnRespawn();
+        }
+
         /*private void NoWings()
         {
             Main.LocalPlayer.wingTime = 0;
@@ -124,19 +109,6 @@ namespace MidnightNohit.Core.ModPlayers
                 }
                 Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse, proj.Name, Player.name)), 1000, 0, false);
             };
-        }
-    }
-
-    public class MNLGlobalNPC : GlobalNPC
-    {
-        public override void OnKill(NPC npc)
-        {
-            NohitPlayer modPlayer = Main.LocalPlayer.GetModPlayer<NohitPlayer>();
-            if (npc.boss)
-            {
-                modPlayer.lastbosstype = npc.type;
-            }
-            base.OnKill(npc);
         }
     }
 }

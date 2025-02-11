@@ -2,7 +2,6 @@ A mod designed for nohitters, built with compatability in mind.
 
 FEATURES:
 -A multitude of configs meant to help nohitters.
--A Minimum Nohit Length chat indicator that tells you if you were above or below a bosses minimum nohit length. This works for the Calamity, Infernum and Fargo's Soul Mods
 -A UI indicator that tells you how long a boss has been fought for.
 -An accurate port of the Odd Mushroom item from the Calamity Mod that allows you to use it in any mod.
 

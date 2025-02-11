@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
-using MidnightNohit.Core.MNLSystems;
-using static MidnightNohit.Core.MNLSystems.MNLSystem;
-using Terraria.Localization;
-using MidnightNohit.Config;
-using MidnightNohit.Core.ModPlayers;
+
 
 namespace MidnightNohit.Core
 {
@@ -20,10 +10,6 @@ namespace MidnightNohit.Core
         public static int Seconds;
         public static int Minutes;
         public static string DeadSpace;
-        public static int TrueTimer;
-
-        public static bool ShouldDisplayMNL = false;
-        public static int Wait;
         public static void SwitchItem(this Player player, Item itemToReplace, int itemIDtoReplaceWith)
         {
             bool foundSlot = false;
@@ -68,8 +54,6 @@ namespace MidnightNohit.Core
                 return;
             }
 
-            ++TrueTimer;
-
             if (++MainTimer >= 60)
             {
                 Seconds += 1;
@@ -87,39 +71,6 @@ namespace MidnightNohit.Core
                 Minutes += 1;
             }
 
-        }
-
-        public static void SendMNLMessage()
-        {
-            NohitPlayer modPlayer = Main.LocalPlayer.GetModPlayer<NohitPlayer>();
-            if (!ActiveSet.TryGetValue(modPlayer.lastbosstype, out int MNL))
-                return;
-            
-            if (!NohitConfig.Instance.MNLChatMessage)
-               return;
-
-            float secondstotal = MNL / 60;
-            float seconds = TrueTimer / 60;
-
-            if (TrueTimer < MNL)
-            {
-                
-                float timeunder = secondstotal - seconds;
-                timeunder = (float)Math.Truncate((double)timeunder * 100f) / 100f;
-                Main.NewText(Language.GetTextValue($"Mods.MidnightNohit.UI.MNL.Under", timeunder));
-            }
-            else
-            {
-                float timeover = seconds - secondstotal;
-                timeover = (float)Math.Truncate((double)timeover * 100f) / 100f;
-                Main.NewText(Language.GetTextValue($"Mods.MidnightNohit.UI.MNL.Above", timeover));
-            }
-                    
-            
-            ShouldDisplayMNL = false;
-            --Wait;
-                
-           
-        }                  
+        }                 
     }
 }
