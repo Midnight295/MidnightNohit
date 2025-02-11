@@ -15,5 +15,9 @@ InstantKill: {
 	7: "{1} felt the divine wrath of {0}"
 	8: "{1}'s run was ended by {0}"
 	9: "{1} couldn't sightread {0}"
+	10: "{0} ascended beyond {1}'s control"
+	11: "{0} asked {1} to spell supercalifragilisticexpialidocious"
+	12: "{0} caught {1} trying to parry with the knuckleblaster"
+	13: "{0} chopped {1} up in a meatgrinder and the only thing left was their eyeball"
 	NoWingTime: "{1} was caught by {0} whilst they needed their wings most"
 }

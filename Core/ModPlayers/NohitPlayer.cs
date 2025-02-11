@@ -68,17 +68,6 @@ namespace MidnightNohit.Core.ModPlayers
             }*/
         }
 
-        public override void UpdateDead()
-        {
-            lastbosstype = 0;
-            base.UpdateDead();
-        }
-
-        public override void OnRespawn()
-        {
-            base.OnRespawn();
-        }
-
         /*private void NoWings()
         {
             Main.LocalPlayer.wingTime = 0;
@@ -88,7 +77,7 @@ namespace MidnightNohit.Core.ModPlayers
         {
             if (NohitConfig.Instance.InstantKill)
             {
-                string messagetouse = "" + Main.rand.Next(1, 10);
+                string messagetouse = "" + Main.rand.Next(1, 14);
                 if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
                 {
                     messagetouse = "NoWingTime";
@@ -102,7 +91,7 @@ namespace MidnightNohit.Core.ModPlayers
         {
             if (NohitConfig.Instance.InstantKill)
             {
-                string messagetouse = "" + Main.rand.Next(1, 10);
+                string messagetouse = "" + Main.rand.Next(1, 14);
                 if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
                 {
                     messagetouse = "NoWingTime";
