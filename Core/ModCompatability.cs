@@ -34,5 +34,12 @@ namespace MidnightNohit.Core
             public static Mod Mod => ModLoader.GetMod(Name);
             public static bool InfernumDifficulty => Loaded && (bool)Mod.Call("GetInfernumActive");
         }
+
+        public static class WrathoftheGods
+        {
+            public const string Name = "NoxusBoss";
+            public static bool Loaded => ModLoader.HasMod(Name);
+            public static Mod Mod => ModLoader.GetMod(Name);
+        }
     }
 }

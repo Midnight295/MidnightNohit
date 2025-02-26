@@ -19,10 +19,13 @@
 	  <Reference Include="InfernumMode">
 	    <HintPath>InfernumMode.dll</HintPath>
 	  </Reference>
+	  <Reference Include="NoxusBoss">
+	    <HintPath>NoxusBoss.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Assets\UI\" />
-	  <Folder Include="Core\ModSystems\" />
+	  <Folder Include="Core\Systems\" />
 	</ItemGroup>
 
 </Project>

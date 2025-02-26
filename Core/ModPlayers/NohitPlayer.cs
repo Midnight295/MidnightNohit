@@ -77,7 +77,7 @@ namespace MidnightNohit.Core.ModPlayers
         {
             if (NohitConfig.Instance.InstantKill)
             {
-                string messagetouse = "" + Main.rand.Next(1, 14);
+                string messagetouse = "" + Main.rand.Next(1, 13);
                 if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
                 {
                     messagetouse = "NoWingTime";
@@ -91,7 +91,7 @@ namespace MidnightNohit.Core.ModPlayers
         {
             if (NohitConfig.Instance.InstantKill)
             {
-                string messagetouse = "" + Main.rand.Next(1, 14);
+                string messagetouse = "" + Main.rand.Next(1, 13);
                 if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
                 {
                     messagetouse = "NoWingTime";
@@ -99,5 +99,16 @@ namespace MidnightNohit.Core.ModPlayers
                 Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse, proj.Name, Player.name)), 1000, 0, false);
             };
         }
+
+        /*public override void ModifyHurt(ref Player.HurtModifiers modifiers)
+        {
+            if (Player.whoAmI != Main.myPlayer)
+                return;
+
+            if (NohitConfig.Instance.InstantKill)
+            {
+                modifiers.FinalDamage *= 100000;
+            }
+        }*/
     }
 }

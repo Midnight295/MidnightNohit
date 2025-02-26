@@ -31,7 +31,7 @@ namespace MidnightNohit.Core.ModPlayers
             if (NohitConfig.Instance.debuffs == Debuffs.Specific)
             {
                 if (Player.FindBuffIndex(ModContent.BuffType<HolyInferno>()) > -1)
-                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.HInferno")), 1000.0, 0, false);
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.HInferno" + Main.rand.Next(1, 3)), 1000.0, 0, false);
                 
 
                 if (Player.FindBuffIndex(ModContent.BuffType<VulnerabilityHex>()) > -1)

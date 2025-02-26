@@ -30,6 +30,9 @@ namespace MidnightNohit.Config
         public bool DisableIframes;
 
         [DefaultValue(true)]
+        public bool MNLChatMessage;
+
+        [DefaultValue(true)]
         public bool InventoryStations;
 
         [Header("Debuffs")]

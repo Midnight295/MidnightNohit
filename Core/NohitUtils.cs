@@ -1,5 +1,8 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Chat;
 using Terraria.ID;
+using Terraria.Localization;
 
 
 namespace MidnightNohit.Core
@@ -71,6 +74,15 @@ namespace MidnightNohit.Core
                 Minutes += 1;
             }
 
-        }                 
+        }
+
+        //Ported from Imogen QoL, with permission from it's creator.
+        public static void DisplayText(string text, Color? color = null)
+        {
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                Main.NewText(text, color ?? Color.White);
+            else if (Main.netMode == NetmodeID.Server)
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(text), color ?? Color.White);
+        }
     }
 }
