@@ -1,42 +1,43 @@
 ﻿using MidnightNohit.Core;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
-using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
-using NoxusBoss.Content.Rarities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria;
 using Terraria.ModLoader;
+using CalamityMod.NPCs.ExoMechs;
+using Mono.Cecil;
+using Microsoft.Xna.Framework;
+using CalamityMod.Rarities;
 
 namespace MidnightNohit.Content.Calamity.Items
 {
-    [JITWhenModsEnabled(ModCompatability.WrathoftheGods.Name)]
-    [ExtendsFromMod(ModCompatability.WrathoftheGods.Name)]
-    public class AvatarSummoner : ModItem
+    [JITWhenModsEnabled(ModCompatability.Calamity.Name)]
+    [ExtendsFromMod(ModCompatability.Calamity.Name)]
+    public class DraedonSummoner : ModItem
     {
         public override void SetDefaults()
         {
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.rare = ModContent.RarityType<AvatarRarity>();
+            Item.rare = ModContent.RarityType<Turquoise>();
         }
 
         public override bool CanUseItem(Player player)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<AvatarRift>()))
-                return false;
-            if (NPC.AnyNPCs(ModContent.NPCType<AvatarOfEmptiness>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Draedon>()))
                 return false;
             return true;
         }
         public override bool? UseItem(Player player)
-        {
-            NPC.NewNPC(new EntitySource_WorldEvent(), (int)player.Center.X - 400, (int)player.Center.Y, ModContent.NPCType<AvatarRift>(), 1);
+        {   
+            Vector2 DraedonSummonPosition = Main.LocalPlayer.Center + new Vector2(-8f, -100f);
+            NPC.NewNPC(new EntitySource_WorldEvent(), (int)DraedonSummonPosition.X, (int)DraedonSummonPosition.Y, ModContent.NPCType<Draedon>());
             return true;
         }
     }

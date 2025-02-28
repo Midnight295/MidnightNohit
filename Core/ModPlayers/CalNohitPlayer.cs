@@ -31,7 +31,7 @@ namespace MidnightNohit.Core.ModPlayers
             if (NohitConfig.Instance.debuffs == Debuffs.Specific)
             {
                 if (Player.FindBuffIndex(ModContent.BuffType<HolyInferno>()) > -1)
-                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.HInferno" + Main.rand.Next(1, 3)), 1000.0, 0, false);
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.HInferno" + Main.rand.Next(1, 3))), 1000.0, 0, false);
                 
 
                 if (Player.FindBuffIndex(ModContent.BuffType<VulnerabilityHex>()) > -1)
@@ -43,17 +43,22 @@ namespace MidnightNohit.Core.ModPlayers
                     if (Player.FindBuffIndex(Madness.Type) > -1)
                         Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.Madness")), 1000.0, 0, false);
                 }
-
-                Player.buffImmune[ModContent.BuffType<TarragonImmunity>()] = true;
-                Player.buffImmune[ModContent.BuffType<SilvaRevival>()] = true;
-                Player.Calamity().tarragonImmunity = false;
-                Player.Calamity().hasSilvaEffect = false;
             }
 
             if (CalNohitConfig.Instance.DisableRippers)
             {
                 Player.Calamity().adrenaline -= 1;
                 Player.Calamity().rage -= 1;              
+            }
+
+            if (NohitConfig.Instance.InstantKill)
+            {
+                Player.buffImmune[ModContent.BuffType<TarragonImmunity>()] = true;
+                Player.buffImmune[ModContent.BuffType<SilvaRevival>()] = true;
+                Player.Calamity().SpongeShieldDurability = 0;
+                Player.Calamity().tarragonImmunity = false;
+                Player.Calamity().hasSilvaEffect = false;
+                Player.Calamity().disableAllDodges = true;
             }
 
             /*if (NohitConfig.Instance.defiled == Defiled.True)
