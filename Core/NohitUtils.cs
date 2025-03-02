@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System.Reflection;
 using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
@@ -8,7 +9,8 @@ using Terraria.Localization;
 namespace MidnightNohit.Core
 {
     public static partial class NohitUtils
-    {
+    {   
+        public static readonly BindingFlags AllBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
         public static int MainTimer;
         public static int Seconds;
         public static int Minutes;

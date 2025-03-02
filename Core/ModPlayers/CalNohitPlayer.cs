@@ -19,6 +19,7 @@ using CalamityMod.Buffs.Mounts;
 using System.Security.Cryptography.X509Certificates;
 using CalamityMod.UI.Rippers;
 using Terraria.Graphics.Effects;
+using ReLogic.Content;
 
 namespace MidnightNohit.Core.ModPlayers
 {
@@ -48,7 +49,26 @@ namespace MidnightNohit.Core.ModPlayers
             if (CalNohitConfig.Instance.DisableRippers)
             {
                 Player.Calamity().adrenaline -= 1;
-                Player.Calamity().rage -= 1;              
+                Player.Calamity().rage -= 1;
+                typeof(RipperUI).GetField("adrenBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/LockedAdrenaline", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("electrolyteGelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("starlightFuelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("ectoheartTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("rageBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/LockedRage", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("mushroomPlasmaTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("infernalBloodTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("redLightningTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+            }
+            else
+            {
+                typeof(RipperUI).GetField("adrenBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/AdrenalineBarBorder", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("electrolyteGelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/AdrenalineDisplay_ElectrolyteGelPack", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("starlightFuelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/AdrenalineDisplay_StarlightFuelCell", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("ectoheartTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/AdrenalineDisplay_Ectoheart", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("rageBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/RageBarBorder", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("mushroomPlasmaTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/RageDisplay_MushroomPlasmaRoot", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("infernalBloodTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/RageDisplay_InfernalBlood", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("redLightningTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("CalamityMod/UI/Rippers/RageDisplay_RedLightningContainer", AssetRequestMode.ImmediateLoad).Value);
             }
 
             if (NohitConfig.Instance.InstantKill)

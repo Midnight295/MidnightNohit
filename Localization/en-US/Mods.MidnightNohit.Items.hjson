@@ -59,7 +59,7 @@ PhaseSkipPreventerEnabled: {
 }
 
 AvatarSummoner: {
-	DisplayName: Beacon of Paradise
+	DisplayName: Portagenesis
 	Tooltip:
 		'''
 		Summons ???
@@ -68,8 +68,8 @@ AvatarSummoner: {
 }
 
 DraedonSummoner: {
-	DisplayName: Exo-Communication Device
-	Tooltip: 
+	DisplayName: Miracle Phone
+	Tooltip:
 		'''
 		Summons Draedon
 		'Make your choice'
