@@ -42,6 +42,14 @@ namespace MidnightNohit.Config
         [DrawTicks]
         public Debuffs debuffs;
 
+        [Header("Locks")]
+
+        [DefaultValue(true)]
+        public bool ItemLocks;
+
+        [DefaultValue(true)]
+        public bool PotionLocks;
+
         [Header("UI")]
 
         [DefaultValue(true)]

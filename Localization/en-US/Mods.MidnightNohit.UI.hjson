@@ -2,3 +2,34 @@ MNL: {
 	Under: You were under the minimum nohit length by [c/FF322a:{0}] seconds!
 	Above: "[c/68Fe53:You were above the minimum nohit length by {0} seconds!]"
 }
+
+Tiering: {
+	Evils: EoW/BoC
+	ProgressionInformation: "[i:5328] This is post [c/FF322a:{0}], you should probably not be using it."
+	# short names for existing bosses.
+	# some full names are not suitable in the progression tooltip. Like, we don't say "This is post The Destroyer", it should be just "Destroyer"
+	# The situation may vary in different languages. If new short names in other languages are added here and used in Core\Systems\TieringSystems\TieringSystem.cs, please keep the existing full names in other languages.
+	# e.g., you make a short name for the Twins in your language, you may write "TwinsShort: BlahBlah" in your language, and you should also write "TwinsShort: "{$Enemies.TheTwins}"" in other languages.
+	
+	DestroyerShort: Destroyer
+	CultistShort: "{$NPCName.CultistBoss}"
+	//Calamity
+	Evils2: Hive Mind / Perforators
+	DesAndOne: Destroyer and another Mech
+	SPAndOne: Skeletron Prime and another Mech
+	CryoAndOne: Cryogen and a Mech
+	OneMech: Any Mech
+	TwoMech: Any Two Mechs
+	AllMech: All Mechs
+	CryoAndAll: Cryogen and All Mechs
+	Endgame: Endgame
+	LeviathanShort: Leviathan
+	ProviShort: Providence
+	SignusShort: Signus
+	DogShort: DoG
+	YharonShort: Yharon
+	ExoShort: Exo Mechs
+	SCalShort: Supreme Calamitas
+	//Fargo's
+	AnyBoss: Any Boss
+}

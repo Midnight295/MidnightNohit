@@ -23,6 +23,7 @@ Mods: {
 					Nohit: Nohitting Config
 					Debuffs: Debuffs
 					UI: UI
+					Locks: Progression Locks
 				}
 
 				defiled: {
@@ -31,7 +32,7 @@ Mods: {
 				}
 
 				DisableIframes: {
-					Label: Disable Iframes
+					Label: "[i:554] Disable Iframes"
 					Tooltip: Disables all forms of Iframes.
 				}
 
@@ -41,12 +42,12 @@ Mods: {
 				}
 
 				InstantKill: {
-					Label: Instant Kill
+					Label: "[i:1274] Instant Kill"
 					Tooltip: Toggles whether or not the player instantly dies on hit
 				}
 
 				InventoryStations: {
-					Label: Inventory Stations
+					Label: "[i:3198] Inventory Stations"
 					Tooltip: Buff stations will grant you their buff when in the inventory
 				}
 
@@ -56,7 +57,7 @@ Mods: {
 				}
 
 				MNLTimer: {
-					Label: Boss Timer
+					Label: "[i:17] Boss Timer"
 					Tooltip: Toggles whether or not to display a timer that shows you how long you've been fighting a boss for
 				}
 
@@ -71,13 +72,23 @@ Mods: {
 				}
 
 				MNLChatMessage: {
-					Label: Minimum Nohit Length Chat Message
+					Label: "[i:3617] Minimum Nohit Length Chat Message"
 					Tooltip: Toggles whether or not a chat message appears whenever you are under or over MNL
 				}
 
 				debuffs: {
-					Label: Debuff Instant Kill
+					Label: "[i:1613] Debuff Instant Kill"
 					Tooltip: ""
+				}
+
+				ItemLocks: {
+					Label: "[i:5328] Item Locks"
+					Tooltip: Prevents you from using items prior to their intended tier of progression
+				}
+
+				PotionLocks: {
+					Label: "[i:499] Potion Locks"
+					Tooltip: Prevents you from using potions prior to their intended tier of progression
 				}
 			}
 

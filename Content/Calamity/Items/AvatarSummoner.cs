@@ -35,7 +35,7 @@ namespace MidnightNohit.Content.Calamity.Items
             return true;
         }
         public override bool? UseItem(Player player)
-        {
+        {   
             NPC.NewNPC(new EntitySource_WorldEvent(), (int)player.Center.X - 400, (int)player.Center.Y, ModContent.NPCType<AvatarRift>(), 1);
             return true;
         }

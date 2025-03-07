@@ -22,10 +22,10 @@ namespace MidnightNohit.Core.ModPlayers
             if (NohitConfig.Instance.debuffs == Debuffs.Specific)
             {
                 if (Player.FindBuffIndex(ModContent.BuffType<BaronsBurdenBuff>()) > -1 && !Main.LocalPlayer.wet)
-                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.Baron")), 1000.0, 0, false);
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.Baron" + Main.rand.Next(1, 3))), 1000.0, 0, false);
 
                 if (Player.FindBuffIndex(ModContent.BuffType<GodEaterBuff>()) > -1)
-                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.GodEater")), 1000.0, 0, false);
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.GodEater" + Main.rand.Next(1, 3))), 1000.0, 0, false);
             }
         }
     }

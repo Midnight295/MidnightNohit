@@ -36,13 +36,13 @@ namespace MidnightNohit.Core.ModPlayers
                 
 
                 if (Player.FindBuffIndex(ModContent.BuffType<VulnerabilityHex>()) > -1)
-                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.VHex")), 1000.0, 0, false);
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.VHex" + Main.rand.Next(1, 3))), 1000.0, 0, false);
 
                 if (ModLoader.TryGetMod("InfernumMode", out Mod InfernumMode))
                 {
                     InfernumMode.TryFind("Madness", out ModBuff Madness);
                     if (Player.FindBuffIndex(Madness.Type) > -1)
-                        Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.Madness")), 1000.0, 0, false);
+                        Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.Madness" + Main.rand.Next(1, 3))), 1000.0, 0, false);
                 }
             }
 
@@ -79,6 +79,7 @@ namespace MidnightNohit.Core.ModPlayers
                 Player.Calamity().tarragonImmunity = false;
                 Player.Calamity().hasSilvaEffect = false;
                 Player.Calamity().disableAllDodges = true;
+               
             }
 
             /*if (NohitConfig.Instance.defiled == Defiled.True)
