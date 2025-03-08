@@ -56,7 +56,6 @@ namespace MidnightNohit.Core.Systems.MNLSystems
             foreach (var monitor in ActiveMNLMonitors)
             {
                 // If they are not active, then they have despawned.
-                Main.NewText("guh");
                 if (!Main.npc[monitor.NPCToMonitorIndex].active)
                     monitor.StopMonitoring(false);
             }
@@ -86,7 +85,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems
                 DeathSet.Load();
             }
 
-            if (ModCompatability.Infernum.InfernumDifficulty)
+            if (ModCompatability.Infernum.Loaded)
             {
                 InfSet.Load();
             }

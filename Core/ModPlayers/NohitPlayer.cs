@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Localization;
+using MidnightNohit.Core.Systems.MNLSystems;
 
 
 namespace MidnightNohit.Core.ModPlayers
@@ -98,6 +99,12 @@ namespace MidnightNohit.Core.ModPlayers
                 }
                 Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse, proj.Name, Player.name)), 1000, 0, false);
             };
+        }
+
+        public override void OnRespawn()
+        {
+            if (Player.whoAmI == Main.myPlayer)
+                MNLsHandler.PlayerRespawnChecks();
         }
 
         /*public override void ModifyHurt(ref Player.HurtModifiers modifiers)
