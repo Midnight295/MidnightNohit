@@ -393,12 +393,5 @@ namespace MidnightNohit.Core.ModPlayers
             }*/
             return true;
         }
-
-        [JITWhenModsEnabled(ModCompatability.Calamity.Name)]
-        public void BuhWuhBuh(NPC npc)
-        {
-            if (npc.Calamity().vulnerabilityHex > 0) ;
-        }
-
     }
 }

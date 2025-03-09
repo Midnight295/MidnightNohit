@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using MidnightNohit.Content.UI;
+using System;
 using System.Reflection;
 using Terraria;
 using Terraria.Chat;
@@ -15,6 +17,17 @@ namespace MidnightNohit.Core
         public static int Seconds;
         public static int Minutes;
         public static string DeadSpace;
+        // Ported from Imogen QoL, with permission from it's creator.
+        public static Vector2 ScreenCenter => new(Main.screenWidth * 0.5f, Main.screenHeight * 0.5f);
+
+        public static Rectangle MouseRectangle => new(Main.mouseX, Main.mouseY, 2, 2);
+
+        public static bool CanAndHasClickedUIElement => (Main.mouseLeft && Main.mouseLeftRelease || Main.mouseRight && Main.mouseRightRelease) && TogglesUIManager.ClickCooldownTimer == 0;
+
+        public static float EaseInOutSine(float value) => -(MathF.Cos(MathF.PI * value) - 1) / 2;
+
+        public static float EaseInCirc(float value) => 1 - MathF.Sqrt(1 - MathF.Pow(value, 2));
+        //
         public static void SwitchItem(this Player player, Item itemToReplace, int itemIDtoReplaceWith)
         {
             bool foundSlot = false;

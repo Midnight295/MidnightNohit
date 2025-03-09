@@ -44,22 +44,4 @@ namespace MidnightNohit.Content.UI
             Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.MouseText.Value, text, screenpos.X, screenpos.Y, Color.White, Color.Black, default, 1.01f);           
         }
     }
-
-    public class MnlTimerSystem : ModSystem
-    {
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            int mouseIndex = layers.FindIndex(layer => layer.Name == "Vanilla: Mouse Text");
-            if (mouseIndex != -1)
-            {
-                layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Mnl Timer", delegate () 
-                {
-                    MnlTimer.Draw(Main.LocalPlayer);
-                    return true;
-                }, InterfaceScaleType.None));
-            }
-        }
-
-    }
-
 }

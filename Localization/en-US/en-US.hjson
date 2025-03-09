@@ -106,5 +106,10 @@ Mods: {
 				All.Label: All
 			}
 		}
+
+		Keybinds: {
+			"Open Toggles UI.DisplayName": Open Toggles UI
+			"Open Potions UI.DisplayName": Open Potions UI
+		}
 	}
 }

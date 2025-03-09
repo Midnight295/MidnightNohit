@@ -33,3 +33,255 @@ Tiering: {
 	//Fargo's
 	AnyBoss: Any Boss
 }
+
+UIButtons: {
+	OpenUI: "[c/ffcc44:Click to open UI!]"
+	SetSpawn: Set Spawn
+	WorldUI: World Toggles
+	MiscUI: Misc Toggles
+	PowersUI: Powers Toggles
+	LocksUI: Progression Locks
+	BossUI: Boss Toggles
+	PotionsUI: Toggle Potions
+	Enabled: "[c/44de5a:Enabled]"
+	Disabled: "[{0}Disabled]"
+
+	PlayerCheat: {
+		Godmode: "[c/cdd00c:Godmode Enabled]"
+		InfiniteFlight: "[c/78fa91:Infinite Flight Enabled]"
+		InfiniteMana: "[c/393dc0:Infinite Mana Enabled]"
+		InstantDeath: "[c/f92a07:Instant Death Enabled]"
+		None: No Player Cheat
+	}
+}
+
+Toggles: {
+	Gravestones: {
+		Name: Toggle Gravestones
+		Description: Enable Gravestones dropping.
+	}
+
+	LightHack: {
+		Name: Toggle Light Hack
+		Description: Set Light Hack to
+		Disable: Turn Light Hack off
+		Disable2: Turned Off
+		SetTo: Set To {0}%
+	}
+
+	Shrooms: {
+		Normal: {
+			Name: Toggle Shrooms Damage
+			Description: Toggles the bonus damage given by the Odd Mushroom family
+		}
+
+		Full: {
+			Name: Toggle Full Shrooms
+			Description: Toggles a custom odd mushroom effect that perfectly copies][c/ffcc44: almost everything
+			RGBName: Toggle Full Shrooms RGB
+			RGBDescription: Toggles making proper shrooms have the RGB shader effect
+		}
+	}
+
+	MNL: {
+		Name: Toggle MNL Indicator
+		Description: Shows a chat message informing you how close you][c/ffcc44: were to a bosses MNL according to nohit rules
+	}
+
+	Sass: {
+		Name: Toggle Sass Mode
+		Description: Shows a chat message when you die that][c/ffcc44: insults you
+	}
+
+	DPS: {
+		Name: Toggle DPS Stats
+		Description: Shows a chat message that tells you the average dps you had][c/ffcc44: on a boss
+	}
+
+	WorldUI: {
+		RevealMap: {
+			Name: Reveal The Full Map
+			Description: Fills out all of your map, cannot be reversed
+		}
+
+		EnemySpawns: {
+			Name: Toggle Enemy Spawns
+			Description: Toggles blocking enemies from spawning
+		}
+
+		Time: {
+			TimeFlow: {
+				Name: Toggle Time Flow
+				Description: Toggles the flow of time
+			}
+
+			Name: Toggle Day Time
+			Description: Swaps between night and day
+			TimeDay: Time set to Day
+			TimeNight: Time set to Night
+		}
+
+		ToggleRain: {
+			Name: Toggle Rain
+			Description: Toggles a rainstorm
+		}
+
+		DisableEvents: {
+			Name: Disable Events
+			Description: Cancels/disables any active events
+		}
+
+		WorldDifficulty: {
+			Name: Toggle World Difficulty
+
+			Difficulty: {
+				SetTo: Set the world difficulty to {0}
+
+				Journey: {
+					Name: Journey
+					Enable: Journey enabled
+				}
+
+				Normal: {
+					Name: Normal
+					Enable: Normal enabled
+				}
+
+				Expert: {
+					Name: Expert
+					Enable: Expert enabled
+				}
+
+				Master: {
+					Name: Master
+					Enable: Master enabled
+				}
+			}
+		}
+
+		BiomeFountains: {
+			Name: Toggle Biome Fountains
+			Description: Water fountains now force their biome post Queen Bee
+		}
+
+		PlayerDifficulty: {
+			Name: Toggle Player Difficulty
+
+			Difficulty: {
+				SetTo: Set the player difficulty to {0}
+
+				Classic: {
+					Name: Classic
+					Enable: Classic enabled
+				}
+
+				Mediumcore: {
+					Name: Mediumcore
+					Enable: Mediumcore enabled
+				}
+
+				Hardcore: {
+					Name: Hardcore
+					Enable: Hardcore enabled
+				}
+			}
+		}
+
+		MapTeleporting: {
+			Name: Toggle Map Teleporting
+			Description: Toggles right clicking the fullscreen map to teleport
+		}
+	}
+
+	PowersUI: {
+		Godmode: {
+			Name: Toggle Godmode
+			Description: Prevents you from taking damage
+		}
+
+		InstantDeath: {
+			Name: Toggle Instant Death
+			Description: Makes you die upon taking damage
+		}
+
+		InfiniteFlight: {
+			Name: Toggle Infinite Flight
+			Description: You never run out of flight time
+		}
+
+		InfinitePotions: {
+			Name: Toggle Infinite Potions
+			Description: Potion durations are infinite
+		}
+
+		InfiniteAmmo: {
+			Name: Toggle Infinite Ammo
+			Description: Ammo is not consumed
+		}
+
+		InfiniteConsumables: {
+			Name: Toggle Infinite Consumables
+			Description: Consumables are not consumed
+		}
+	}
+
+	LocksUI: {
+		Potion: {
+			Tooltips: {
+				Name: Toggle Potion Tooltips
+				Description: Adds a tooltip to potions past your progression point
+			}
+
+			Locks: {
+				Name: Toggle Potion Locks
+				Description: Prevents drinking potions past your progression point
+			}
+		}
+
+		Item: {
+			Tooltips: {
+				Name: Toggle Item Tooltips
+				Description: Adds a tooltip to some items past your progression point
+			}
+
+			Locks: {
+				Name: Toggle Item Locks
+				Description: Prevents using some items past your progression point
+			}
+		}
+	}
+
+	BossUI: {
+		DisableAll: "[c/ffcc44:Mark every boss as dead]"
+		Explanation: "[c/659cff:Hold L-SHIFT to toggle every boss up to the selected boss']"
+		Explanation2: "[c/659cff:progression to the selected boss' state when clicking]"
+		EnableAll: "[c/ffcc44:Mark every boss as alive]"
+		Toggle: "[c/ffcc44:Toggle {0}'s Death]"
+		Dead: "[c/f92a07:Dead]"
+		Alive: "[c/19a028:Alive]"
+	}
+}
+
+SummonUI: {
+	Max: Max Minion Slots:
+	Free: Free Minion Slots:
+	Used: Used Minion Slots:
+}
+
+Potions: {
+	Equipped: Currently Equipped
+	Progression: Past your progression
+	Active: Active Potions:
+	Remove: Remove
+
+	Sort: {
+		Name: Sort Mode:
+		SortName: "[c/22a851:Sort by Name]"
+		SortProgression: "[c/c05d32:Sort by Progression]"
+	}
+
+	Close: {
+		Potions: "[c/de4444:Clear Potions]"
+		Menu: "[c/de4444:Close Menu]"
+	}
+}

@@ -700,7 +700,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<LeonidProgenitor>(),
             ]);
 
-            BossLockInformation.AddLockInformation(() => DownedBossSystem.downedLeviathan, $"Mods.ToastyQoLCalamity.Tiering.LeviathanShort",
+            BossLockInformation.AddLockInformation(() => DownedBossSystem.downedLeviathan, $"Mods.MidnightNohitCalamity.Tiering.LeviathanShort",
             [
                 //Accessories
                 ModContent.ItemType<LeviathanAmbergris>(),

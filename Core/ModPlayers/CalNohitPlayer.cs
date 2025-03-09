@@ -50,14 +50,14 @@ namespace MidnightNohit.Core.ModPlayers
             {
                 Player.Calamity().adrenaline -= 1;
                 Player.Calamity().rage -= 1;
-                typeof(RipperUI).GetField("adrenBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/LockedAdrenaline", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("electrolyteGelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("starlightFuelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("ectoheartTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("rageBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/LockedRage", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("mushroomPlasmaTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("infernalBloodTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
-                typeof(RipperUI).GetField("redLightningTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("adrenBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/LockedAdrenaline", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("electrolyteGelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("starlightFuelTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("ectoheartTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("rageBorderTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/LockedRage", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("mushroomPlasmaTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("infernalBloodTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
+                typeof(RipperUI).GetField("redLightningTex", NohitUtils.AllBindingFlags).SetValue(null, ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/InvisiblePixel", AssetRequestMode.ImmediateLoad).Value);
             }
             else
             {
