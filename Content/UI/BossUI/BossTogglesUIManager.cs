@@ -88,7 +88,14 @@ namespace MidnightNohit.Content.UI.BossUI
                 typeof(NPC).GetField("downedAncientCultist", NohitUtils.AllBindingFlags), Weights.PostLunaticCultist).Register();
 
             new BossToggleElement(false, "Images/NPC_Head_Boss_8", Language.GetTextValue($"Enemies.MoonLord"),
-                typeof(NPC).GetField("downedMoonlord", NohitUtils.AllBindingFlags), Weights.PostMoonlord).Register();         
+                typeof(NPC).GetField("downedMoonlord", NohitUtils.AllBindingFlags), Weights.PostMoonlord).Register();
+
+            if (ModCompatability.Calamity.Loaded)
+                CalamityBossSupport.InitializeCalamityBossSupport();
+
+            if (ModCompatability.FargoSouls.Loaded)
+                FargoSoulsBossSupport.InitializeFargoBossSupport();
+
         }
 
         public static void AddBossElement(BossToggleElement element)
@@ -108,7 +115,7 @@ namespace MidnightNohit.Content.UI.BossUI
             drawCenter.Y = Main.screenHeight / 2;
             // This spawn pos is very important. As it is affected by Main.screenWidth/Height, it will scale properly. Every single thing you draw needs to use
             // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
-            Vector2 spawnPos = drawCenter + new Vector2(300, 0);
+            Vector2 spawnPos = drawCenter + new Vector2(-260, 0);
 
             spriteBatch.Draw(backgroundTexture, spawnPos, null, Color.White, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
             spriteBatch.Draw(glowTexture, spawnPos, null, Color.Cyan, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
@@ -226,9 +233,9 @@ namespace MidnightNohit.Content.UI.BossUI
             #endregion
 
             #region Scrollbar
-            Texture2D scrollbarBackgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/scrollbarBackground", (AssetRequestMode)2).Value;
-            Texture2D scrollbarTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/fullScrollbar", (AssetRequestMode)2).Value;
-            Vector2 scrollbarBackgroundOffset = new(83, 8);
+            Texture2D scrollbarBackgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossUIScrollBar", (AssetRequestMode)2).Value;
+            Texture2D scrollbarTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossUIScrollBarButton", (AssetRequestMode)2).Value;
+            Vector2 scrollbarBackgroundOffset = new(83, 0);
             spriteBatch.Draw(scrollbarBackgroundTexture, spawnPos + scrollbarBackgroundOffset, null, Color.White, 0, scrollbarBackgroundTexture.Size() * 0.5f, 1, 0, 0);
 
             // I didnt want to pass this Rectangle through as a parameter so i re-get the background rectangle here. This is to allow for scrolling with the mouse wheel.
@@ -262,7 +269,7 @@ namespace MidnightNohit.Content.UI.BossUI
 
             Vector2 scrollOffset = ScrollbarOffset;
             //if (-maxScrollDistance > 235f)
-                scrollOffset.Y = Utils.Remap(scrollOffset.Y, 8f, -maxScrollDistance, 8f, 235f);
+                scrollOffset.Y = Utils.Remap(scrollOffset.Y, 8f, -maxScrollDistance, 0f, 315f);
 
             spriteBatch.Draw(scrollbarTexture, spawnPos + scrollOffset, null, Color.White, 0, scrollbarTexture.Size() * 0.5f, 1f, 0, 0);
             #endregion
