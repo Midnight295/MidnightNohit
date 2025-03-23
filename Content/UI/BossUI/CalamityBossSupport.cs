@@ -20,7 +20,7 @@ namespace MidnightNohit.Content.UI.BossUI
             new BossToggleElement(true, "CalamityMod/NPCs/DesertScourge/DesertScourgeHead_Head_Boss", Language.GetTextValue($"Mods.CalamityMod.NPCs.DesertScourgeHead.DisplayName"),
                 typeof(DownedBossSystem).GetField("_downedDesertScourge", NohitUtils.AllBindingFlags), 1.5f, 0.8f).Register();
 
-            new BossToggleElement(true, "CalamityMod/NPCs/Crabulon/Crabulon_Head_Boss", Language.GetTextValue($"Mods.CalamityMod.NPCs.Crabulon.DisplayName").ToString(),
+            new BossToggleElement(true, "CalamityMod/NPCs/Crabulon/Crabulon_Head_Boss", Language.GetTextValue($"Mods.CalamityMod.NPCs.Crabulon.DisplayName"),
                 typeof(DownedBossSystem).GetField("_downedCrabulon", NohitUtils.AllBindingFlags), 2.5f).Register();
 
             new BossToggleElement(true, "CalamityMod/NPCs/HiveMind/HiveMind_Head_Boss", Language.GetTextValue($"Mods.CalamityMod.NPCs.HiveMind.DisplayName"),

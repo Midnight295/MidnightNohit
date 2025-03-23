@@ -14,6 +14,7 @@ using Terraria.ModLoader;
 using MidnightNohit.Core.Systems.TieringSystems;
 using MidnightNohit.Core;
 using Terraria.GameContent;
+using FargowiltasSouls.Core.Systems;
 
 namespace MidnightNohit.Content.UI.BossUI
 {
@@ -90,11 +91,11 @@ namespace MidnightNohit.Content.UI.BossUI
             new BossToggleElement(false, "Images/NPC_Head_Boss_8", Language.GetTextValue($"Enemies.MoonLord"),
                 typeof(NPC).GetField("downedMoonlord", NohitUtils.AllBindingFlags), Weights.PostMoonlord).Register();
 
-            if (ModCompatability.Calamity.Loaded)
-                CalamityBossSupport.InitializeCalamityBossSupport();
+            //if (ModCompatability.Calamity.Loaded)
+            //    CalamityBossSupport.InitializeCalamityBossSupport();
 
-            if (ModCompatability.FargoSouls.Loaded)
-                FargoSoulsBossSupport.InitializeFargoBossSupport();
+            //if (ModCompatability.FargoSouls.Loaded)
+            //   FargoSoulsBossSupport.InitializeFargoBossSupport();
 
         }
 
@@ -115,10 +116,10 @@ namespace MidnightNohit.Content.UI.BossUI
             drawCenter.Y = Main.screenHeight / 2;
             // This spawn pos is very important. As it is affected by Main.screenWidth/Height, it will scale properly. Every single thing you draw needs to use
             // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
-            Vector2 spawnPos = drawCenter + new Vector2(-260, 0);
+            Vector2 spawnPos = drawCenter + new Vector2(300, 0);
 
             spriteBatch.Draw(backgroundTexture, spawnPos, null, Color.White, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(glowTexture, spawnPos, null, Color.Cyan, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
+            spriteBatch.Draw(glowTexture, spawnPos, null, Color.White, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
 
 
             // Block the mouse if we are hovering over it.
@@ -165,7 +166,7 @@ namespace MidnightNohit.Content.UI.BossUI
 
             spriteBatch.Draw(deleteIconTexture, deleteIconCenter, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
             spriteBatch.Draw(deleteIconTextureBottom, deleteIconCenter2, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(deleteIconTextureGlow, deleteIconCenter3, null, Color.Cyan, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
+            spriteBatch.Draw(deleteIconTextureGlow, deleteIconCenter3, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
 
             // Mark all as alive button stuff.
             Vector2 tickPos = new(-95f, -155f);

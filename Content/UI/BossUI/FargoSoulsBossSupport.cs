@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Core.Systems;
+using System.Reflection;
+using MidnightNohit.Core.Systems;
 
 namespace MidnightNohit.Content.UI.BossUI
 {
@@ -16,6 +18,11 @@ namespace MidnightNohit.Content.UI.BossUI
     {   
         public static void InitializeFargoBossSupport()
         {
+            //var downed = typeof(WorldSavingSystem).GetField("downedBoss", NohitUtils.AllBindingFlags);
+
+            //new BossToggleElement(true, "FargowiltasSouls/Content/Bosses/TrojanSquirrel/TrojanSquirrel_Head_Boss", Language.GetTextValue($"Mods.FargowiltasSouls.NPCs.TrojanSquirrel.DisplayName"),
+            //    WorldSavingSystem.DownedBoss[9], 0.8f, 1).Register();
+
             new BossToggleElement(true, "FargowiltasSouls/Content/Bosses/DeviBoss/DeviBoss_Head_Boss", Language.GetTextValue($"Mods.FargowiltasSouls.NPCs.DeviBoss.DisplayName"),
                 typeof(WorldSavingSystem).GetField("downedDevi", NohitUtils.AllBindingFlags), 7.2f, 1).Register();
 
@@ -24,6 +31,6 @@ namespace MidnightNohit.Content.UI.BossUI
 
             new BossToggleElement(true, "FargowiltasSouls/Content/Bosses/MutantBoss/MutantBoss_Head_Boss", Language.GetTextValue($"Mods.FargowiltasSouls.NPCs.MutantBoss.DisplayName"),
                 typeof(WorldSavingSystem).GetField("downedMutant", NohitUtils.AllBindingFlags), 32f, 1.3f).Register();
-        }
+       }
     }
 }
