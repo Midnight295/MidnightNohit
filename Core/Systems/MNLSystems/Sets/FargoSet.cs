@@ -28,7 +28,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems.Sets
             [ModContent.NPCType<TrojanSquirrel>()] = 3600,
             [NPCID.KingSlime] = 3600,
             [NPCID.EyeofCthulhu] = 3600,
-            [ModContent.NPCType<CursedCoffin>()] = 5400,
+            [ModContent.NPCType<CursedCoffin>()] = 4500,
             [NPCID.EaterofWorldsHead] = 3600,
             [NPCID.BrainofCthulhu] = 3600,
             [NPCID.QueenBee] = 3600,

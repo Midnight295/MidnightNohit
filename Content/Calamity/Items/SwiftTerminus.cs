@@ -22,6 +22,7 @@ namespace MidnightNohit.Content.Calamity.Items
     {
         public int boss = 0;
         public int tier = 1;
+        public int maxtier = 0;
         public string bossname;
         public override void SetStaticDefaults()
         {
@@ -47,10 +48,16 @@ namespace MidnightNohit.Content.Calamity.Items
             {
                 int Direction = Math.Sign(Main.MouseWorld.X - player.position.X);
                 boss += Direction;
-                if (boss > 43)
+                if (boss > maxtier)
                     boss = 0;              
                 else if (boss < 0)
-                    boss = 43;
+                    boss = maxtier;
+
+                Main.NewText(boss.ToString());
+
+                if (ModCompatability.Infernum.Loaded)
+                    maxtier = 44;
+                else maxtier = 43;
 
                 if (boss >= 0)
                     tier = 1;

@@ -408,7 +408,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 //Endgame Stuff
                 ModContent.ItemType<SparklingLove>(),
                 ModContent.ItemType<StyxGazer>(),
-                ModContent.ItemType<HentaiSpear>(),
+                ModContent.ItemType<Penetrator>(),
 
                 ModContent.ItemType<FargoArrow>(),
                 ModContent.ItemType<FargoBullet>(),
