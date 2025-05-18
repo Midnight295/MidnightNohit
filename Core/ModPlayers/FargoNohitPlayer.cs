@@ -26,6 +26,9 @@ namespace MidnightNohit.Core.ModPlayers
 
                 if (Player.FindBuffIndex(ModContent.BuffType<GodEaterBuff>()) > -1)
                     Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.GodEater" + Main.rand.Next(1, 3))), 1000.0, 0, false);
+
+                if (Player.FindBuffIndex(ModContent.BuffType<AbomFangBuff>()) > -1)
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.AbomFang")), 1000.0, 0, false);
             }
         }
     }
