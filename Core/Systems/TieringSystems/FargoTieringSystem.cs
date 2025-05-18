@@ -36,7 +36,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
         {
             //TODO: Put Trojan Squirrel here when the Downed Bool becomes unprotected.
 
-
+            //BossLockInformation.AddLockInformation(() => (bool)WorldSavingSystem.DownedBoss[0],)
 
             BossLockInformation.AddLockInformation(() => NPC.downedSlimeKing, $"NPCName.KingSlime",
             [   
@@ -256,7 +256,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SpookyEnchant>(),
                 ModContent.ItemType<PumpkingsCape>(),
                 ModContent.ItemType<IceQueensCrown>(),
-                ModContent.ItemType<LumpOfFlesh>(),
+                //ModContent.ItemType<LumpOfFlesh>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedGolemBoss, $"NPCName.Golem", 

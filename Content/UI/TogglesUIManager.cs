@@ -13,6 +13,8 @@ using MidnightNohit.Content.UI.SingleElements;
 using MidnightNohit.Core.ModPlayers;
 using MidnightNohit.Core;
 using MidnightNohit.Content.UI.Pages;
+using MidnightNohit.Config;
+using Terraria.Graphics.Renderers;
 
 namespace MidnightNohit.Content.UI
 {
@@ -81,6 +83,8 @@ namespace MidnightNohit.Content.UI
 
         private static int OpeningTimer;
 
+        private static int HoverTimer;
+
         private static int AnimationTimer;
 
         private static int CurrentFrame = 1;
@@ -106,6 +110,10 @@ namespace MidnightNohit.Content.UI
         public static readonly Texture2D OutlineTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIIconOutline", AssetRequestMode.ImmediateLoad).Value;
 
         public static readonly Texture2D BloomTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Bloom", AssetRequestMode.ImmediateLoad).Value;
+
+        public static readonly Texture2D Button = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/button", AssetRequestMode.ImmediateLoad).Value;
+        public static readonly Texture2D ButtonGlow = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/buttonglow", AssetRequestMode.ImmediateLoad).Value;
+        public static readonly Texture2D ButtonGlowAlt = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/buttonglowalt", AssetRequestMode.ImmediateLoad).Value;
         #endregion
 
         #region Methods
@@ -190,8 +198,10 @@ namespace MidnightNohit.Content.UI
         private static void DrawElements(SpriteBatch spriteBatch)
         {
             int elementCount = ToggleWheelElements.Count;
-            float distance = 100f;
+            float distance = 130f;
             float opacity = 1f;
+
+            ///Main.showframerate
 
             for (int i = 0; i < elementCount; i++)
             {
@@ -202,9 +212,11 @@ namespace MidnightNohit.Content.UI
 
                 if (UIOpenClosing)
                 {
-                    float progress = NohitUtils.EaseInOutSine(Utils.GetLerpValue(0f, OpenLength, OpeningTimer, true));
-                    distance *= progress;
+                    //float progress = NohitUtils.EaseInOutSine(Utils.GetLerpValue(10, (20 + (i * elementCount)), OpeningTimer, true));
+                    float progress = NohitUtils.EaseInOutSine(Utils.GetLerpValue(0, OpenLength, OpeningTimer, true));
+                    //distance *= progress;
                     opacity *= progress;
+                    scale *= progress;
                 }
 
                 Vector2 drawPosition = ScreenCenter + angle.ToRotationVector2() * distance;
@@ -213,14 +225,14 @@ namespace MidnightNohit.Content.UI
                 spriteBatch.Draw(BloomTexture, drawPosition, null, new Color(59, 50, 77, 0) * 0.9f * opacity, 0f, BloomTexture.Size() * 0.5f, scale * 0.4f, SpriteEffects.None, 0f);
 
                 // Check for hovering.
-                Rectangle interactionArea = Utils.CenteredRectangle(drawPosition, currentElement.IconTexture.Size());
+                Rectangle interactionArea = Utils.CenteredRectangle(drawPosition, Button.Size());
                 bool isHovering = NohitUtils.MouseRectangle.Intersects(interactionArea) && State == MenuState.Open;
 
                 // Draw the outer outline.
                 if (isHovering)
-                {
+                {                      
                     Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
-                    scale = 1.1f;
+                    scale *= 1.1f;
                     string LocalizedDescription = Language.GetTextValue(currentElement.Description);
                     spriteBatch.Draw(OutlineTexture, drawPosition, null, Color.White * opacity, 0f, OutlineTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
 
@@ -230,11 +242,11 @@ namespace MidnightNohit.Content.UI
 
                     // Handle clicking on the icon.
                     if (NohitUtils.CanAndHasClickedUIElement)
-                    {                      
+                    {
                         ClickCooldownTimer = NohitPlayer.UICooldownTimerLength;
                         SoundEngine.PlaySound(SoundID.MenuTick, Main.LocalPlayer.Center);
 
-                        
+
                         if (ActiveElement == currentElement)
                             ActiveElement = null;
                         else
@@ -242,11 +254,15 @@ namespace MidnightNohit.Content.UI
                         currentElement.OnClick?.Invoke();
                     }
                 }
-
+                else
+                    HoverTimer--;
                 // Draw the actual texture.
+                spriteBatch.Draw(Button, drawPosition, null, Color.White * opacity, 0f, Button.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(ButtonGlow, drawPosition, null, NohitConfig.Instance.UIColor * opacity, 0f, ButtonGlow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 spriteBatch.Draw(currentElement.IconTexture, drawPosition, null, Color.White * opacity, 0f, currentElement.IconTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+  
 
-                // Handle the animation.
+                /* Handle the animation.
                 if (isHovering)
                 {
                     AnimationTimer++;
@@ -259,7 +275,7 @@ namespace MidnightNohit.Content.UI
 
                     Rectangle animationFrame = new(0, (CurrentFrame - 1) * 48, 48, 48);
                     spriteBatch.Draw(AnimationTexture, drawPosition, animationFrame, Color.White * opacity, 0f, animationFrame.Size() * 0.5f, scale, SpriteEffects.None, 0f);
-                }
+                }*/
             }
         }
 

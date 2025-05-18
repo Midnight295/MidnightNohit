@@ -35,7 +35,7 @@ Tiering: {
 }
 
 UIButtons: {
-	OpenUI: "[c/ffcc44:Click to open UI!]"
+	OpenUI: Open Nohit UI
 	SetSpawn: Set Spawn
 	WorldUI: World Toggles
 	MiscUI: Misc Toggles

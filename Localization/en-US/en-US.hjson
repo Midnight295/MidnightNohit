@@ -90,6 +90,11 @@ Mods: {
 					Label: "[i:499] Potion Locks"
 					Tooltip: Prevents you from using potions prior to their intended tier of progression
 				}
+
+				UIColor: {
+					Label: U I Color
+					Tooltip: ""
+				}
 			}
 
 			Defiled: {

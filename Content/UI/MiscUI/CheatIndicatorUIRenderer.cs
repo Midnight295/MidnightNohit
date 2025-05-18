@@ -6,14 +6,16 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using MidnightNohit.Core;
+using Terraria.DataStructures;
 
 namespace MidnightNohit.Content.UI.MiscUI
 {
     public class CheatIndicatorUIRenderer
     {
+
         public static void Draw(SpriteBatch spriteBatch)
         {
-
+            float scale = 1;
             Texture2D Icon;
             if (Toggles.GodmodeEnabled)
                 Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatGodUIIcon").Value;
@@ -24,16 +26,16 @@ namespace MidnightNohit.Content.UI.MiscUI
             else if (Toggles.InstantDeath)
                 Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatDeathUIIcon").Value;
             else
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/baseUIIcon").Value;
+                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/CheatRenderer").Value;
             // The Textures of the icon, and when you hover over it.
-            Texture2D HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIIconOutline").Value;
+            Texture2D HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/CheatRendererGlow").Value;
 
             // These set the center of the icon, and the "hitbox" around it. Play around with the Vector floats to change position.
             // This does not scale properly
             // Vector2 IconCenter = new Vector2((float)Main.screen
             // Width - /*Main.UIScale*/ 285f, /*Main.UIScale*/ (float)Main.screenHeight - 5f) + Utils.Size(Icon) * 0.5f;
             // This stays in the same place, do it like this :)
-            Vector2 IconCenter = new Vector2(Main.screenWidth - 350f, 80f) + Icon.Size() * 0.5f;
+            Vector2 IconCenter = new Vector2(Main.screenWidth - (Main.GameModeInfo.IsJourneyMode ? 1530 : 1577), 265f) + Icon.Size() * 0.5f;
             // Rectangle area of the icon to check for hovering.
             Rectangle iconRectangeArea = Utils.CenteredRectangle(IconCenter, Icon.Size());
 
@@ -44,7 +46,8 @@ namespace MidnightNohit.Content.UI.MiscUI
             // If we are hovering over it, change the Icon Texture to the Hover Icon Texture.
             if (isHovering)
             {
-                spriteBatch.Draw(HoverIcon, IconCenter, null, Color.White, 0f, Icon.Size() * 0.5f, 1, 0, 0f);
+                scale = 1.15f;
+                spriteBatch.Draw(HoverIcon, IconCenter, null, Color.White, 0f, Icon.Size() * 0.5f, 1f * scale, 0, 0f);
 
                 string IconHighlight;
                 if (Toggles.GodmodeEnabled)
@@ -58,7 +61,7 @@ namespace MidnightNohit.Content.UI.MiscUI
                 else
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.None");
 
-                Main.hoverItemName = IconHighlight + "\n" + Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.OpenUI");
+                Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.OpenUI") + "\n" + IconHighlight;
 
                 Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
                 if (NohitUtils.CanAndHasClickedUIElement)
@@ -73,7 +76,7 @@ namespace MidnightNohit.Content.UI.MiscUI
             }
 
             // Now, draw the icon in the correct place.
-            spriteBatch.Draw(Icon, IconCenter, null, Color.White, 0f, Icon.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Icon, IconCenter, null, Color.White, 0f, Icon.Size() * 0.5f, 1f * scale, SpriteEffects.None, 0f);
         }
 
     }

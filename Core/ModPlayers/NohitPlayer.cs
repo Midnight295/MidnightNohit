@@ -18,6 +18,9 @@ namespace MidnightNohit.Core.ModPlayers
     {
         public override void PreUpdate()
         {
+            if (!Main.showFrameRate)
+                Main.showFrameRate = true;
+
 
             Player player = Main.LocalPlayer;
             if (NohitConfig.Instance.DisableIframes)

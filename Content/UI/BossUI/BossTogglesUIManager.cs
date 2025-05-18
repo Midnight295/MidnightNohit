@@ -15,6 +15,7 @@ using MidnightNohit.Core.Systems.TieringSystems;
 using MidnightNohit.Core;
 using Terraria.GameContent;
 using FargowiltasSouls.Core.Systems;
+using MidnightNohit.Config;
 
 namespace MidnightNohit.Content.UI.BossUI
 {
@@ -119,7 +120,7 @@ namespace MidnightNohit.Content.UI.BossUI
             Vector2 spawnPos = drawCenter + new Vector2(300, 0);
 
             spriteBatch.Draw(backgroundTexture, spawnPos, null, Color.White, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(glowTexture, spawnPos, null, Color.White, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
+            spriteBatch.Draw(glowTexture, spawnPos, null, NohitConfig.Instance.UIColor, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
 
 
             // Block the mouse if we are hovering over it.
@@ -166,7 +167,7 @@ namespace MidnightNohit.Content.UI.BossUI
 
             spriteBatch.Draw(deleteIconTexture, deleteIconCenter, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
             spriteBatch.Draw(deleteIconTextureBottom, deleteIconCenter2, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(deleteIconTextureGlow, deleteIconCenter3, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
+            spriteBatch.Draw(deleteIconTextureGlow, deleteIconCenter3, null, NohitConfig.Instance.UIColor, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
 
             // Mark all as alive button stuff.
             Vector2 tickPos = new(-95f, -155f);

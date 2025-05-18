@@ -18,10 +18,12 @@ namespace MidnightNohit.Content.UI.BossUI
     {   
         public static void InitializeFargoBossSupport()
         {
-            //var downed = typeof(WorldSavingSystem).GetField("downedBoss", NohitUtils.AllBindingFlags);
+            var downed = typeof(WorldSavingSystem).GetFields(NohitUtils.AllBindingFlags);
+            
+
 
             //new BossToggleElement(true, "FargowiltasSouls/Content/Bosses/TrojanSquirrel/TrojanSquirrel_Head_Boss", Language.GetTextValue($"Mods.FargowiltasSouls.NPCs.TrojanSquirrel.DisplayName"),
-            //    WorldSavingSystem.DownedBoss[9], 0.8f, 1).Register();
+            //    (FieldInfo)WorldSavingSystem.Downed[9], 0.8f, 1).Register();
 
             new BossToggleElement(true, "FargowiltasSouls/Content/Bosses/DeviBoss/DeviBoss_Head_Boss", Language.GetTextValue($"Mods.FargowiltasSouls.NPCs.DeviBoss.DisplayName"),
                 typeof(WorldSavingSystem).GetField("downedDevi", NohitUtils.AllBindingFlags), 7.2f, 1).Register();

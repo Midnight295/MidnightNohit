@@ -45,7 +45,7 @@ namespace MidnightNohit.Content.UI.BossUI
             private set;
         }
 
-        public BossToggleElement(bool moddedicon , string texturePath, string nameSingular, FieldInfo downedBoolean, float weight, float scale = 1f)
+        public BossToggleElement(bool moddedicon, string texturePath, string nameSingular, FieldInfo downedBoolean, float weight, float scale = 1f)
         {   
             if (moddedicon)
                 Texture = ModContent.Request<Texture2D>(texturePath, AssetRequestMode.ImmediateLoad).Value;
