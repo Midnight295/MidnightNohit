@@ -53,7 +53,7 @@ namespace MidnightNohit.Content.Calamity.Items
                 else if (boss < 0)
                     boss = maxtier;
 
-                Main.NewText(boss.ToString());
+                //Main.NewText(boss.ToString());
 
                 if (ModCompatability.Infernum.Loaded)
                     maxtier = 44;
