@@ -11,6 +11,7 @@ GodEater1: " felt divine wrath."
 GodEater2: " was annihilated."
 AvatarAntiMatter1: " is no longer."
 AvatarAntiMatter2: " isn't."
+AbomFang: " 's health was compelled to 0 by Abominationn"
 
 InstantKill: {
 	1: "{1} was shattered into a million pieces by {0}."
