@@ -28,7 +28,7 @@ namespace MidnightNohit.Content.UI.BossUI
             private set;
         } = new();
 
-        private static Vector2 ScrollbarOffset = new(83, 15);
+        private static Vector2 ScrollbarOffset = new(-233, 23);
 
         public const int HorizontalOffset = 70;
 
@@ -109,7 +109,7 @@ namespace MidnightNohit.Content.UI.BossUI
         public static void Draw(SpriteBatch spriteBatch)
         {
             // Draw the background.
-            Texture2D backgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossListBackground", (AssetRequestMode)2).Value;
+            Texture2D backgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/BossUI/BossUIBackground", (AssetRequestMode)2).Value;
             Texture2D glowTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossListGlow", (AssetRequestMode)2).Value;
 
             Vector2 drawCenter;
@@ -117,10 +117,10 @@ namespace MidnightNohit.Content.UI.BossUI
             drawCenter.Y = Main.screenHeight / 2;
             // This spawn pos is very important. As it is affected by Main.screenWidth/Height, it will scale properly. Every single thing you draw needs to use
             // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
-            Vector2 spawnPos = drawCenter + new Vector2(300, 0);
+            Vector2 spawnPos = drawCenter - new Vector2(400, -75);
 
             spriteBatch.Draw(backgroundTexture, spawnPos, null, Color.White, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(glowTexture, spawnPos, null, NohitConfig.Instance.UIColor, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
+            //spriteBatch.Draw(glowTexture, spawnPos, null, NohitConfig.Instance.UIColor, 0, backgroundTexture.Size() * 0.5f, 1f, 0, 0);
 
 
             // Block the mouse if we are hovering over it.
@@ -165,9 +165,9 @@ namespace MidnightNohit.Content.UI.BossUI
 
             // Draw the kill zones. This is for detecting if it scrolls, if the center of it is above or below these, it will stop drawing to keep it in bounds.
 
-            spriteBatch.Draw(deleteIconTexture, deleteIconCenter, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(deleteIconTextureBottom, deleteIconCenter2, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
-            spriteBatch.Draw(deleteIconTextureGlow, deleteIconCenter3, null, NohitConfig.Instance.UIColor, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
+            //spriteBatch.Draw(deleteIconTexture, deleteIconCenter, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
+            //spriteBatch.Draw(deleteIconTextureBottom, deleteIconCenter2, null, Color.White, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
+            //spriteBatch.Draw(deleteIconTextureGlow, deleteIconCenter3, null, NohitConfig.Instance.UIColor, 0, deleteIconTexture.Size() * 0.5f, 1f, 0, 0);
 
             // Mark all as alive button stuff.
             Vector2 tickPos = new(-95f, -155f);
@@ -189,7 +189,7 @@ namespace MidnightNohit.Content.UI.BossUI
                     }
                 }
             }
-            spriteBatch.Draw(tickTexture, spawnPos + tickPos, null, Color.White, 0, tickTexture.Size() * 0.5f, 1.4f, 0, 0);
+            //spriteBatch.Draw(tickTexture, spawnPos + tickPos, null, Color.White, 0, tickTexture.Size() * 0.5f, 1.4f, 0, 0);
 
             // Mark all as dead button.
             Vector2 crossPos = new(25f, -154f);
@@ -210,7 +210,7 @@ namespace MidnightNohit.Content.UI.BossUI
                     }
                 }
             }
-            spriteBatch.Draw(crossTexture, spawnPos + crossPos, null, Color.White, 0, crossTexture.Size() * 0.5f, 1.4f, 0, 0);
+            //spriteBatch.Draw(crossTexture, spawnPos + crossPos, null, Color.White, 0, crossTexture.Size() * 0.5f, 1.4f, 0, 0);
             #endregion
 
             #region Info
@@ -238,10 +238,10 @@ namespace MidnightNohit.Content.UI.BossUI
             Texture2D scrollbarBackgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossUIScrollBar", (AssetRequestMode)2).Value;
             Texture2D scrollbarTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossUIScrollBarButton", (AssetRequestMode)2).Value;
             Vector2 scrollbarBackgroundOffset = new(83, 0);
-            spriteBatch.Draw(scrollbarBackgroundTexture, spawnPos + scrollbarBackgroundOffset, null, Color.White, 0, scrollbarBackgroundTexture.Size() * 0.5f, 1, 0, 0);
+            //spriteBatch.Draw(scrollbarBackgroundTexture, spawnPos + scrollbarBackgroundOffset, null, Color.White, 0, scrollbarBackgroundTexture.Size() * 0.5f, 1, 0, 0);
 
             // I didnt want to pass this Rectangle through as a parameter so i re-get the background rectangle here. This is to allow for scrolling with the mouse wheel.
-            Texture2D backgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/baseSettingsUIBackgroundWide", (AssetRequestMode)2).Value;
+            Texture2D backgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/BossUI/BossUIBackground", (AssetRequestMode)2).Value;
             Rectangle backRect = Utils.CenteredRectangle(spawnPos, backgroundTexture.Size());
 
             float maxScrollDistance = -50f;
@@ -271,7 +271,7 @@ namespace MidnightNohit.Content.UI.BossUI
 
             Vector2 scrollOffset = ScrollbarOffset;
             //if (-maxScrollDistance > 235f)
-                scrollOffset.Y = Utils.Remap(scrollOffset.Y, 8f, -maxScrollDistance, 0f, 315f);
+                scrollOffset.Y = Utils.Remap(scrollOffset.Y, 8f, -maxScrollDistance, 75f, 255f);
 
             spriteBatch.Draw(scrollbarTexture, spawnPos + scrollOffset, null, Color.White, 0, scrollbarTexture.Size() * 0.5f, 1f, 0, 0);
             #endregion
@@ -289,7 +289,7 @@ namespace MidnightNohit.Content.UI.BossUI
             Texture2D tickGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/TickGlow", (AssetRequestMode)2).Value;
 
             // And the initial draw position.
-            Vector2 drawPosition = spawnPos + new Vector2(-105, -90);
+            Vector2 drawPosition = spawnPos + new Vector2(-183, -88);
 
             for (int i = 0; i < BossElements.Count; i++)
             {

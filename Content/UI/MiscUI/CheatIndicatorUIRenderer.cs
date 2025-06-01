@@ -48,6 +48,8 @@ namespace MidnightNohit.Content.UI.MiscUI
             {
                 scale = 1.15f;
                 spriteBatch.Draw(HoverIcon, IconCenter, null, Color.White, 0f, Icon.Size() * 0.5f, 1f * scale, 0, 0f);
+                string State;
+                State = TogglesUIManager.UIOpen ? "CloseUI" : "OpenUI";
 
                 string IconHighlight;
                 if (Toggles.GodmodeEnabled)
@@ -61,7 +63,7 @@ namespace MidnightNohit.Content.UI.MiscUI
                 else
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.None");
 
-                Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.OpenUI") + "\n" + IconHighlight;
+                Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.{State}") + "\n" + IconHighlight;
 
                 Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
                 if (NohitUtils.CanAndHasClickedUIElement)

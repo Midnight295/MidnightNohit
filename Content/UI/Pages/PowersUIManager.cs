@@ -33,7 +33,7 @@ namespace MidnightNohit.Content.UI.Pages
                 typeof(Toggles).GetField("InstantDeath", NohitUtils.AllBindingFlags)
                 ),
 
-                new PageUIElement(ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Wings", AssetRequestMode.ImmediateLoad).Value,
+                /*new PageUIElement(ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Wings", AssetRequestMode.ImmediateLoad).Value,
                 ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/WingsGlow", AssetRequestMode.ImmediateLoad).Value,
                 () => Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.PowersUI.InfiniteFlight.Name"),
                 () => Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.PowersUI.InfiniteFlight.Description"),
@@ -67,7 +67,7 @@ namespace MidnightNohit.Content.UI.Pages
                 6f,
                 () => { Toggles.InfiniteConsumables = !Toggles.InfiniteConsumables; },
                 typeof(Toggles).GetField("InfiniteConsumables", NohitUtils.AllBindingFlags)
-                )
+                )*/
             };
 
             TogglesPage uIManager = new(uIElements, PowerUIName, "Mods.MidnightNohit.UI.UIButtons.PowersUI", ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/playerUIIcon", AssetRequestMode.ImmediateLoad).Value, 6f);

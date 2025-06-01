@@ -29,6 +29,8 @@ namespace MidnightNohit.Content.UI
             Closed
         }
 
+        public static bool ShouldPlayHoverSound = false;
+
         public class QueuedMessage
         {
             public string Text;
@@ -153,6 +155,14 @@ namespace MidnightNohit.Content.UI
             if (State is MenuState.Closed)
                 return;
 
+            if (Main.CreativeMenu.Enabled)
+                CloseUI();
+
+            if (State is MenuState.Open or MenuState.Opening)
+            {
+                Main.hidePlayerCraftingMenu = true;
+            }
+
             UpdateOpenClosing();
 
             if (CurrentMessage is not null)
@@ -171,12 +181,13 @@ namespace MidnightNohit.Content.UI
         {
             if (State is MenuState.Opening)
             {
+                Main.CreativeMenu.CloseMenu();
                 OpeningTimer++;
                 if (OpeningTimer == OpenLength)
                     State = MenuState.Open;
             }
             else if (State is MenuState.Closing)
-            {
+            {   
                 OpeningTimer--;
                 if (OpeningTimer == 0)
                     State = MenuState.Closed;
@@ -198,7 +209,7 @@ namespace MidnightNohit.Content.UI
         private static void DrawElements(SpriteBatch spriteBatch)
         {
             int elementCount = ToggleWheelElements.Count;
-            float distance = 130f;
+            float distance = 75f;
             float opacity = 1f;
 
             ///Main.showframerate
@@ -208,7 +219,7 @@ namespace MidnightNohit.Content.UI
                 IToggleWheelElement currentElement = ToggleWheelElements[i];
 
                 float scale = 1f;
-                float angle = MathHelper.TwoPi * i / elementCount + MathHelper.Pi + MathHelper.PiOver2;
+                float angle = i * elementCount;
 
                 if (UIOpenClosing)
                 {
@@ -219,7 +230,7 @@ namespace MidnightNohit.Content.UI
                     scale *= progress;
                 }
 
-                Vector2 drawPosition = ScreenCenter + angle.ToRotationVector2() * distance;
+                Vector2 drawPosition = new Vector2(Main.screenWidth - 1557, ((i + elementCount) * distance) - 105);
 
                 // Draw the bloom texture.
                 spriteBatch.Draw(BloomTexture, drawPosition, null, new Color(59, 50, 77, 0) * 0.9f * opacity, 0f, BloomTexture.Size() * 0.5f, scale * 0.4f, SpriteEffects.None, 0f);
@@ -230,7 +241,8 @@ namespace MidnightNohit.Content.UI
 
                 // Draw the outer outline.
                 if (isHovering)
-                {                      
+                { 
+                        
                     Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
                     scale *= 1.1f;
                     string LocalizedDescription = Language.GetTextValue(currentElement.Description);
@@ -255,12 +267,17 @@ namespace MidnightNohit.Content.UI
                     }
                 }
                 else
+                {
                     HoverTimer--;
+                }
+                    
                 // Draw the actual texture.
                 spriteBatch.Draw(Button, drawPosition, null, Color.White * opacity, 0f, Button.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 spriteBatch.Draw(ButtonGlow, drawPosition, null, NohitConfig.Instance.UIColor * opacity, 0f, ButtonGlow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 spriteBatch.Draw(currentElement.IconTexture, drawPosition, null, Color.White * opacity, 0f, currentElement.IconTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
   
+
+
 
                 /* Handle the animation.
                 if (isHovering)

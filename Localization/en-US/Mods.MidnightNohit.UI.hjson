@@ -36,6 +36,7 @@ Tiering: {
 
 UIButtons: {
 	OpenUI: Open Nohit UI
+	CloseUI: Close Nohit UI
 	SetSpawn: Set Spawn
 	WorldUI: World Toggles
 	MiscUI: Misc Toggles
