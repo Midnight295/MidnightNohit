@@ -302,7 +302,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<TheDarkMaster>(), 
                 //Ranged Weapons
                 ModContent.ItemType<FlarewingBow>(),
-                ModContent.ItemType<Butcher>(),
+                ModContent.ItemType<Buzzkill>(),
                 ModContent.ItemType<ClamorRifle>(),
                 ModContent.ItemType<Needler>(),
                 ModContent.ItemType<P90>(),
@@ -773,7 +773,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<EpidemicShredder>(),
                 ModContent.ItemType<SubductionSlicer>(),
                 //Classless
-                ModContent.ItemType<YanmeisKnife>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => DownedBossSystem.downedPlaguebringer, $"Mods.CalamityMod.NPCs.PlaguebringerGoliath.DisplayName",
@@ -916,7 +915,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<PridefulHuntersPlanarRipper>(),
                 ModContent.ItemType<Shredder>(),
                 ModContent.ItemType<ElementalEruption>(),
-                ModContent.ItemType<ElementalBlaster>(),
+                ModContent.ItemType<SuperradiantSlaughterer>(),
                 ModContent.ItemType<Starfleet>(),
                 ItemID.MiniNukeI,
                 ItemID.MiniNukeII,
@@ -1003,7 +1002,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<PristineFury>(),
                 ModContent.ItemType<HeavyLaserRifle>(),
                 //Magic Weapons
-                ModContent.ItemType<DivineRetribution>(),
+                //ModContent.ItemType<DivineRe>(),
                 ModContent.ItemType<ThePrince>(),
                 ModContent.ItemType<SanguineFlare>(),
                 ModContent.ItemType<ThornBlossom>(),
@@ -1094,7 +1093,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<DaemonsFlame>(),
                 ModContent.ItemType<TheMaelstrom>(),
                 ModContent.ItemType<Monsoon>(),
-                ModContent.ItemType<DodusHandcannon>(),
+                //ModContent.ItemType<DodusHandcannon>(),
                 ModContent.ItemType<HalleysInferno>(),
                 ModContent.ItemType<SulphuricAcidCannon>(),
                 ModContent.ItemType<PearlGod>(),
@@ -1225,13 +1224,13 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<EclipsesFall>(),
                 ModContent.ItemType<GodsParanoia>(),
                 ModContent.ItemType<ExecutionersBlade>(),
-                        ModContent.ItemType<Hypothermia>(),
+                ModContent.ItemType<Hypothermia>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => DownedBossSystem.downedYharon, $"Mods.MidnightNohit.UI.Tiering.YharonShort",
             [
                 ModContent.ItemType<TracersCelestial>(),
-                ModContent.ItemType<DrewsWings>(),
+                ModContent.ItemType<WingsofRebirth>(),
                 ModContent.ItemType<DragonScales>(),
                 ModContent.ItemType<YharimsGift>(),
                 ModContent.ItemType<AuricSoulArtifact>(),
@@ -1332,16 +1331,16 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Earth>(),
                 ModContent.ItemType<IridescentExcalibur>(),
                 ModContent.ItemType<RedSun>(),
-                ModContent.ItemType<Azathoth>(),
+                ModContent.ItemType<Ozzathoth>(),
                 ModContent.ItemType<TriactisTruePaladinianMageHammerofMightMelee>(),
                 ModContent.ItemType<IllustriousKnives>(),
                 //Ranged Weapons
                 ModContent.ItemType<Contagion>(),
                 ModContent.ItemType<SomaPrime>(),
                 ModContent.ItemType<Svantechnical>(),
-                ModContent.ItemType<Voidragon>(),//gets confused with the projectile else lo
+                ModContent.ItemType<Voidragon>(), //gets confused with the projectile else lo
                 //Magic Weapons
-                ModContent.ItemType<Fabstaff>(),
+                ModContent.ItemType<Sylvestaff>(),
                 ModContent.ItemType<RainbowPartyCannon>(),
                 ModContent.ItemType<Apotheosis>(),
                 ModContent.ItemType<TheDanceofLight>(),
@@ -1374,7 +1373,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
 
             BossLockInformation.AddLockInformation(() => Main.hardMode, $"NPCName.WallofFlesh",
             [
-                ModContent.ItemType<FabsolsVodka>(),
+                ModContent.ItemType<PurpleHaze>(),
                 ModContent.ItemType<GrapeBeer>(),
                 ModContent.ItemType<Tequila>(),
                 ModContent.ItemType<Whiskey>(),
