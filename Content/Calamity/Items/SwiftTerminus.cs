@@ -103,7 +103,7 @@ namespace MidnightNohit.Content.Calamity.Items
                             //tier = 4;
                         }
 
-                        if (BossRushEvent.Bosses[i].EntityID == ModContent.NPCType<Yharon>()) ;
+                        //if (BossRushEvent.Bosses[i].EntityID == ModContent.NPCType<Yharon>())
                             //tier = 5;
 
 

@@ -1,0 +1,125 @@
+﻿using InfernumMode;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MidnightNohit.Config;
+using MidnightNohit.Core;
+using ReLogic.Content;
+using System;
+using System.Reflection;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
+using static MidnightNohit.Content.UI.Pages.TogglesPage;
+
+namespace MidnightNohit.Content.UI.Pages
+{
+    public abstract class PageUIElement
+    {
+        public virtual string Name => "";
+        public virtual string Description => "";
+
+        public virtual Texture2D Texture => null;
+        public virtual Texture2D GlowTexture => null;
+        public virtual float Layer => 1f;
+        public virtual ToggleBlockInformation? BlockInformation => null;
+
+        public const string ColorTag = "c/ffcc44:";
+        public const string DisabledTag = "c/de4444:";
+        public static string EnabledText = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.Enabled");
+        public static string DisabledText = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.Disabled", DisabledTag);
+
+        public static Texture2D Lock => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/lock", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D LockGlow => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/lockGlow", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D Tick => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Checkmark", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D TickGlow => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheckmarkGlow", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D Cross => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Cross", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D CrossGlow => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CrossGlow", AssetRequestMode.ImmediateLoad).Value;
+
+        public static Vector2 IndicatorOffset => new(10f, 10f);
+
+        public string HoverTextFormatted => $"[{ColorTag}{Description}]";
+
+        public virtual void OnClick()
+        {
+
+        }
+
+        public virtual bool Toggle => false;
+
+        public virtual void Draw(Vector2 drawPosition, float backgroundWidth)
+        {
+            Vector2 iconDrawPosition = drawPosition - Vector2.UnitX * (backgroundWidth * 0.35f);
+            Rectangle iconRectangle = Utils.CenteredRectangle(iconDrawPosition, Texture.Size());
+
+            bool blocked = false;
+            if (BlockInformation != null)
+                blocked = !BlockInformation.Value.CanToggle();
+
+            // Check if the element is being hovered over.
+            Rectangle selectionRectangle = Utils.CenteredRectangle(drawPosition, HoverBackgroundTexture.Size());
+            if (selectionRectangle.Intersects(NohitUtils.MouseRectangle))
+            {
+
+                Main.spriteBatch.Draw(HoverBackgroundTexture, drawPosition, null, Color.White * 0.15f, 0f, HoverBackgroundTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.1f);
+
+                // If hovering over the icon, draw the glow texture.
+                if (iconRectangle.Intersects(NohitUtils.MouseRectangle))
+                {
+                    Main.spriteBatch.Draw(GlowTexture, iconDrawPosition, null, Color.Yellow, 0f, GlowTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.2f);
+
+                    string extraText = string.Empty;
+                    if (blocked)
+                        extraText = "\n" + $"[{DisabledTag}{BlockInformation.Value.ExtraHoverText}]";
+                    Main.hoverItemName = HoverTextFormatted + extraText;
+                }
+
+                // Handle interactions
+                if (NohitUtils.CanAndHasClickedUIElement && !blocked)
+                {
+                    TogglesUIManager.ClickCooldownTimer = TogglesUIManager.ClickCooldownLength;
+                    SoundEngine.PlaySound(SoundID.MenuTick, Main.LocalPlayer.Center);
+                    OnClick();
+                }
+            }
+
+            Main.spriteBatch.Draw(Texture, iconDrawPosition, null, Color.White, 0f, Texture.Size() * 0.5f, 1f, SpriteEffects.None, 0.2f);
+
+            if (blocked)
+            {
+                Rectangle lockRectangle = Utils.CenteredRectangle(iconDrawPosition + IndicatorOffset, Lock.Size());
+                if (lockRectangle.Intersects(NohitUtils.MouseRectangle))
+                    Main.spriteBatch.Draw(LockGlow, iconDrawPosition + IndicatorOffset, null, Color.White, 0f, LockGlow.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
+                else
+                    Main.spriteBatch.Draw(Lock, iconDrawPosition + IndicatorOffset, null, Color.White, 0f, Lock.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
+            }
+
+            else //if (AssosiatedField != null)
+            {
+                //if (AssosiatedField.FieldType == typeof(bool))
+                //{
+
+                    Texture2D indicatorTexture = blocked ? Lock : Toggle ? Tick : Cross;
+                    Texture2D indicatorGlowTexture = blocked ? LockGlow : Toggle ? TickGlow : CrossGlow;
+
+                    Rectangle indicatorRectangle = Utils.CenteredRectangle(iconDrawPosition + IndicatorOffset, indicatorTexture.Size());
+                    if (indicatorRectangle.Intersects(NohitUtils.MouseRectangle))
+                    {
+                        Main.spriteBatch.Draw(indicatorGlowTexture, iconDrawPosition + IndicatorOffset, null, Color.Yellow, 0f, indicatorGlowTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
+                    
+                        // Also update the hover text, if it isnt already been set due to being blocked.
+                        if (!blocked)
+                            Main.hoverItemName = HoverTextFormatted + "\n" + (Toggle ? EnabledText : DisabledText);
+                    }
+                    Main.spriteBatch.Draw(indicatorTexture, iconDrawPosition + IndicatorOffset, null, Color.White, 0f, indicatorTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
+                //}
+
+            }
+
+            Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.MouseText.Value, Name, iconDrawPosition.X + 25, iconDrawPosition.Y - 7, Color.White, Color.Black, Vector2.Zero, 0.75f);
+        }
+    }
+}

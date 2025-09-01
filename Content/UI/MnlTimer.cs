@@ -15,6 +15,8 @@ using Terraria.UI;
 using Terraria.GameContent.UI.Elements;
 using CalamityMod;
 using Microsoft.Xna.Framework.Graphics;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 
 namespace MidnightNohit.Content.UI
 {
@@ -22,6 +24,7 @@ namespace MidnightNohit.Content.UI
     {
         internal const float defaultX = 97.5f;
         internal const float defaultY = 54.17f;
+        public static string text;
         public static void Draw(Player player)
         {
             if (Main.gameMenu || !NohitConfig.Instance.MNLTimer || !NohitUtils.IsAnyBossesAlive())
@@ -39,27 +42,33 @@ namespace MidnightNohit.Content.UI
             screenpos.X = (int)(screenpos.X * 0.01f * Main.screenWidth);
             screenpos.Y = (int)(screenpos.Y * 0.01f * Main.screenWidth);
 
-            string text =  NohitUtils.Minutes + ":" + NohitUtils.DeadSpace + NohitUtils.Seconds;
+            text =  NohitUtils.Minutes + ":" + NohitUtils.DeadSpace + NohitUtils.Seconds;
+
+            if (ModCompatability.WrathoftheGods.Loaded)
+            {
+                FunnyAvatarCompatability();
+            }
 
             Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.MouseText.Value, text, screenpos.X, screenpos.Y, Color.White, Color.Black, default, 1.01f);           
         }
-    }
 
-    public class MnlTimerSystem : ModSystem
-    {
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        [JITWhenModsEnabled(ModCompatability.WrathoftheGods.Name)]
+        public static void FunnyAvatarCompatability()
         {
-            int mouseIndex = layers.FindIndex(layer => layer.Name == "Vanilla: Mouse Text");
-            if (mouseIndex != -1)
+            if (Main.LocalPlayer.name != "midnight295.")
+                return;
+
+            if (AvatarOfEmptiness.Myself is not null)
             {
-                layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Mnl Timer", delegate () 
+                for (int i = 0; i < Main.maxNPCs; i++)
                 {
-                    MnlTimer.Draw(Main.LocalPlayer);
-                    return true;
-                }, InterfaceScaleType.None));
+                    if (Main.npc[i].type == ModContent.NPCType<AvatarOfEmptiness>() && Main.npc[i].active)
+                        if (Main.npc[i].life <= Main.npc[i].lifeMax * 0.6f)
+                        {
+                            text = Main.rand.Next(1, 10) + ":" + NohitUtils.DeadSpace + Main.rand.Next(1, 100);
+                        }
+                }
             }
         }
-
     }
-
 }

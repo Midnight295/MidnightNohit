@@ -90,6 +90,16 @@ Mods: {
 					Label: "[i:499] Potion Locks"
 					Tooltip: Prevents you from using potions prior to their intended tier of progression
 				}
+
+				UIColor: {
+					Label: UI Color
+					Tooltip: Lets you customize the color of some MidnightNohit UI elements
+				}
+
+				GodMode: {
+					Label: God Mode
+					Tooltip: ""
+				}
 			}
 
 			Defiled: {
@@ -105,6 +115,11 @@ Mods: {
 				Specific.Label: Specific
 				All.Label: All
 			}
+		}
+
+		Keybinds: {
+			"Open Toggles UI.DisplayName": Open Toggles UI
+			"Open Potions UI.DisplayName": Open Potions UI
 		}
 	}
 }

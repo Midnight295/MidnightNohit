@@ -4,6 +4,12 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using MidnightNohit.Core.Systems.MNLSystems;
+using MidnightNohit.Content.UI.PotionUI;
+using MidnightNohit.Content.UI;
+using Terraria.Audio;
+using Terraria.GameInput;
+using Terraria.ID;
+using MidnightNohit.Core.Systems;
 
 
 namespace MidnightNohit.Core.ModPlayers
@@ -12,6 +18,9 @@ namespace MidnightNohit.Core.ModPlayers
     {
         public override void PreUpdate()
         {
+            if (!Main.showFrameRate)
+                Main.showFrameRate = true;
+
 
             Player player = Main.LocalPlayer;
             if (NohitConfig.Instance.DisableIframes)
@@ -43,7 +52,7 @@ namespace MidnightNohit.Core.ModPlayers
                 NohitUtils.Minutes = 0;
                 NohitUtils.Seconds = 0;             
             }
-                
+
 
             /*Player player = Main.LocalPlayer;
             if (NohitConfig.Instance.defiled == Defiled.Normal)
@@ -67,6 +76,16 @@ namespace MidnightNohit.Core.ModPlayers
                 Player.buffImmune[BuffID.DarkMageBookMount] = true;
                 //Player.buffImmune[BuffID.
             }*/
+            if (GMHitCooldownTimer > 0)
+                GMHitCooldownTimer--;
+            if (PotionUICooldownTimer > 0)
+                PotionUICooldownTimer--;
+            if (ToggleUICooldownTimer > 0)
+                ToggleUICooldownTimer--;
+            if (TogglesUIManager.ClickCooldownTimer > 0)
+                TogglesUIManager.ClickCooldownTimer--;
+
+            TogglesUIManager.Update();
         }
 
         /*private void NoWings()
@@ -107,15 +126,51 @@ namespace MidnightNohit.Core.ModPlayers
                 MNLsHandler.PlayerRespawnChecks();
         }
 
-        /*public override void ModifyHurt(ref Player.HurtModifiers modifiers)
-        {
-            if (Player.whoAmI != Main.myPlayer)
-                return;
+        public static int ToggleUICooldownTimer { get; internal set; }
 
-            if (NohitConfig.Instance.InstantKill)
+        public static int PotionUICooldownTimer { get; internal set; }
+
+        public const int UICooldownTimerLength = 10;
+
+        internal static int GMHitCooldownTimer = 0;
+
+        public override void ProcessTriggers(TriggersSet triggersSet)
+        {
+            if (UIModSystem.OpenTogglesUI.JustPressed)
             {
-                modifiers.FinalDamage *= 100000;
+                if (PotionUIManager.IsDrawing == true)
+                {
+                    TogglesUIManager.CloseUI(true);
+                    ToggleUICooldownTimer = UICooldownTimerLength;
+                    PotionUICooldownTimer = UICooldownTimerLength;
+                }
+                else if (ToggleUICooldownTimer == 0)
+                {
+                    if (TogglesUIManager.UIOpen)
+                        TogglesUIManager.CloseUI(true);
+                    else
+                        TogglesUIManager.OpenUI(true);
+                }
+
             }
-        }*/
+
+            if (UIModSystem.OpenPotionsUI.JustPressed)
+            {
+                if (PotionUIManager.IsDrawing && PotionUICooldownTimer == 0)
+                {
+                    SoundEngine.PlaySound(SoundID.MenuClose, Main.LocalPlayer.Center);
+                    PotionUIManager.IsDrawing = false;
+                    PotionUICooldownTimer = UICooldownTimerLength;
+                }
+                else if (PotionUICooldownTimer == 0)
+                {
+                    SoundEngine.PlaySound(SoundID.MenuOpen, Main.LocalPlayer.Center);
+                    PotionUIManager.IsDrawing = true;
+                    PotionUICooldownTimer = UICooldownTimerLength;
+                }
+
+            }
+        }
+
     }
 }

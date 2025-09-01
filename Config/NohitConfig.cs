@@ -1,9 +1,11 @@
-﻿using MidnightNohit.Content.UI;
+﻿using Microsoft.Xna.Framework;
+using MidnightNohit.Content.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
@@ -25,6 +27,10 @@ namespace MidnightNohit.Config
         //public Defiled defiled;
         [DefaultValue(false)]
         public bool InstantKill;
+
+        //[DefaultValue(false)]
+        //[JsonIgnore]
+        //public bool GodMode;
 
         [DefaultValue(false)]
         public bool DisableIframes;
@@ -62,5 +68,8 @@ namespace MidnightNohit.Config
         [Range(0f, 10f)]
         [DefaultValue(MnlTimer.defaultY / 10)]
         public float MNLY;
+
+        [DefaultValue(typeof(Color), "255, 255, 255, 255")]
+        public Color UIColor;
     }
 }

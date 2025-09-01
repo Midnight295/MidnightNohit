@@ -113,7 +113,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems
 
             // Display DPS message if required.
             //if (Toggles.BossDPS && DPSDamage.Any())
-            //    ToastyQoLUtils.DisplayText($"[c/e7684b:Average DPS:] [c/fccccf:{(int)DPSDamage.Average()}]");
+            //    MidnightNohitUtils.DisplayText($"[c/e7684b:Average DPS:] [c/fccccf:{(int)DPSDamage.Average()}]");
 
             // Say any sass message if required.
             //if (Toggles.SassMode)
