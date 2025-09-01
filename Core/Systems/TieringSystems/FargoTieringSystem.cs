@@ -106,7 +106,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
 
             ]);
 
-            BossLockInformation.AddLockInformation(() => DownedBrain && DownedEater, $"Mods.MidnightNohit.UI.Evils",
+            BossLockInformation.AddLockInformation(() => DownedBrain && DownedEater, $"Mods.MidnightNohit.UI.Tiering.Evils",
             [   
                 //Melee
                 ModContent.ItemType<TheLightningRod>(),

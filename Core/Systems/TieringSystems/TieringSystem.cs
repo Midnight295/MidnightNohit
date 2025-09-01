@@ -155,7 +155,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                     }),
 
                  new BossLockInformation(() => DownedBrain && DownedEater,
-                    $"Mods.MidnightNohit.UI.Evils",
+                    $"Mods.MidnightNohit.UI.Tiering.Evils",
                     new()
                     {
                         //Vanilla
