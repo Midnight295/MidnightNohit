@@ -93,7 +93,7 @@ Mods: {
 
 				UIColor: {
 					Label: UI Color
-					Tooltip: Lets you customize the color of some MidnightNohit UI elements
+					Tooltip: Lets you customize the color of some Nohit UI elements
 				}
 
 				GodMode: {
