@@ -200,10 +200,10 @@ namespace MidnightNohit.Content.UI.BossUI
         {
             #region KillAllBosses
             // ALL THE TEXTURES
-            Texture2D crossTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Cross", (AssetRequestMode)2).Value;
-            Texture2D crossGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/CrossGlow", (AssetRequestMode)2).Value;
-            Texture2D tickTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Tick", (AssetRequestMode)2).Value;
-            Texture2D tickGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/TickGlow", (AssetRequestMode)2).Value;
+            Texture2D crossTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Cross", (AssetRequestMode)2).Value;
+            Texture2D crossGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CrossGlow", (AssetRequestMode)2).Value;
+            Texture2D tickTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Checkmark", (AssetRequestMode)2).Value;
+            Texture2D tickGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheckmarkGlow", (AssetRequestMode)2).Value;
             Texture2D whiteGlowSmall = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/SmallerWhiteRect", (AssetRequestMode)2).Value;
             // Get the mouse hitbox
             Rectangle mouseHitbox = new(Main.mouseX, Main.mouseY, 2, 2);
@@ -239,7 +239,7 @@ namespace MidnightNohit.Content.UI.BossUI
                 Rectangle tickGlowRect = Utils.CenteredRectangle(spawnPos + tickPos, tickTexture.Size());
                 if (mouseHitbox.Intersects(tickGlowRect))
                 {
-                    spriteBatch.Draw(tickGlowTexture, spawnPos + tickPos, null, Color.White, 0, tickGlowTexture.Size() * 0.5f, 1.4f, 0, 0);
+                    spriteBatch.Draw(tickGlowTexture, spawnPos + tickPos, null, Color.Yellow, 0, tickGlowTexture.Size() * 0.5f, 1.4f, 0, 0);
                     Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.BossUI.EnableAll");
                     if ((Main.mouseLeft && Main.mouseLeftRelease || Main.mouseRight && Main.mouseRightRelease) && TogglesUIManager.ClickCooldownTimer == 0)
                     {
@@ -261,7 +261,7 @@ namespace MidnightNohit.Content.UI.BossUI
                 Rectangle crossGlowRect = Utils.CenteredRectangle(spawnPos + crossPos, tickTexture.Size());
                 if (mouseHitbox.Intersects(crossGlowRect))
                 {
-                    spriteBatch.Draw(crossGlowTexture, spawnPos + crossPos, null, Color.White, 0, crossGlowTexture.Size() * 0.5f, 1.4f, 0, 0);
+                    spriteBatch.Draw(crossGlowTexture, spawnPos + crossPos, null, Color.Yellow, 0, crossGlowTexture.Size() * 0.5f, 1.4f, 0, 0);
                     Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.BossUI.DisableAll");
                     if ((Main.mouseLeft && Main.mouseLeftRelease || Main.mouseRight && Main.mouseRightRelease) && TogglesUIManager.ClickCooldownTimer == 0)
                     {
@@ -346,10 +346,10 @@ namespace MidnightNohit.Content.UI.BossUI
             Texture2D deleteIconTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrolling", (AssetRequestMode)2).Value;
             Texture2D deleteIconTextureBottom = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrollingBottom", (AssetRequestMode)2).Value;
             Texture2D deleteIconTextureGlow = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrollingGlow", (AssetRequestMode)2).Value;
-            Texture2D crossTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Cross", (AssetRequestMode)2).Value;
-            Texture2D crossGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/CrossGlow", (AssetRequestMode)2).Value;
-            Texture2D tickTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Tick", (AssetRequestMode)2).Value;
-            Texture2D tickGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/TickGlow", (AssetRequestMode)2).Value;
+            Texture2D crossTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Cross", (AssetRequestMode)2).Value;
+            Texture2D crossGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CrossGlow", (AssetRequestMode)2).Value;
+            Texture2D tickTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Checkmark", (AssetRequestMode)2).Value;
+            Texture2D tickGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheckmarkGlow", (AssetRequestMode)2).Value;
 
 
             // And the initial draw position.
@@ -431,8 +431,9 @@ namespace MidnightNohit.Content.UI.BossUI
                             Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.BossUI.Toggle", element.Name);
                         }
                         if (NohitUtils.CanAndHasClickedUIElement)
-                        {
-                            if (Main.keyState.IsKeyDown(Keys.LeftShift))
+                        {   
+                            //TODO: fix??
+                            if (Main.keyState.PressingShift())
                             {
                                 float maxLayer = element.Weight;
 
@@ -473,7 +474,7 @@ namespace MidnightNohit.Content.UI.BossUI
                     if (mouseHitbox.Intersects(indicatorHitbox) && !dontDraw)
                     {
                         // Draw it and set the mouse text.
-                        spriteBatch.Draw(tickOrCrossGlow, drawPositionFinal + new Vector2(10, 10), null, Color.White, 0, tickOrCrossGlow.Size() * 0.5f, 1, 0, 0);
+                        spriteBatch.Draw(tickOrCrossGlow, drawPositionFinal + new Vector2(10, 10), null, Color.Yellow, 0, tickOrCrossGlow.Size() * 0.5f, 1, 0, 0);
                         Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.BossUI.Toggle", element.Name) + "\n" + status;
                     }
                 }

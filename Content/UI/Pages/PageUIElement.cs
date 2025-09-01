@@ -34,10 +34,10 @@ namespace MidnightNohit.Content.UI.Pages
 
         public static Texture2D Lock => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/lock", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D LockGlow => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/lockGlow", AssetRequestMode.ImmediateLoad).Value;
-        public static Texture2D Tick => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Tick", AssetRequestMode.ImmediateLoad).Value;
-        public static Texture2D TickGlow => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/TickGlow", AssetRequestMode.ImmediateLoad).Value;
-        public static Texture2D Cross => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Cross", AssetRequestMode.ImmediateLoad).Value;
-        public static Texture2D CrossGlow => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/CrossGlow", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D Tick => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Checkmark", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D TickGlow => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheckmarkGlow", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D Cross => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Cross", AssetRequestMode.ImmediateLoad).Value;
+        public static Texture2D CrossGlow => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CrossGlow", AssetRequestMode.ImmediateLoad).Value;
 
         public static Vector2 IndicatorOffset => new(10f, 10f);
 
@@ -108,13 +108,12 @@ namespace MidnightNohit.Content.UI.Pages
                     Rectangle indicatorRectangle = Utils.CenteredRectangle(iconDrawPosition + IndicatorOffset, indicatorTexture.Size());
                     if (indicatorRectangle.Intersects(NohitUtils.MouseRectangle))
                     {
-                        Main.spriteBatch.Draw(indicatorGlowTexture, iconDrawPosition + IndicatorOffset, null, Color.White, 0f, indicatorGlowTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
+                        Main.spriteBatch.Draw(indicatorGlowTexture, iconDrawPosition + IndicatorOffset, null, Color.Yellow, 0f, indicatorGlowTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
                     
                         // Also update the hover text, if it isnt already been set due to being blocked.
                         if (!blocked)
                             Main.hoverItemName = HoverTextFormatted + "\n" + (Toggle ? EnabledText : DisabledText);
                     }
-                    else
                     Main.spriteBatch.Draw(indicatorTexture, iconDrawPosition + IndicatorOffset, null, Color.White, 0f, indicatorTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0.25f);
                 //}
 
