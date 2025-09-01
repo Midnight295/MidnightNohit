@@ -133,7 +133,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Mycoroot>(),
             ]);
 
-            BossLockInformation.AddLockInformation(() => DownedBrain && DownedEater, $"Mods.MidnightNohit.UI.Evils",
+            BossLockInformation.AddLockInformation(() => DownedBrain && DownedEater, $"Mods.MidnightNohit.UI.Tiering.Evils",
             [
                 //Accessories
                 ModContent.ItemType<SilencingSheath>(),

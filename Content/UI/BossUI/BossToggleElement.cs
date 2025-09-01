@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.VisualBasic.FileIO;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Reflection;
@@ -45,19 +46,28 @@ namespace MidnightNohit.Content.UI.BossUI
             private set;
         }
 
-        public BossToggleElement(bool moddedicon, string texturePath, string nameSingular, FieldInfo downedBoolean, float weight, float scale = 1f)
-        {   
-            if (moddedicon)
-                Texture = ModContent.Request<Texture2D>(texturePath, AssetRequestMode.ImmediateLoad).Value;
-            else
+        // Type is used to judge whether or not an element should be visible dependent on which filter is enabled in the Boss List.
+        // Type 1 => Terraria
+        // Type 2 => Fargo's Soul Mod
+        // Type 3 => Calamity
+        public int Type
+        {
+            get;
+            private set;
+        }
+
+        public BossToggleElement(string texturePath, string nameSingular, FieldInfo downedBoolean, float weight, int type = 1, float scale = 1f)
+        {
+            if (texturePath.Contains("Images/NPC_Head_Boss_"))
                 Texture = Main.Assets.Request<Texture2D>(texturePath, AssetRequestMode.ImmediateLoad).Value;
-            //GlowTexture = ModContent.Request<Texture2D>(texturePath + "Glow", AssetRequestMode.ImmediateLoad).Value;
+            else
+                Texture = ModContent.Request<Texture2D>(texturePath, AssetRequestMode.ImmediateLoad).Value;
+
             Name = nameSingular;
-            if (downedBoolean.FieldType != typeof(bool) || !downedBoolean.IsStatic)
-                throw new ArgumentException("The provided field info MUST be a static boolean.");
             DownedBoolean = downedBoolean;
             Weight = weight;
             Scale = scale;
+            Type = type;
         }
 
         public BossToggleElement Register()

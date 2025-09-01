@@ -34,7 +34,7 @@ namespace MidnightNohit.Core.Systems
                 if (!Main.inFancyUI && Main.playerInventory)
                 {
                     CheatIndicatorUIRenderer.Draw(Main.spriteBatch);
-                    SummonSlotUIIcon.Draw(Main.spriteBatch);
+                    //SummonSlotUIIcon.Draw(Main.spriteBatch);
                 }
                 if (!Main.inFancyUI)
                 {

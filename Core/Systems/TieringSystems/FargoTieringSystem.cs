@@ -25,18 +25,38 @@ using FargowiltasSouls.Content.Patreon.Sasha;
 using FargowiltasSouls.Content.Patreon.Volknet;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
 using FargowiltasSouls.Content.Items.Ammos;
+using FargowiltasSouls.Content.Items.Accessories.Expert;
+using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 
 namespace MidnightNohit.Core.Systems.TieringSystems
 {
     [JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
     [ExtendsFromMod(ModCompatability.FargoSouls.Name)]
+    
     public static class FargoTieringSystem
     {   
+        
         public static void LoadFargoTiers()
-        {
-            //TODO: Put Trojan Squirrel here when the Downed Bool becomes unprotected.
+        {   
+            //Trojan Squirrel
+            BossLockInformation.AddLockInformation(() => WorldSavingSystem.DownedBoss[9], $"Mods.FargowiltasSouls.NPCs.TrojanSquirrel.DisplayName",
+            [
+                //Melee
+                ModContent.ItemType<TreeSword>(),
 
-            //BossLockInformation.AddLockInformation(() => (bool)WorldSavingSystem.DownedBoss[0],)
+                //Ranged
+                ModContent.ItemType<MountedAcornGun>(),
+
+                //Mage
+                ModContent.ItemType<SnowballStaff>(),
+
+                //Summoner
+                ModContent.ItemType<KamikazeSquirrelStaff>(),
+
+                //Accessory
+                ModContent.ItemType<BoxofGizmos>(),
+                
+            ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedSlimeKing, $"NPCName.KingSlime",
             [   
@@ -66,7 +86,25 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<AgitatingLens>(),
             ]);
 
-            //TODO: Put Cursed Coffin here when the Downed Bool becomes unprotected.
+            //Cursed Coffin
+            BossLockInformation.AddLockInformation(() => WorldSavingSystem.DownedBoss[11], $"Mods.FargowiltasSouls.NPCs.CursedCoffin.DisplayName",
+            [
+                //Melee
+                ModContent.ItemType<SisypheanFist>(),
+
+                //Ranged
+                ModContent.ItemType<SpiritLongbow>(),
+
+                //Mage
+                ModContent.ItemType<GildedSceptre>(),
+
+                //Summoner
+                ModContent.ItemType<EgyptianFlail>(),
+
+                //Accessory
+                ModContent.ItemType<AccursedAnkh>(),
+
+            ]);
 
             BossLockInformation.AddLockInformation(() => DownedBrain && DownedEater, $"Mods.MidnightNohit.UI.Evils",
             [   
@@ -186,7 +224,26 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<CrystalAssassinEnchant>()
             ]);
 
-            //TODO: Put Banished Baron here when the Downed Bool becomes unprotected.
+            // Banished Baron
+            BossLockInformation.AddLockInformation(() => WorldSavingSystem.DownedBoss[12], $"Mods.FargowiltasSouls.NPCs.BanishedBaron.DisplayName",
+            [
+                //Melee
+                ModContent.ItemType<TheBaronsTusk>(),
+
+                //Ranged
+                ModContent.ItemType<NavalRustrifle>(),
+
+                //Mage
+                ModContent.ItemType<RoseTintedVisor>(),
+
+                //Summoner
+                ModContent.ItemType<DecrepitAirstrikeRemote>(),
+
+                //Accessory
+                ModContent.ItemType<RustedOxygenTank>(),
+                ModContent.ItemType<RustedOxygenTankInactive>(),
+
+            ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, $"Mods.MidnightNohit.UI.Tiering.AllMech",
             [   
@@ -239,8 +296,22 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ItemID.AvengerEmblem,
 
             ]);
-            
-            //TODO: Put Lifelight here when the Downed Bool becomes unprotected.
+
+            // Lifelight
+            BossLockInformation.AddLockInformation(() => WorldSavingSystem.DownedBoss[10], $"Mods.FargowiltasSouls.NPCs.LifeChallenger.DisplayName",
+            [
+                //Melee
+                ModContent.ItemType<EnchantedLifeblade>(),
+
+                //Ranged
+                ModContent.ItemType<Lightslinger>(),
+
+                //Mage
+                ModContent.ItemType<CrystallineCongregation>(),
+
+                //Summoner
+                ModContent.ItemType<KamikazePixieStaff>(),
+            ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedPlantBoss, $"NPCName.Plantera", 
             [
@@ -256,7 +327,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SpookyEnchant>(),
                 ModContent.ItemType<PumpkingsCape>(),
                 ModContent.ItemType<IceQueensCrown>(),
-                //ModContent.ItemType<LumpOfFlesh>(),
+                ModContent.ItemType<LumpOfFlesh>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedGolemBoss, $"NPCName.Golem", 

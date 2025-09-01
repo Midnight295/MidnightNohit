@@ -7,6 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using MidnightNohit.Core;
 using Terraria.DataStructures;
+using MidnightNohit.Config;
 
 namespace MidnightNohit.Content.UI.MiscUI
 {
@@ -17,25 +18,25 @@ namespace MidnightNohit.Content.UI.MiscUI
         {
             float scale = 1;
             Texture2D Icon;
-            if (Toggles.GodmodeEnabled)
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatGodUIIcon").Value;
-            else if (Toggles.InfiniteFlightTime)
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatWingsUIIcon").Value;
-            else if (Toggles.InfiniteMana)
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatManaUIIcon").Value;
-            else if (Toggles.InstantDeath)
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatDeathUIIcon").Value;
+            //if (NohitConfig.Instance.GodMode)
+            //    Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatGodUIIcon").Value;
+            if (NohitConfig.Instance.InstantKill)
+                Icon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIconInstantDeath").Value;
             else
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/CheatRenderer").Value;
+                Icon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIcon").Value;
             // The Textures of the icon, and when you hover over it.
-            Texture2D HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/CheatRendererGlow").Value;
+            Texture2D HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIconGlow").Value;
+            if (NohitConfig.Instance.InstantKill)
+            {
+                HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIconInstantDeathGlow").Value;
+            }
 
             // These set the center of the icon, and the "hitbox" around it. Play around with the Vector floats to change position.
             // This does not scale properly
             // Vector2 IconCenter = new Vector2((float)Main.screen
             // Width - /*Main.UIScale*/ 285f, /*Main.UIScale*/ (float)Main.screenHeight - 5f) + Utils.Size(Icon) * 0.5f;
             // This stays in the same place, do it like this :)
-            Vector2 IconCenter = new Vector2(Main.screenWidth - (Main.GameModeInfo.IsJourneyMode ? 1530 : 1577), 265f) + Icon.Size() * 0.5f;
+            Vector2 IconCenter = new Vector2(Main.screenWidth * Main.UIScale - (Main.GameModeInfo.IsJourneyMode ? 1850 : 1897), 265f) + Icon.Size() * 0.5f;
             // Rectangle area of the icon to check for hovering.
             Rectangle iconRectangeArea = Utils.CenteredRectangle(IconCenter, Icon.Size());
 
@@ -47,7 +48,7 @@ namespace MidnightNohit.Content.UI.MiscUI
             if (isHovering)
             {
                 scale = 1.15f;
-                spriteBatch.Draw(HoverIcon, IconCenter, null, Color.White, 0f, Icon.Size() * 0.5f, 1f * scale, 0, 0f);
+                spriteBatch.Draw(HoverIcon, IconCenter, null, Color.Yellow, 0f, Icon.Size() * 0.5f, 1f * scale, 0, 0f);
                 string State;
                 State = TogglesUIManager.UIOpen ? "CloseUI" : "OpenUI";
 
@@ -58,7 +59,7 @@ namespace MidnightNohit.Content.UI.MiscUI
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InfiniteFlight");
                 else if (Toggles.InfiniteMana)
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InfiniteMana");
-                else if (Toggles.InstantDeath)
+                else if (NohitConfig.Instance.InstantKill)
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InstantDeath");
                 else
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.None");

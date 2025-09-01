@@ -17,7 +17,7 @@ namespace MidnightNohit.Content.UI.SingleElements
 
         public static void Initialize()
         {
-            SingleActionElement setSpawnElement = new("SetSpawn", ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/setSpawnUIIcon", AssetRequestMode.ImmediateLoad).Value,
+            SingleActionElement setSpawnElement = new("SetSpawn", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/SpawnPoint", AssetRequestMode.ImmediateLoad).Value,
                 "Mods.MidnightNohit.UI.UIButtons.SetSpawn", () =>
                 {
                     Main.spawnTileX = (int)(Main.LocalPlayer.position.X - 8f + Main.LocalPlayer.width / 2) / 16;
@@ -26,7 +26,7 @@ namespace MidnightNohit.Content.UI.SingleElements
                 }, 1f);
             setSpawnElement.TryRegister();
 
-            SingleActionElement potionElement = new("PotionUI", ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/potionUIIcon", AssetRequestMode.ImmediateLoad).Value,
+            /*SingleActionElement potionElement = new("PotionUI", ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/potionUIIcon", AssetRequestMode.ImmediateLoad).Value,
                 "Mods.MidnightNohit.UI.UIButtons.PotionsUI", () =>
                 {
                     TogglesUIManager.CloseUI();
@@ -35,9 +35,9 @@ namespace MidnightNohit.Content.UI.SingleElements
                     Main.playerInventory = false;
                     NohitPlayer.PotionUICooldownTimer = NohitPlayer.UICooldownTimerLength;
                 }, 2f);
-            potionElement.TryRegister();
+            potionElement.TryRegister();*/
 
-            SingleActionElement bossElement = new("BossUI", ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/bossDeathsUIIcon", AssetRequestMode.ImmediateLoad).Value,
+            SingleActionElement bossElement = new("BossUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/BossUI", AssetRequestMode.ImmediateLoad).Value,
                 "Mods.MidnightNohit.UI.UIButtons.BossUI", () =>
                 {
 

@@ -9,6 +9,8 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using MidnightNohit.Core;
+using Terraria.GameContent;
+using Terraria.Localization;
 
 namespace MidnightNohit.Content.UI.Pages
 {
@@ -21,13 +23,14 @@ namespace MidnightNohit.Content.UI.Pages
             private set;
         } = new();
 
-        public Texture2D UIBackgroundTexture => UseSmallerBackground ? UIBackgroundTextureSmall : UIBackgroundTextureLarge;
+        public Texture2D UIBackgroundTexture => TogglesUITexture;
         public static Texture2D UIBackgroundTextureLarge => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/baseSettingsUIBackground", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D UIBackgroundTextureSmall => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/baseSettingsUIBackgroundSmall", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D HoverBackgroundTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/whiteTangle", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D HoverBackgroundSmallTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/SmallerWhiteRect", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D ArrowTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Arrow").Value;
         public static Texture2D ArrowGlowTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/ArrowGlow").Value;
+        public static Texture2D TogglesUITexture => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/TogglesUI/TogglesUIBackground", AssetRequestMode.ImmediateLoad).Value;
 
         public static TogglesPage GetPageFromString(string managerName)
         {
@@ -44,6 +47,8 @@ namespace MidnightNohit.Content.UI.Pages
 
         #region Fields/Properties
         public int CurrentPage = 1;
+
+        public int CurrentTab = 1;
 
         public int MaxPages
         {
@@ -142,11 +147,17 @@ namespace MidnightNohit.Content.UI.Pages
         public void Draw(SpriteBatch spriteBatch)
         {
             // Draw the UI background.
-            Vector2 bgDrawPosition = NohitUtils.ScreenCenter + BaseDrawPositionOffset;
-            spriteBatch.Draw(UIBackgroundTexture, bgDrawPosition, null, Color.White, 0f, UIBackgroundTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+            Vector2 drawCenter;
+            drawCenter.X = Main.screenWidth / 2;
+            drawCenter.Y = Main.screenHeight / 2;
+            // This spawn pos is very important. As it is affected by Main.screenWidth/Height, it will scale properly. Every single thing you draw needs to use
+            // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
+            Vector2 spawnPos = drawCenter * Main.UIScale - new Vector2(750, 75);
+            spriteBatch.Draw(UIBackgroundTexture, spawnPos, null, Color.White, 0f, UIBackgroundTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+            Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, Language.GetTextValue("Mods.MidnightNohit.UI.UIButtons.TogglesUI"), spawnPos.X - 33, spawnPos.Y - 193, Color.White, Color.Black, Vector2.Zero, 1);
 
             // Block the mouse if the background is behing hovered over.
-            Rectangle hoverArea = Utils.CenteredRectangle(bgDrawPosition, UIBackgroundTexture.Size());
+            Rectangle hoverArea = Utils.CenteredRectangle(spawnPos, UIBackgroundTexture.Size());
             if (hoverArea.Intersects(NohitUtils.MouseRectangle))
                 Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
 
@@ -171,7 +182,7 @@ namespace MidnightNohit.Content.UI.Pages
             // Sort the elements by layer.
             UIElements = UIElements.OrderBy(x => x.Layer).ToList();
 
-            Vector2 elementDrawPosition = bgDrawPosition - Vector2.UnitY * baseDrawOffset;
+            Vector2 elementDrawPosition = spawnPos - Vector2.UnitY * baseDrawOffset;
 
             for (int i = minElement; i < maxElement; i++)
             {
@@ -189,7 +200,7 @@ namespace MidnightNohit.Content.UI.Pages
             {
                 for (int i = -1; i <= 1; i += 2)
                 {
-                    Vector2 arrowDrawPosition = bgDrawPosition - new Vector2(UIBackgroundTexture.Width * 0.345f * i, UIBackgroundTexture.Height * (UseSmallerBackground ? 0.345f : 0.392f));
+                    Vector2 arrowDrawPosition = spawnPos - new Vector2(UIBackgroundTexture.Width * 0.345f * i, UIBackgroundTexture.Height * (UseSmallerBackground ? 0.345f : 0.392f));
 
                     Rectangle whiteHitbox = Utils.CenteredRectangle(arrowDrawPosition, HoverBackgroundSmallTexture.Size());
                     if (whiteHitbox.Intersects(NohitUtils.MouseRectangle))

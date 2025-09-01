@@ -113,9 +113,7 @@ namespace MidnightNohit.Content.UI
 
         public static readonly Texture2D BloomTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Bloom", AssetRequestMode.ImmediateLoad).Value;
 
-        public static readonly Texture2D Button = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/button", AssetRequestMode.ImmediateLoad).Value;
-        public static readonly Texture2D ButtonGlow = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/buttonglow", AssetRequestMode.ImmediateLoad).Value;
-        public static readonly Texture2D ButtonGlowAlt = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIButton/buttonglowalt", AssetRequestMode.ImmediateLoad).Value;
+        public static readonly Texture2D Button = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/Button", AssetRequestMode.ImmediateLoad).Value;
         #endregion
 
         #region Methods
@@ -156,6 +154,9 @@ namespace MidnightNohit.Content.UI
                 return;
 
             if (Main.CreativeMenu.Enabled)
+                CloseUI();
+
+            if (!Main.playerInventory)
                 CloseUI();
 
             if (State is MenuState.Open or MenuState.Opening)
@@ -209,16 +210,14 @@ namespace MidnightNohit.Content.UI
         private static void DrawElements(SpriteBatch spriteBatch)
         {
             int elementCount = ToggleWheelElements.Count;
-            float distance = 75f;
+            float distance = 55f;
             float opacity = 1f;
-
-            ///Main.showframerate
 
             for (int i = 0; i < elementCount; i++)
             {
                 IToggleWheelElement currentElement = ToggleWheelElements[i];
 
-                float scale = 1f;
+                float scale = 1;
                 float angle = i * elementCount;
 
                 if (UIOpenClosing)
@@ -230,7 +229,7 @@ namespace MidnightNohit.Content.UI
                     scale *= progress;
                 }
 
-                Vector2 drawPosition = new Vector2(Main.screenWidth - 1557, ((i + elementCount) * distance) - 105);
+                Vector2 drawPosition = new Vector2(Main.screenWidth * Main.UIScale - 1878, ((i + elementCount) * distance) + 165);
 
                 // Draw the bloom texture.
                 spriteBatch.Draw(BloomTexture, drawPosition, null, new Color(59, 50, 77, 0) * 0.9f * opacity, 0f, BloomTexture.Size() * 0.5f, scale * 0.4f, SpriteEffects.None, 0f);
@@ -241,16 +240,12 @@ namespace MidnightNohit.Content.UI
 
                 // Draw the outer outline.
                 if (isHovering)
-                { 
-                        
+                {
                     Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
                     scale *= 1.1f;
                     string LocalizedDescription = Language.GetTextValue(currentElement.Description);
                     spriteBatch.Draw(OutlineTexture, drawPosition, null, Color.White * opacity, 0f, OutlineTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
-
-                    Vector2 size = FontAssets.MouseText.Value.MeasureString(LocalizedDescription);
-                    Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, LocalizedDescription, ScreenCenter.X - size.X / 2, ScreenCenter.Y + 30f,
-                        Color.White, Color.Black, default);
+                    Main.hoverItemName = LocalizedDescription;
 
                     // Handle clicking on the icon.
                     if (NohitUtils.CanAndHasClickedUIElement)
@@ -273,26 +268,7 @@ namespace MidnightNohit.Content.UI
                     
                 // Draw the actual texture.
                 spriteBatch.Draw(Button, drawPosition, null, Color.White * opacity, 0f, Button.Size() * 0.5f, scale, SpriteEffects.None, 0f);
-                spriteBatch.Draw(ButtonGlow, drawPosition, null, NohitConfig.Instance.UIColor * opacity, 0f, ButtonGlow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 spriteBatch.Draw(currentElement.IconTexture, drawPosition, null, Color.White * opacity, 0f, currentElement.IconTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
-  
-
-
-
-                /* Handle the animation.
-                if (isHovering)
-                {
-                    AnimationTimer++;
-
-                    if (AnimationTimer > AnimationRate)
-                    {
-                        AnimationTimer = 0;
-                        CurrentFrame = (CurrentFrame + 1) % FrameCount;
-                    }
-
-                    Rectangle animationFrame = new(0, (CurrentFrame - 1) * 48, 48, 48);
-                    spriteBatch.Draw(AnimationTexture, drawPosition, animationFrame, Color.White * opacity, 0f, animationFrame.Size() * 0.5f, scale, SpriteEffects.None, 0f);
-                }*/
             }
         }
 

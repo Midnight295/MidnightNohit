@@ -15,7 +15,7 @@ namespace MidnightNohit.Content.UI.Pages
         {
             List<PageUIElement> uIElements = new()
             {
-                new PageUIElement(ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Godmode", AssetRequestMode.ImmediateLoad).Value,
+                /*new PageUIElement(ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Godmode", AssetRequestMode.ImmediateLoad).Value,
                 ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/GodmodeGlow", AssetRequestMode.ImmediateLoad).Value,
                 () => Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.PowersUI.Godmode.Name"),
                 () => Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.PowersUI.Godmode.Description"),

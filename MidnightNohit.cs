@@ -23,11 +23,11 @@ namespace MidnightNohit
             //UIManagerAutoloader.InitializeLocks();
 
             UIManagerAutoloader.InitializeMisc();
-            UIManagerAutoloader.InitializePower();
-            UIManagerAutoloader.InitializeWorld();
+            //UIManagerAutoloader.InitializePower();
+            //UIManagerAutoloader.InitializeWorld();
             SingleElementAutoloader.Initialize();
             BossTogglesUIManager.InitializeBossElements();
-            PotionUIManager.InitializePotionElements();
+            //PotionUIManager.InitializePotionElements();
         }
 
         public override void PostSetupContent()
