@@ -2,22 +2,35 @@
 
 Ingame description:
 
-A mod designed for nohitters, built with compatability in mind.
+A mod designed for no-hitters, built with compatibility in mind.
 
-### FEATURES:
--A multitude of configs meant to help nohitters.
+## FEATURES:
+-A multitude of configs.
+
+-Custom UI found below the inventory that contains  with useful things for no-hitters.
 
 -A UI indicator that tells you how long a boss has been fought for.
 
+-Special chat message that tells you whether or not you were under a Minimum Kill Time.
+
+-Progression Tier feature that prevents you from using items you aren't supposed to yet.
+
 -An accurate port of the Odd Mushroom item from the Calamity Mod that allows you to use it in any mod.
 
-### COMPATABILITY:
-This mod features compatability with multiple mods, structured in a way that makes the mod require no dependencies
+## COMPATIBILITY:
+This mod features compatibility with multiple mods, structured in a way that makes the mod require no dependencies
 
 ### Calamity Mod:
 -Adds an item called the Primordial Artifact that lets you swiftly start the Boss Rush Event from any point.
 
+-Adds an item that allows you to instantly summon Draedon.
+
 -Config that prevents the Rage and Adrenaline Bars from ever incrementing.
+
+### Calamity: Wrath of the Gods:
+-Adds an item that instantly summons the Avatar of Emptiness.
 
 ### Fargo's Souls Mod:
 -Adds an item that prevents the Mutant boss from skipping to his second phase.
+
+### Want to suggest a feature or report a bug? Contact me at @midnight295 on discord.
