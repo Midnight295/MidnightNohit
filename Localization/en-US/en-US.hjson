@@ -100,6 +100,11 @@ Mods: {
 					Label: God Mode
 					Tooltip: ""
 				}
+
+				FPSCounter: {
+					Label: "[i:17] FPS Counter"
+					Tooltip: "Automatically enables the built in FPS Counter from Vanilla Terraria when enabled"
+				}
 			}
 
 			Defiled: {

@@ -1,5 +1,5 @@
 displayName = midnights Nohitting Mod
 author = midnight.
-version = 1.220
+version = 1.221
 weakReferences = CalamityMod, InfernumMode, FargowiltasSouls, NoxusBoss
 buildIgnore = CalamityMod.dll, FargowiltasSouls.dll, InfernumMode.dll, NoxusBoss.dll

@@ -18,7 +18,7 @@ namespace MidnightNohit.Core.ModPlayers
     {
         public override void PreUpdate()
         {
-            if (!Main.showFrameRate)
+            if (!Main.showFrameRate && NohitConfig.Instance.FPSCounter)
                 Main.showFrameRate = true;
 
 

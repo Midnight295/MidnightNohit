@@ -38,6 +38,9 @@ namespace MidnightNohit.Config
         [DefaultValue(true)]
         public bool MNLChatMessage;
 
+        [DefaultValue(false)]
+        public bool FPSCounter;
+
         [DefaultValue(true)]
         public bool InventoryStations;
 
