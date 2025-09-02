@@ -103,7 +103,7 @@ Mods: {
 
 				FPSCounter: {
 					Label: "[i:17] FPS Counter"
-					Tooltip: "Automatically enables the built in FPS Counter from Vanilla Terraria when enabled"
+					Tooltip: Automatically enables the built in FPS Counter from Vanilla Terraria when enabled
 				}
 			}
 
