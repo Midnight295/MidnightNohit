@@ -22,9 +22,8 @@ namespace MidnightNohit
             //LoadShaders();
             //UIManagerAutoloader.InitializeLocks();
 
-            UIManagerAutoloader.InitializeMisc();
-            //UIManagerAutoloader.InitializePower();
-            //UIManagerAutoloader.InitializeWorld();
+            UIManagerAutoloader.InitializeToggles();
+            //UIManagerAutoloader.InitializePermanentUpgrades();
             SingleElementAutoloader.Initialize();
             BossTogglesUIManager.InitializeBossElements();
             //PotionUIManager.InitializePotionElements();

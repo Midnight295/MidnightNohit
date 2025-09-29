@@ -40,7 +40,7 @@ UIButtons: {
 	SetSpawn: Set Spawn
 	WorldUI: World Toggles
 	TogglesUI: Toggles
-	PowersUI: Powers Toggles
+	UpgradesUI: Permanent Upgrades
 	LocksUI: Progression Locks
 	BossUI: Boss Toggles
 	PotionsUI: Toggle Potions

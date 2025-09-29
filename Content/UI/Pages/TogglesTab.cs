@@ -14,10 +14,10 @@ namespace MidnightNohit.Content.UI.Pages
 {
     public static partial class UIManagerAutoloader
     {
-        public const string MiscUIName = "MiscManager";
+        public const string ToggleUIName = "TogglesUI";
         public static string miscToggles = GameCulture.FromCultureName(GameCulture.CultureName.Chinese).IsActive? "杂项设置":"Misc Toggles";
 
-        public static void InitializeMisc()
+        public static void InitializeToggles()
         {
             List<PageUIElement> uIElements = new()
             {
@@ -25,7 +25,7 @@ namespace MidnightNohit.Content.UI.Pages
                 new IFrames(),
             };
 
-            TogglesPage uIManager = new(uIElements, MiscUIName, "Mods.MidnightNohit.UI.UIButtons.TogglesUI" /*Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.MiscUI")*/, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/Toggles", AssetRequestMode.ImmediateLoad).Value, 5f);
+            TogglesPage uIManager = new(uIElements, ToggleUIName, "Mods.MidnightNohit.UI.UIButtons.TogglesUI" /*Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.MiscUI")*/, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/ToggleUI", AssetRequestMode.ImmediateLoad).Value, 5f);
             uIManager.TryRegister();
         }   
     }

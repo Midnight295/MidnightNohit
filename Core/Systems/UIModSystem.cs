@@ -23,18 +23,5 @@ namespace MidnightNohit.Core.Systems
         }
 
         public override void OnWorldUnload() => ResetUIStuff();
-
-        public static ModKeybind OpenTogglesUI { get; private set; }
-
-        public static ModKeybind OpenPotionsUI { get; private set; }
-
-        
-
-
-        public override void Load()
-        {
-            OpenTogglesUI = KeybindLoader.RegisterKeybind(Mod, "Open Toggles UI", "L");
-            OpenPotionsUI = KeybindLoader.RegisterKeybind(Mod, "Open Potions UI", "P");
-        }
     }
 }

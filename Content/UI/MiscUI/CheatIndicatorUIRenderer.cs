@@ -15,20 +15,25 @@ namespace MidnightNohit.Content.UI.MiscUI
     {
 
         public static void Draw(SpriteBatch spriteBatch)
-        {
+        {   
+            if (Main.LocalPlayer.chest != -1)
+            {
+                return;
+            }
+
             float scale = 1;
             Texture2D Icon;
             //if (NohitConfig.Instance.GodMode)
             //    Icon = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/cheatGodUIIcon").Value;
             if (NohitConfig.Instance.InstantKill)
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIconInstantDeath").Value;
+                Icon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconInstantDeath").Value;
             else
-                Icon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIcon").Value;
+                Icon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIcon").Value;
             // The Textures of the icon, and when you hover over it.
-            Texture2D HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIconGlow").Value;
+            Texture2D HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconGlow").Value;
             if (NohitConfig.Instance.InstantKill)
             {
-                HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/HeartIconInstantDeathGlow").Value;
+                HoverIcon = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconInstantDeathGlow").Value;
             }
 
             // These set the center of the icon, and the "hitbox" around it. Play around with the Vector floats to change position.
@@ -55,10 +60,6 @@ namespace MidnightNohit.Content.UI.MiscUI
                 string IconHighlight;
                 if (Toggles.GodmodeEnabled)
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.Godmode");
-                else if (Toggles.InfiniteFlightTime)
-                    IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InfiniteFlight");
-                else if (Toggles.InfiniteMana)
-                    IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InfiniteMana");
                 else if (NohitConfig.Instance.InstantKill)
                     IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InstantDeath");
                 else

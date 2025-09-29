@@ -37,7 +37,8 @@ namespace MidnightNohit.Core.ModPlayers
             {
                 if (player.lifeRegen < 0)
                 {
-                    Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.NegativeRegen", Player.name)), 1000, 0, false);
+                    LocalizedText DeathText = Language.GetText($"Mods.MidnightNohit.DeathMessages.NegativeRegen");
+                    Player.KillMe(PlayerDeathReason.ByCustomReason(DeathText.ToNetworkText(Player.name)), 1000, 0, false);
                 }
             }
 
@@ -97,12 +98,13 @@ namespace MidnightNohit.Core.ModPlayers
         {
             if (NohitConfig.Instance.InstantKill)
             {
-                string messagetouse = "" + Main.rand.Next(1, 13);
+                string messagetouse = "" + Main.rand.Next(1, 15);
                 if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
                 {
                     messagetouse = "NoWingTime";
                 }
-                Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse, npc.FullName, Player.name)), 1000, 0, false);
+                LocalizedText DeathText = Language.GetText($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse);
+                Player.KillMe(PlayerDeathReason.ByCustomReason(DeathText.ToNetworkText(npc.FullName, Player.name)), 1000, 0, false);
             }
             
         }
@@ -111,13 +113,22 @@ namespace MidnightNohit.Core.ModPlayers
         {
             if (NohitConfig.Instance.InstantKill)
             {
-                string messagetouse = "" + Main.rand.Next(1, 13);
+                string messagetouse = "" + Main.rand.Next(1, 15);
                 if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
                 {
-                    messagetouse = "NoWingTime";
+                    messagetouse = "NoWingTime";               
                 }
-                Player.KillMe(PlayerDeathReason.ByCustomReason(Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse, proj.Name, Player.name)), 1000, 0, false);
+                LocalizedText DeathText = Language.GetText($"Mods.MidnightNohit.DeathMessages.InstantKill." + messagetouse);
+                Player.KillMe(PlayerDeathReason.ByCustomReason(DeathText.ToNetworkText(proj.Name, Player.name)), 1000, 0, false);
             };
+        }
+
+        public override void OnHurt(Player.HurtInfo info)
+        {   
+            if (NohitConfig.Instance.InstantKill)
+            {
+                Player.KillMe(PlayerDeathReason.LegacyEmpty(), 1000, 0, false);
+            }
         }
 
         public override void OnRespawn()
@@ -133,44 +144,6 @@ namespace MidnightNohit.Core.ModPlayers
         public const int UICooldownTimerLength = 10;
 
         internal static int GMHitCooldownTimer = 0;
-
-        public override void ProcessTriggers(TriggersSet triggersSet)
-        {
-            if (UIModSystem.OpenTogglesUI.JustPressed)
-            {
-                if (PotionUIManager.IsDrawing == true)
-                {
-                    TogglesUIManager.CloseUI(true);
-                    ToggleUICooldownTimer = UICooldownTimerLength;
-                    PotionUICooldownTimer = UICooldownTimerLength;
-                }
-                else if (ToggleUICooldownTimer == 0)
-                {
-                    if (TogglesUIManager.UIOpen)
-                        TogglesUIManager.CloseUI(true);
-                    else
-                        TogglesUIManager.OpenUI(true);
-                }
-
-            }
-
-            if (UIModSystem.OpenPotionsUI.JustPressed)
-            {
-                if (PotionUIManager.IsDrawing && PotionUICooldownTimer == 0)
-                {
-                    SoundEngine.PlaySound(SoundID.MenuClose, Main.LocalPlayer.Center);
-                    PotionUIManager.IsDrawing = false;
-                    PotionUICooldownTimer = UICooldownTimerLength;
-                }
-                else if (PotionUICooldownTimer == 0)
-                {
-                    SoundEngine.PlaySound(SoundID.MenuOpen, Main.LocalPlayer.Center);
-                    PotionUIManager.IsDrawing = true;
-                    PotionUICooldownTimer = UICooldownTimerLength;
-                }
-
-            }
-        }
 
     }
 }

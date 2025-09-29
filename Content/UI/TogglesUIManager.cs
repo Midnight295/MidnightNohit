@@ -107,13 +107,9 @@ namespace MidnightNohit.Content.UI
 
         public readonly static Color OffColor = new(255, 48, 43);
 
-        public static readonly Texture2D AnimationTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/animatedGlow", AssetRequestMode.ImmediateLoad).Value;
-
-        public static readonly Texture2D OutlineTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/UIIconOutline", AssetRequestMode.ImmediateLoad).Value;
-
         public static readonly Texture2D BloomTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Bloom", AssetRequestMode.ImmediateLoad).Value;
 
-        public static readonly Texture2D Button = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheatRenderer/Button", AssetRequestMode.ImmediateLoad).Value;
+        public static readonly Texture2D Button = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/Button", AssetRequestMode.ImmediateLoad).Value;
         #endregion
 
         #region Methods
@@ -244,7 +240,6 @@ namespace MidnightNohit.Content.UI
                     Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
                     scale *= 1.1f;
                     string LocalizedDescription = Language.GetTextValue(currentElement.Description);
-                    spriteBatch.Draw(OutlineTexture, drawPosition, null, Color.White * opacity, 0f, OutlineTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                     Main.hoverItemName = LocalizedDescription;
 
                     // Handle clicking on the icon.

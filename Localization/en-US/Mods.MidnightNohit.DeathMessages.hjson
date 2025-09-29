@@ -11,7 +11,7 @@ GodEater1: " felt divine wrath."
 GodEater2: " was annihilated."
 AvatarAntiMatter1: " is no longer."
 AvatarAntiMatter2: " isn't."
-AbomFang: " 's health was compelled to 0 by Abominationn"
+AbomFang: " felt their bones melt away."
 
 InstantKill: {
 	1: "{1} was shattered into a million pieces by {0}."
@@ -26,5 +26,7 @@ InstantKill: {
 	10: "{0} ascended beyond {1}'s control."
 	11: "{0} asked {1} to spell supercalifragilisticexpialidocious."
 	12: "{0} caught {1} trying to parry with the knuckleblaster."
+	13: "{1} was cleaved red by {0}"
+	14: "{1} beheld the power of {0}"
 	NoWingTime: "{1} was caught by {0} whilst they needed their wings most."
 }
