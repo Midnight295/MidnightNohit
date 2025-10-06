@@ -215,8 +215,7 @@ namespace MidnightNohit.Content.UI.BossUI
 
             // The method I use here to make things disapear when scrolling so they dont "break out" of their container is.. scuffed? honestly i dont know how else
             // you would do this, and it works very well. The way i wrote it is probably not that great, but its fully functional so uh, ye.
-            // The below sets up the two zones after drawing the boss icons, so that they draw over the icons, allowing the icons to stop drawing when fully under.
-            Texture2D deleteIconTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrolling", (AssetRequestMode)2).Value;
+            // The below sets up the two zones after drawing the boss icons, so that they draw over the icons, allowing the icons to stop drawing when fully under.         
             Vector2 deleteIconCenter = spawnPos + new Vector2(-500, -115);
             Vector2 deleteIconCenter2 = spawnPos + new Vector2(-500, 145);       
             
@@ -296,12 +295,10 @@ namespace MidnightNohit.Content.UI.BossUI
             #endregion
 
             #region Scrollbar
-            //Texture2D scrollbarBackgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/BossUIScrollBar", (AssetRequestMode)2).Value;
             Texture2D scrollbarTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/BossUI/BossListScrollKnob", (AssetRequestMode)2).Value;
             Vector2 scrollbarBackgroundOffset = new(83, 0);
             //spriteBatch.Draw(scrollbarBackgroundTexture, spawnPos + scrollbarBackgroundOffset, null, Color.White, 0, scrollbarBackgroundTexture.Size() * 0.5f, 1, 0, 0);
 
-            // I didnt want to pass this Rectangle through as a parameter so i re-get the background rectangle here. This is to allow for scrolling with the mouse wheel.
             Texture2D backgroundTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/BossUI/BossListBackground", (AssetRequestMode)2).Value;
             Rectangle backRect = Utils.CenteredRectangle(spawnPos, backgroundTexture.Size());
 
@@ -343,9 +340,6 @@ namespace MidnightNohit.Content.UI.BossUI
         public static void DrawBossIcons(SpriteBatch spriteBatch, Vector2 spawnPos, Vector2 killIfAbove, Vector2 killIfBelow, int ActiveFilter)
         {
             // Get all of the base textures.
-            Texture2D deleteIconTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrolling", (AssetRequestMode)2).Value;
-            Texture2D deleteIconTextureBottom = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrollingBottom", (AssetRequestMode)2).Value;
-            Texture2D deleteIconTextureGlow = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossUI/ThingForScrollingGlow", (AssetRequestMode)2).Value;
             Texture2D crossTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Cross", (AssetRequestMode)2).Value;
             Texture2D crossGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CrossGlow", (AssetRequestMode)2).Value;
             Texture2D tickTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Checkmark", (AssetRequestMode)2).Value;
@@ -406,15 +400,14 @@ namespace MidnightNohit.Content.UI.BossUI
 
                     // nono and nono2 are the rects of the kill zones. You dont want to be able to interact with the icons through it, so
                     // ensure you arent hovering over it. No, I do not know why I deemed this a fitting name.
-                    Rectangle nono = Utils.CenteredRectangle(killIfAbove, deleteIconTexture.Size());
-                    Rectangle nono2 = Utils.CenteredRectangle(killIfBelow, deleteIconTextureGlow.Size());
-                    Rectangle nono3 = Utils.CenteredRectangle(killIfBelow, deleteIconTextureBottom.Size());
-                    bool dontDraw = mouseHitbox.Intersects(nono) || mouseHitbox.Intersects(nono2) || mouseHitbox.Intersects(nono3);
+                    Rectangle nono = Utils.CenteredRectangle(killIfAbove, new Vector2(206, 74));
+
+                    bool dontDraw = mouseHitbox.Intersects(nono);
 
                     //Used to increase Boss Icon size when hovered.
                     float scalemult = 1;
 
-                    Texture2D whiteTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/BossIcons/bossWhiteRect", (AssetRequestMode)2).Value;
+                    Texture2D whiteTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/circleWhiteRect", (AssetRequestMode)2).Value;
                     Rectangle whiteRect = Utils.CenteredRectangle(drawPositionFinal, whiteTexture.Size());
 
                     if (mouseHitbox.Intersects(whiteRect))
