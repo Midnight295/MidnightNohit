@@ -45,7 +45,7 @@ namespace MidnightNohit.Core.Globals
             Texture2D locksprite = ModContent.Request<Texture2D>("MidnightNohit/Assets/MiscUI/ItemLock").Value;
             if (NohitConfig.Instance.ItemLocks)
                 if (ItemShouldBeMarked(item.type, out var lockInformation) || PotionShouldBeMarked(item.type, out var lockinformation))
-                    spriteBatch.Draw(locksprite, position + new Vector2(-12, -15), Color.White with { A = 225});
+                    spriteBatch.Draw(locksprite, position + new Vector2(-9, -13), Color.White with { A = 225});
             base.PostDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);
         }
     }
