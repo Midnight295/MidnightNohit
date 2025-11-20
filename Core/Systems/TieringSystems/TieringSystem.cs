@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 
 //Ported from Imogen QoL, with permission from it's creator.
@@ -424,6 +425,25 @@ namespace MidnightNohit.Core.Systems.TieringSystems
             }
         }
 
+        public static void ResetFlags()
+        {
+            DownedBrain = false;
+            DownedEater = false;
+        }
+
+        public override void OnWorldLoad() => ResetFlags();
+        public override void OnWorldUnload() => ResetFlags();
+
+        public override void SaveWorldData(TagCompound tag)
+        {
+            tag.Add("downedEater", DownedEater);
+            tag.Add("downedBrain", DownedBrain);
+        }
+        public override void LoadWorldData(TagCompound tag)
+        {
+            DownedEater = tag.ContainsKey("downedEater");
+            DownedBrain = tag.ContainsKey("downedBrain");
+        }
         public override void Unload()
         {
             ItemsTieringInformation = null;

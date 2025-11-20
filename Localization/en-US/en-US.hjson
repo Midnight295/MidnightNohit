@@ -116,9 +116,21 @@ Mods: {
 
 			Debuffs: {
 				Tooltip: Toggles whether or not to instantly kill you under certain debuffs, or under all debuffs
-				Off.Label: Off
-				Specific.Label: Specific
-				All.Label: All
+
+				Off: {
+					Label: Off
+					Tooltip: ""
+				}
+
+				Specific: {
+					Label: Specific
+					Tooltip: ""
+				}
+
+				All: {
+					Label: All
+					Tooltip: ""
+				}
 			}
 		}
 
