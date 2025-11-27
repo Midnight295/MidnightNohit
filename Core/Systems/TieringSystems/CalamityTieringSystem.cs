@@ -1263,7 +1263,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Seraphim>(),
                 ModContent.ItemType<Wrathwing>(),
                 ModContent.ItemType<TheFinalDawn>(),
-                ModContent.ItemType<SearedPan>(),
                 ModContent.ItemType<DynamicPursuer>(),
             ]);
 
