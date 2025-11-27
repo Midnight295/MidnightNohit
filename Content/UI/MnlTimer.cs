@@ -27,7 +27,7 @@ namespace MidnightNohit.Content.UI
         public static string text;
         public static void Draw(Player player)
         {
-            if (Main.gameMenu || !NohitConfig.Instance.MNLTimer || !NohitUtils.IsAnyBossesAlive())
+            if (Main.gameMenu || !NohitConfig.Instance.MNLTimer || !Main.CurrentFrameFlags.AnyActiveBossNPC)
                 return;
 
             //Main.NewText("I AM GETTING DRAWN");

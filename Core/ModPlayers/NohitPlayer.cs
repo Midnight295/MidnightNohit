@@ -42,7 +42,7 @@ namespace MidnightNohit.Core.ModPlayers
                 }
             }
 
-            if (NohitUtils.IsAnyBossesAlive())
+            if (Main.CurrentFrameFlags.AnyActiveBossNPC)
             {
                 NohitUtils.MNLTimer();
             }

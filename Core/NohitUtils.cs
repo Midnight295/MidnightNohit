@@ -16,10 +16,7 @@ namespace MidnightNohit.Core
         public static int MainTimer;
         public static int Seconds;
         public static int Minutes;
-        public static string DeadSpace;
-        // Ported from Imogen QoL, with permission from it's creator.
-        public static Vector2 ScreenCenter => new(Main.screenWidth * 0.5f, Main.screenHeight * 0.5f);
-
+        public static string DeadSpace;      
         public static Rectangle MouseRectangle => new(Main.mouseX, Main.mouseY, 2, 2);
 
         public static bool CanAndHasClickedUIElement => (Main.mouseLeft && Main.mouseLeftRelease || Main.mouseRight && Main.mouseRightRelease) && TogglesUIManager.ClickCooldownTimer == 0;
@@ -27,7 +24,6 @@ namespace MidnightNohit.Core
         public static float EaseInOutSine(float value) => -(MathF.Cos(MathF.PI * value) - 1) / 2;
 
         public static float EaseInCirc(float value) => 1 - MathF.Sqrt(1 - MathF.Pow(value, 2));
-        //
         public static void SwitchItem(this Player player, Item itemToReplace, int itemIDtoReplaceWith)
         {
             bool foundSlot = false;
@@ -49,21 +45,10 @@ namespace MidnightNohit.Core
                 Item.NewItem(player.GetSource_ItemUse(itemToReplace), player.Center, itemIDtoReplaceWith, prefixGiven: itemToReplace.prefix);
             }
         }
-        public static bool IsAnyBossesAlive()
-        {
-            for (int i = 0; i < Main.maxNPCs; i++)
-            {
-                if (Main.npc[i].active && (Main.npc[i].boss || Main.npc[i].type == NPCID.EaterofWorldsHead || Main.npc[i].type == NPCID.EaterofWorldsBody || Main.npc[i].type == NPCID.EaterofWorldsTail))
-                {
-                    return true;
-                }
-            }
-            return false;           
-        }
 
         public static void MNLTimer()
         {
-            if (!IsAnyBossesAlive())
+            if (!Main.CurrentFrameFlags.AnyActiveBossNPC)
             {
                 MainTimer = 0;
                 --MainTimer;
@@ -89,15 +74,6 @@ namespace MidnightNohit.Core
                 Minutes += 1;
             }
 
-        }
-
-        //Ported from Imogen QoL, with permission from it's creator.
-        public static void DisplayText(string text, Color? color = null)
-        {
-            if (Main.netMode == NetmodeID.SinglePlayer)
-                Main.NewText(text, color ?? Color.White);
-            else if (Main.netMode == NetmodeID.Server)
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(text), color ?? Color.White);
         }
     }
 }
