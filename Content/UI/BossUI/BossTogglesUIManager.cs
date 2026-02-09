@@ -16,6 +16,7 @@ using MidnightNohit.Core;
 using Terraria.GameContent;
 using FargowiltasSouls.Core.Systems;
 using MidnightNohit.Config;
+using MidnightNohit.Content.UI.MiscUI;
 
 namespace MidnightNohit.Content.UI.BossUI
 {
@@ -132,7 +133,7 @@ namespace MidnightNohit.Content.UI.BossUI
             drawCenter.Y = Main.screenHeight / 2;
             // This spawn pos is very important. As it is affected by Main.screenWidth/Height, it will scale properly. Every single thing you draw needs to use
             // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
-            Vector2 spawnPos = drawCenter * Main.UIScale - new Vector2(750, 100);
+            Vector2 spawnPos = drawCenter * Main.UIScale - new Vector2(NohitUIButton.HorizontalOffset - 1000, -0);
 
             DrawFilters(spriteBatch, spawnPos);
             
@@ -204,7 +205,6 @@ namespace MidnightNohit.Content.UI.BossUI
             Texture2D crossGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CrossGlow", (AssetRequestMode)2).Value;
             Texture2D tickTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Checkmark", (AssetRequestMode)2).Value;
             Texture2D tickGlowTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/CheckmarkGlow", (AssetRequestMode)2).Value;
-            Texture2D whiteGlowSmall = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/SmallerWhiteRect", (AssetRequestMode)2).Value;
             // Get the mouse hitbox
             Rectangle mouseHitbox = new(Main.mouseX, Main.mouseY, 2, 2);
 
@@ -229,7 +229,7 @@ namespace MidnightNohit.Content.UI.BossUI
             Utils.DrawBorderString(spriteBatch, Language.GetTextValue("Mods.MidnightNohit.UI.Toggles.BossUI.Name"), spawnPos - new Vector2(103, 165), Color.White, 1);
 
 
-            // Mark all as alive button stuff.
+            /*// Mark all as alive button stuff.
             Vector2 tickPos = new(-95f, -155f);
             Rectangle tickHoverRect = Utils.CenteredRectangle(spawnPos + tickPos, whiteGlowSmall.Size());
             if (mouseHitbox.Intersects(tickHoverRect))
@@ -248,10 +248,10 @@ namespace MidnightNohit.Content.UI.BossUI
                         SoundEngine.PlaySound(SoundID.MenuTick, Main.LocalPlayer.Center);
                     }
                 }
-            }
+            }*/
             //spriteBatch.Draw(tickTexture, spawnPos + tickPos, null, Color.White, 0, tickTexture.Size() * 0.5f, 1.4f, 0, 0);
 
-            // Mark all as dead button.
+            /* Mark all as dead button.
             Vector2 crossPos = new(25f, -154f);
             Rectangle crossHoverRect = Utils.CenteredRectangle(spawnPos + crossPos, whiteGlowSmall.Size());
             if (mouseHitbox.Intersects(crossHoverRect))
@@ -269,7 +269,7 @@ namespace MidnightNohit.Content.UI.BossUI
                         SoundEngine.PlaySound(SoundID.MenuTick, Main.LocalPlayer.Center);
                     }
                 }
-            }
+            }*/
             //spriteBatch.Draw(crossTexture, spawnPos + crossPos, null, Color.White, 0, crossTexture.Size() * 0.5f, 1.4f, 0, 0);
             #endregion
 

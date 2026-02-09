@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MidnightNohit.Content.UI;
 using MidnightNohit.Content.UI.MiscUI;
-using MidnightNohit.Content.UI.PotionUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,13 +32,11 @@ namespace MidnightNohit.Core.Systems
                 
                 if (!Main.inFancyUI && Main.playerInventory)
                 {
-                    CheatIndicatorUIRenderer.Draw(Main.spriteBatch);
-                    //SummonSlotUIIcon.Draw(Main.spriteBatch);
+                    NohitUIButton.Draw(Main.spriteBatch);
                 }
                 if (!Main.inFancyUI)
                 {
                     TogglesUIManager.Draw(Main.spriteBatch);
-                    PotionUIManager.Draw(Main.spriteBatch);
                 }
                 return true;
             }, InterfaceScaleType.UI));

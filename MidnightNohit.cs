@@ -1,6 +1,7 @@
 using MidnightNohit.Content.UI.BossUI;
+using MidnightNohit.Content.UI.MiscUI;
 using MidnightNohit.Content.UI.Pages;
-using MidnightNohit.Content.UI.PotionUI;
+
 using MidnightNohit.Content.UI.SingleElements;
 using MidnightNohit.Core;
 using System;
@@ -19,14 +20,13 @@ namespace MidnightNohit
         public override void Load()
         {
             Instance = this;
-            //LoadShaders();
             //UIManagerAutoloader.InitializeLocks();
+            NohitUIButton.Load();
 
             UIManagerAutoloader.InitializeToggles();
             //UIManagerAutoloader.InitializePermanentUpgrades();
             SingleElementAutoloader.Initialize();
             BossTogglesUIManager.InitializeBossElements();
-            //PotionUIManager.InitializePotionElements();
         }
 
         public override void PostSetupContent()

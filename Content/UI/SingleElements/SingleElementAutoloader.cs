@@ -7,7 +7,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using MidnightNohit.Content.UI.BossUI;
-using MidnightNohit.Content.UI.PotionUI;
 using MidnightNohit.Core.ModPlayers;
 
 namespace MidnightNohit.Content.UI.SingleElements
@@ -22,7 +21,6 @@ namespace MidnightNohit.Content.UI.SingleElements
                 {
                     Main.spawnTileX = (int)(Main.LocalPlayer.position.X - 8f + Main.LocalPlayer.width / 2) / 16;
                     Main.spawnTileY = (int)(Main.LocalPlayer.position.Y + Main.LocalPlayer.height) / 16;
-                    TogglesUIManager.QueueMessage("Spawn Set", Color.White);
                 }, 1f);
             setSpawnElement.TryRegister();
 

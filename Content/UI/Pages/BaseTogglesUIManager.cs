@@ -1,16 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MidnightNohit.Content.UI.MiscUI;
+using MidnightNohit.Core;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using MidnightNohit.Core;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace MidnightNohit.Content.UI.Pages
 {
@@ -24,20 +25,11 @@ namespace MidnightNohit.Content.UI.Pages
         } = new();
 
         public Texture2D UIBackgroundTexture => TogglesUITexture;
-        public static Texture2D UIBackgroundTextureLarge => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/baseSettingsUIBackground", AssetRequestMode.ImmediateLoad).Value;
-        public static Texture2D UIBackgroundTextureSmall => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/baseSettingsUIBackgroundSmall", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D HoverBackgroundTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/whiteTangle", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D HoverBackgroundSmallTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/SmallerWhiteRect", AssetRequestMode.ImmediateLoad).Value;
         public static Texture2D ArrowTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Arrow").Value;
         public static Texture2D ArrowGlowTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/ArrowGlow").Value;
         public static Texture2D TogglesUITexture => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/TogglesUI/TogglesUIBackground", AssetRequestMode.ImmediateLoad).Value;
-
-        public static TogglesPage GetPageFromString(string managerName)
-        {
-            if (UIManagers.TryGetValue(managerName, out var value))
-                return value;
-            return null;
-        }
 
         public const int MaxElementsPerPage = 5;
 
@@ -152,7 +144,7 @@ namespace MidnightNohit.Content.UI.Pages
             drawCenter.Y = Main.screenHeight / 2;
             // This spawn pos is very important. As it is affected by Main.screenWidth/Height, it will scale properly. Every single thing you draw needs to use
             // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
-            Vector2 spawnPos = drawCenter * Main.UIScale - new Vector2(750, 75);
+            Vector2 spawnPos = drawCenter * Main.UIScale - new Vector2(NohitUIButton.HorizontalOffset - 1000, -15);
             spriteBatch.Draw(UIBackgroundTexture, spawnPos, null, Color.White, 0f, UIBackgroundTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
             Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, Language.GetTextValue("Mods.MidnightNohit.UI.UIButtons.TogglesUI"), spawnPos.X - 33, spawnPos.Y - 193, Color.White, Color.Black, Vector2.Zero, 1);
 

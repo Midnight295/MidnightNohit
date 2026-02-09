@@ -15,6 +15,7 @@ using MidnightNohit.Core;
 using MidnightNohit.Content.UI.Pages;
 using MidnightNohit.Config;
 using Terraria.Graphics.Renderers;
+using MidnightNohit.Content.UI.MiscUI;
 
 namespace MidnightNohit.Content.UI
 {
@@ -30,20 +31,6 @@ namespace MidnightNohit.Content.UI
         }
 
         public static bool ShouldPlayHoverSound = false;
-
-        public class QueuedMessage
-        {
-            public string Text;
-            public Color Color;
-            public int Timer;
-
-            public QueuedMessage(string text, Color color)
-            {
-                Text = text;
-                Color = color;
-                Timer = 0;
-            }
-        }
         #endregion
 
         #region Properties
@@ -79,37 +66,21 @@ namespace MidnightNohit.Content.UI
         #endregion
 
         #region Fields
-        private static readonly Queue<QueuedMessage> QueuedMessages = new();
-
-        private static QueuedMessage CurrentMessage = null;
 
         private static int OpeningTimer;
 
-        private static int HoverTimer;
-
-        private static int AnimationTimer;
-
-        private static int CurrentFrame = 1;
         #endregion
 
         #region Consts/Readonlys
-        public const int AnimationRate = 6;
-
-        public const int FrameCount = 12;
-
-        public const int MessageLength = 120;
 
         public const int OpenLength = 20;
 
         public const int ClickCooldownLength = 10;
 
-        public readonly static Color OnColor = new(98, 255, 71);
-
-        public readonly static Color OffColor = new(255, 48, 43);
-
         public static readonly Texture2D BloomTexture = ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Bloom", AssetRequestMode.ImmediateLoad).Value;
 
         public static readonly Texture2D Button = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/Button", AssetRequestMode.ImmediateLoad).Value;
+        public static readonly Texture2D ButtonGlow = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/ButtonGlow", AssetRequestMode.ImmediateLoad).Value;
         #endregion
 
         #region Methods
@@ -161,17 +132,6 @@ namespace MidnightNohit.Content.UI
             }
 
             UpdateOpenClosing();
-
-            if (CurrentMessage is not null)
-            {
-                CurrentMessage.Timer++;
-
-                if (CurrentMessage.Timer >= MessageLength)
-                    CurrentMessage = null;
-            }
-
-            if (CurrentMessage is null && QueuedMessages.Any())
-                CurrentMessage = QueuedMessages.Dequeue();
         }
 
         private static void UpdateOpenClosing()
@@ -196,11 +156,8 @@ namespace MidnightNohit.Content.UI
             if (State is not MenuState.Closed)
             {
                 DrawElements(spriteBatch);
-                DrawMessage(spriteBatch);
                 ActiveElement?.Draw(spriteBatch);
             }
-            else if (PotionUI.PotionUIManager.IsDrawing)
-                ActiveElement?.Draw(spriteBatch);
         }
 
         private static void DrawElements(SpriteBatch spriteBatch)
@@ -208,6 +165,8 @@ namespace MidnightNohit.Content.UI
             int elementCount = ToggleWheelElements.Count;
             float distance = 55f;
             float opacity = 1f;
+
+            Main.NewText("hi");
 
             for (int i = 0; i < elementCount; i++)
             {
@@ -225,7 +184,7 @@ namespace MidnightNohit.Content.UI
                     scale *= progress;
                 }
 
-                Vector2 drawPosition = new Vector2(Main.screenWidth * Main.UIScale - 1878, ((i + elementCount) * distance) + 165);
+                Vector2 drawPosition = new Vector2(Main.screenWidth * Main.UIScale - (NohitUIButton.HorizontalOffset - 19), ((i + elementCount) * distance) + 165);
 
                 // Draw the bloom texture.
                 spriteBatch.Draw(BloomTexture, drawPosition, null, new Color(59, 50, 77, 0) * 0.9f * opacity, 0f, BloomTexture.Size() * 0.5f, scale * 0.4f, SpriteEffects.None, 0f);
@@ -238,7 +197,6 @@ namespace MidnightNohit.Content.UI
                 if (isHovering)
                 {
                     Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
-                    scale *= 1.1f;
                     string LocalizedDescription = Language.GetTextValue(currentElement.Description);
                     Main.hoverItemName = LocalizedDescription;
 
@@ -256,33 +214,13 @@ namespace MidnightNohit.Content.UI
                         currentElement.OnClick?.Invoke();
                     }
                 }
-                else
-                {
-                    HoverTimer--;
-                }
                     
-                // Draw the actual texture.
                 spriteBatch.Draw(Button, drawPosition, null, Color.White * opacity, 0f, Button.Size() * 0.5f, scale, SpriteEffects.None, 0f);
                 spriteBatch.Draw(currentElement.IconTexture, drawPosition, null, Color.White * opacity, 0f, currentElement.IconTexture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+                if (isHovering)
+                    spriteBatch.Draw(ButtonGlow, drawPosition, null, Color.White * opacity, 0f, Button.Size() * 0.5f, scale, SpriteEffects.None, 0f);
             }
         }
-
-        private static void DrawMessage(SpriteBatch spriteBatch)
-        {
-            if (CurrentMessage is not null)
-            {
-                Vector2 size = FontAssets.MouseText.Value.MeasureString(CurrentMessage.Text);
-                Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, CurrentMessage.Text, ScreenCenter.X - size.X / 2, ScreenCenter.Y - 45f,
-                    CurrentMessage.Color, Color.Black, default);
-            }
-        }
-
-        /// <summary>
-        /// Queue a message to be displayed on the UI.
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="color"></param>
-        public static void QueueMessage(string text, Color color) => QueuedMessages.Enqueue(new QueuedMessage(text, color));
         #endregion
     }
 }

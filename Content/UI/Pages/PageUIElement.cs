@@ -43,10 +43,7 @@ namespace MidnightNohit.Content.UI.Pages
 
         public string HoverTextFormatted => $"[{ColorTag}{Description}]";
 
-        public virtual void OnClick()
-        {
-
-        }
+        public virtual void OnClick() { }
 
         public virtual bool Toggle => false;
 

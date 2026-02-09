@@ -4,7 +4,6 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using MidnightNohit.Content.UI.PotionUI;
 
 namespace MidnightNohit.Core.Systems
 {
