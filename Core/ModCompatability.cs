@@ -11,10 +11,7 @@ namespace MidnightNohit.Core
     {
         public static class Calamity
         {
-            // Please use this to avoid typo bugs
             public const string Name = "CalamityMod";
-
-            // TODO: cache, lazy property
             public static bool Loaded => ModLoader.HasMod(Name);
 
             public static Mod Mod => ModLoader.GetMod(Name);

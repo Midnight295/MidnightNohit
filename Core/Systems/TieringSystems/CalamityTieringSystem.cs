@@ -69,14 +69,12 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SaharaSlicers>(),
                 ModContent.ItemType<Riptide>(),
                 ModContent.ItemType<AmidiasTrident>(),
-                ModContent.ItemType<RedtideSpear>(),
                 ModContent.ItemType<UrchinMace>(),
-                ModContent.ItemType<UrchinFlail>(),
+                ModContent.ItemType<UrchinMace>(),
                 ModContent.ItemType<MonstrousKnives>(),
                 //Ranged Weapons
                 ModContent.ItemType<Barinade>(),
                 ModContent.ItemType<Shellshooter>(),
-                ModContent.ItemType<CoralCannon>(),
                 ModContent.ItemType<FirestormCannon>(),
                 ModContent.ItemType<ReedBlowgun>(),
                 ModContent.ItemType<StormSurge>(),
@@ -168,7 +166,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ItemID.BundleofBalloons,
                 //Weapons
                 ModContent.ItemType<BrokenBiomeBlade>(),
-                ModContent.ItemType<GaussDagger>(),
+                ModContent.ItemType<Auger>(),
                 ModContent.ItemType<PerfectDark>(),
                 ModContent.ItemType<VeinBurster>(),
                 ModContent.ItemType<WindBlade>(),
@@ -183,20 +181,19 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Shadethrower>(),
                 ModContent.ItemType<AquashardShotgun>(),
                 ModContent.ItemType<FlurrystormCannon>(),
-                ModContent.ItemType<Taser>(),
+                ModContent.ItemType<ShortCircuit>(),
                 //Magic Weapons
                 ModContent.ItemType<BloodBath>(),
                 ModContent.ItemType<ShaderainStaff>(),
                 ModContent.ItemType<PulsePistol>(),
                 ModContent.ItemType<Tradewinds>(),
                 //Summon Weapons
-                ModContent.ItemType<StarSwallowerContainmentUnit>(),
+                ModContent.ItemType<AqueousHunterDrone>(),
                 ModContent.ItemType<DankStaff>(),
                 //Rogue Weapons
-                ModContent.ItemType<TrackingDisk>(),
+                ModContent.ItemType<AerialTracker>(),
                 ModContent.ItemType<FeatherKnife>(),
                 ModContent.ItemType<Turbulance>(),
-                ModContent.ItemType<SkyStabber>(),
                 ModContent.ItemType<RotBall>(),
                 ModContent.ItemType<ToothBall>(),
                 //Classless
@@ -276,8 +273,8 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<EvasionScarf>(),
                 ModContent.ItemType<RogueEmblem>(),
                 ModContent.ItemType<TheFirstShadowflame>(),
-                ModContent.ItemType<WifeinaBottle>(),
-                ModContent.ItemType<WifeinaBottlewithBoobs>(),
+                ModContent.ItemType<ElementalinaBottle>(),
+                ModContent.ItemType<RareElementalinaBottle>(),
                 ModContent.ItemType<EyeoftheStorm>(),
                 ModContent.ItemType<GiantTortoiseShell>(),
                 ModContent.ItemType<HowlsHeart>(),
@@ -287,11 +284,9 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SupremeBaitTackleBoxFishingStation>(),
                 ModContent.ItemType<DeepDiver>(),
                 //Weapons
-                ModContent.ItemType<Aftershock>(),
                 ModContent.ItemType<AxeofPurity>(),
                 ModContent.ItemType<Carnage>(),
                 ModContent.ItemType<CelestialClaymore>(),
-                ModContent.ItemType<EutrophicScimitar>(),
                 ModContent.ItemType<EvilSmasher>(),
                 ModContent.ItemType<StormSaber>(),
                 ModContent.ItemType<TrueCausticEdge>(),
@@ -382,20 +377,19 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Bonebreaker>(),
                 ModContent.ItemType<CorrodedCaustibow>(),
                 ModContent.ItemType<Miasma>(),
-                ModContent.ItemType<AcidicRainBarrel>(),
                 ModContent.ItemType<SeasSearing>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedMechBoss1, $"Mods.MidnightNohit.UI.Tiering.DestroyerShort",
             [
-                ModContent.ItemType<GaussPistol>(),
+                ModContent.ItemType<Vulcan>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => NPC.downedMechBoss2, $"Enemies.TheTwins",
             [
                 ModContent.ItemType<Arbalest>(),
                 ModContent.ItemType<SpeedBlaster>(),
-                ModContent.ItemType<FrequencyManipulator>(),
+                ModContent.ItemType<PulseGrenade>(),
                 ModContent.ItemType<HydraulicVoltCrasher>(),
             ]);
 
@@ -403,7 +397,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
             [
                 ModContent.ItemType<GraveGrimreaver>(),
                 ModContent.ItemType<InfernaCutter>(),
-                ModContent.ItemType<MatterModulator>(),
+                ModContent.ItemType<HolofibreImmolator>(),
                 ModContent.ItemType<MountedScanner>(),
                 ModContent.ItemType<ForbiddenOathblade>(),
             ]);
@@ -442,7 +436,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Brimblade>(),
                 ModContent.ItemType<IgneousExaltation>(),
                 ModContent.ItemType<WyvernsCall>(),
-                ModContent.ItemType<Nychthemeron>(),
                 ModContent.ItemType<StormfrontRazor>(),
                 ModContent.ItemType<MythrilKnife>(),
                 ModContent.ItemType<OrichalcumSpikedGemstone>(),
@@ -492,7 +485,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Brimblade>(),
                 ModContent.ItemType<IgneousExaltation>(),
                 ModContent.ItemType<WyvernsCall>(),
-                ModContent.ItemType<Nychthemeron>(),
                 ModContent.ItemType<StormfrontRazor>(),
                 ModContent.ItemType<MythrilKnife>(),
                 ModContent.ItemType<OrichalcumSpikedGemstone>(),
@@ -537,7 +529,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<VengefulSunStaff>(),
                 ModContent.ItemType<SpearofDestiny>(),
                 ModContent.ItemType<ValkyrieRay>(),
-                ModContent.ItemType<CatastropheClaymore>(),
                 ModContent.ItemType<Pwnagehammer>(),
                 ModContent.ItemType<Exorcism>(),
                 ModContent.ItemType<GleamingMagnolia>(),
@@ -593,7 +584,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<ChaosStone>(),
                 ModContent.ItemType<VampiricTalisman>(),
                 ModContent.ItemType<VoidofCalamity>(),
-                ModContent.ItemType<Regenator>(),
+                ModContent.ItemType<Regenerator>(),
                 //Weapons
                 ModContent.ItemType<Brimlash>(),
                 ModContent.ItemType<Oblivion>(),               
@@ -643,7 +634,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<MarksmanBow>(),
                 ModContent.ItemType<BladedgeRailbow>(),
                 ModContent.ItemType<WildfireBloom>(),
-                ModContent.ItemType<SandstormGun>(),
+                ModContent.ItemType<Sandblaster>(),
                 ModContent.ItemType<Arietes41>(),
                 ItemID.RocketIII,
                 ItemID.RocketIV,
@@ -654,7 +645,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<PrimordialEarth>(),
                 ModContent.ItemType<TearsofHeaven>(),
                 ModContent.ItemType<WintersFury>(),
-                ModContent.ItemType<WrathoftheAncients>(),
                 //Summon Weapons
                 ModContent.ItemType<PlantationStaff>(),
                 ModContent.ItemType<SandSharknadoStaff>(),
@@ -665,9 +655,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<FrostcrushValari>(),
                 ModContent.ItemType<MangroveChakram>(),
                 ModContent.ItemType<SamsaraSlicer>(),
-                ModContent.ItemType<MonkeyDarts>(),
                 ModContent.ItemType<FantasyTalisman>(),
-                ModContent.ItemType<Sandslasher>(),
                 //Classless
                 ModContent.ItemType<Hydra>(),
             ]);
@@ -677,7 +665,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 //Accessories
                 ModContent.ItemType<StarbusterCore>(),
                 ModContent.ItemType<InfectedJewel>(),
-                ModContent.ItemType<GravistarSabaton>(),
+                ModContent.ItemType<InterstellarStompers>(),
                 ModContent.ItemType<HadarianWings>(),
                 //Weapons
                 ModContent.ItemType<AstralScythe>(),
@@ -708,7 +696,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<PearlofEnthrallment>(),
                 ModContent.ItemType<AbyssalMirror>(),
                 ModContent.ItemType<AbyssalDivingSuit>(),
-                ModContent.ItemType<LumenousAmulet>(),
+                ModContent.ItemType<DiamondOfTheDeep>(),
                 //Weapons
                 ModContent.ItemType<Greentide>(),
                 ModContent.ItemType<AbyssBlade>(),
@@ -728,7 +716,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<GastricBelcherStaff>(),
                 ModContent.ItemType<DreadmineStaff>(),
                 //Rogue Weapons
-                ModContent.ItemType<BrackishFlask>(),
+                ModContent.ItemType<Whitewater>(),
                 ModContent.ItemType<LeviathanTeeth>(),
                 ModContent.ItemType<Apoctolith>(),
                 ModContent.ItemType<BallisticPoisonBomb>(),
@@ -742,7 +730,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SigilofCalamitas>(),
                 ModContent.ItemType<StarTaintedGenerator>(),
                 ModContent.ItemType<VoidofExtinction>(),
-                ModContent.ItemType<AlchemicalFlask>(),
                 ModContent.ItemType<TheCamper>(),
                 //Weapons
                 ModContent.ItemType<AegisBlade>(),
@@ -755,7 +742,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Omniblade>(),
                 //Ranged Weapons
                 ModContent.ItemType<ContinentalGreatbow>(),
-                ModContent.ItemType<ClockGatlignum>(),
                 ModContent.ItemType<Helstorm>(),
                 ModContent.ItemType<BarracudaGun>(),
                 ModContent.ItemType<NullificationPistol>(),
@@ -769,7 +755,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<WitherBlossomsStaff>(),
                 //Rogue Weapons
                 ModContent.ItemType<Plaguenade>(),
-                ModContent.ItemType<ShockGrenade>(),
+                ModContent.ItemType<DoomsdayDevice>(),
                 ModContent.ItemType<EpidemicShredder>(),
                 ModContent.ItemType<SubductionSlicer>(),
                 //Classless
@@ -784,17 +770,16 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<ExaltedOathblade>(),
                 ModContent.ItemType<Virulence>(),
                 ModContent.ItemType<Pandemic>(),
-                ModContent.ItemType<DiseasedPike>(),
                 ModContent.ItemType<GalvanizingGlaive>(),
                 //Ranged Weapons
                 ModContent.ItemType<Malevolence>(),
                 ModContent.ItemType<TheHive>(),
                 ModContent.ItemType<BlightSpewer>(),
-                ModContent.ItemType<GaussRifle>(),
+                ModContent.ItemType<Nidhogg>(),
                 ModContent.ItemType<PestilentDefiler>(),
                 //Magic Weapons
                 ModContent.ItemType<PlagueStaff>(),
-                ModContent.ItemType<GatlingLaser>(),
+                ModContent.ItemType<CountermeasureMitt>(),
                 //Summon Weapons
                 ModContent.ItemType<FuelCellBundle>(),
                 ModContent.ItemType<InfectedRemote>(),
@@ -851,10 +836,9 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SpectralstormCannon>(),
                 //Magic Weapons
                 ModContent.ItemType<ArchAmaryllis>(),
-                ModContent.ItemType<Lazhar>(),
                 ModContent.ItemType<NanoPurge>(),
                 ModContent.ItemType<TheSwarmer>(),
-                ModContent.ItemType<TomeofFates>(),
+                ModContent.ItemType<Apathanull>(),
                 ModContent.ItemType<CosmicRainbow>(),
                 //Summon Weapons
                 //Rogue Weapons
@@ -869,12 +853,10 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<DeificAmulet>(),
                 ModContent.ItemType<HideofAstrumDeus>(),
                 //Weapons
-                ModContent.ItemType<AstralBlade>(),
                 ModContent.ItemType<OmegaBiomeBlade>(),
                 ModContent.ItemType<TheMicrowave>(),
                 ModContent.ItemType<AstralPike>(),
                 //Ranged Weapons
-                ModContent.ItemType<AstralBow>(),
                 ModContent.ItemType<StarSputter>(),
                 //Magic Weapons
                 ModContent.ItemType<StarShower>(),
@@ -888,20 +870,18 @@ namespace MidnightNohit.Core.Systems.TieringSystems
             BossLockInformation.AddLockInformation(() => NPC.downedMoonlord, $"Enemies.MoonLord",
             [
                 ModContent.ItemType<ExodusWings>(),
-                ModContent.ItemType<TracersCelestial>(),
+                ModContent.ItemType<MoonWalkers>(),
                 ModContent.ItemType<StatisNinjaBelt>(),
                 ModContent.ItemType<DaawnlightSpiritOrigin>(),
                 ModContent.ItemType<EldritchSoulArtifact>(),
                 ModContent.ItemType<MoonstoneCrown>(),
                 ModContent.ItemType<AbyssalDivingSuit>(),
                 //Weapons
-                ModContent.ItemType<Devastation>(),
-                ModContent.ItemType<ElementalShiv>(),
+                ModContent.ItemType<Lightspeed>(),
                 ModContent.ItemType<GreatswordofJudgement>(),
-                ModContent.ItemType<PlagueKeeper>(),
                 ModContent.ItemType<SolsticeClaymore>(),
                 ModContent.ItemType<StellarStriker>(),
-                ModContent.ItemType<ElementalLance>(),
+                ModContent.ItemType<VanishingPoint>(),
                 ModContent.ItemType<StellarContempt>(),
                 ModContent.ItemType<RemsRevenge>(),
                 ModContent.ItemType<ArkoftheElements>(),
@@ -909,42 +889,37 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<AstrealDefeat>(),
                 ModContent.ItemType<ClockworkBow>(),
                 ModContent.ItemType<PlanetaryAnnihilation>(),
-                ModContent.ItemType<Disseminator>(),
                 ModContent.ItemType<OnyxChainBlaster>(),
                 ModContent.ItemType<PridefulHuntersPlanarRipper>(),
                 ModContent.ItemType<Shredder>(),
-                ModContent.ItemType<ElementalEruption>(),
+                ModContent.ItemType<ChromaticEruption>(),
                 ModContent.ItemType<SuperradiantSlaughterer>(),
                 ModContent.ItemType<Starfleet>(),
                 ItemID.MiniNukeI,
                 ItemID.MiniNukeII,
                 //Magic Weapons
-                ModContent.ItemType<AsteroidStaff>(),
-                ModContent.ItemType<ElementalRay>(),
+                ModContent.ItemType<Nucleosynthesis>(),
                 ModContent.ItemType<UltraLiquidator>(),
                 ModContent.ItemType<ApoctosisArray>(),
                 ModContent.ItemType<Effervescence>(),
                 ModContent.ItemType<Genesis>(),
-                ModContent.ItemType<AuguroftheElements>(),
                 ModContent.ItemType<NuclearFury>(),
                 ModContent.ItemType<ChronomancersScythe>(),
                 //Summon Weapons
-                ModContent.ItemType<ElementalAxe>(),
+                ModContent.ItemType<LegionofCelestia>(),
                 ModContent.ItemType<FlowersOfMortality>(),
                 ModContent.ItemType<TacticalPlagueEngine>(),
                 ModContent.ItemType<SanctifiedSpark>(),
                 //Rogue Weapons
-                ModContent.ItemType<ElementalDisk>(),
+                ModContent.ItemType<ReboundingRainbow>(),
                 ModContent.ItemType<LunarKunai>(),
                 ModContent.ItemType<UtensilPoker>(),
-                ModContent.ItemType<HellsSun>(),
                 ModContent.ItemType<CelestialReaper>(),
-                ModContent.ItemType<AlphaVirus>(),
             ]);
 
             BossLockInformation.AddLockInformation(() => DownedBossSystem.downedGuardians, $"Mods.CalamityMod.BossChecklistIntegration.ProfanedGuardians.EntryName",
             [
-                ModContent.ItemType<WarbanneroftheSun>(),
+                ModContent.ItemType<WarbanneroftheRighteous>(),
                 ModContent.ItemType<RelicOfConvergence>(),
                 ModContent.ItemType<RelicOfDeliverance>(),
                 ModContent.ItemType<RelicOfResilience>()
@@ -999,7 +974,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<HandheldTank>(),
                 ModContent.ItemType<BloodBoiler>(),
                 ModContent.ItemType<PristineFury>(),
-                ModContent.ItemType<HeavyLaserRifle>(),
+                ModContent.ItemType<PhalanxSurge>(),
                 //Magic Weapons
                 ModContent.ItemType<ThePrince>(),
                 ModContent.ItemType<SanguineFlare>(),
@@ -1018,7 +993,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 //Rogue Weapons
                 ModContent.ItemType<WavePounder>(),
                 ModContent.ItemType<MoltenAmputator>(),
-                ModContent.ItemType<ShatteredSun>(),
                 ModContent.ItemType<TarragonThrowingDart>(),
                 ModContent.ItemType<ProfanedPartisan>(),
                 ModContent.ItemType<BloodsoakedCrasher>(),
@@ -1028,9 +1002,9 @@ namespace MidnightNohit.Core.Systems.TieringSystems
             [
                 ModContent.ItemType<TheStorm>(),
                 ModContent.ItemType<Seadragon>(),
-                ModContent.ItemType<StormDragoon>(),
+                ModContent.ItemType<SkytideDragoon>(),
                 //Magic Weapons
-                ModContent.ItemType<Thunderstorm>(),
+                ModContent.ItemType<Volterion>(),
                 ModContent.ItemType<TwistingThunder>(),
                 ModContent.ItemType<RealityRupture>(),
                 ModContent.ItemType<Teslastaff>(),
@@ -1043,7 +1017,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 //Weapons
                 ModContent.ItemType<MirrorBlade>(),
                 //Ranged Weapons
-                ModContent.ItemType<MolecularManipulator>(),
+                ModContent.ItemType<OntologicalDespoiler>(),
                 //Magic Weapons
                 ModContent.ItemType<Mistlestorm>(),
                 ModContent.ItemType<TacticiansTrumpCard>(),
@@ -1095,7 +1069,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<SulphuricAcidCannon>(),
                 ModContent.ItemType<PearlGod>(),
                 //Magic Weapons
-                ModContent.ItemType<ClamorNoctus>(),
+                ModContent.ItemType<AlphaDraconis>(),
                 ModContent.ItemType<EidolonStaff>(),
                 ModContent.ItemType<FatesReveal>(),
                 ModContent.ItemType<PhantasmalFury>(),
@@ -1115,7 +1089,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<JawsOfOblivion>(),
                 ModContent.ItemType<TimeBolt>(),
                 ModContent.ItemType<PhantasmalRuin>(),
-                ModContent.ItemType<NightsGaze>(),
+                ModContent.ItemType<Vega>(),
                 ModContent.ItemType<DeepSeaDumbbell>(),
             ]);
 
@@ -1140,13 +1114,13 @@ namespace MidnightNohit.Core.Systems.TieringSystems
 
             BossLockInformation.AddLockInformation(() => DownedBossSystem.downedDoG, $"Mods.MidnightNohit.UI.Tiering.DogShort",
             [
-                ModContent.ItemType<TracersElysian>(),
+                ModContent.ItemType<VoidStriders>(),
                 ModContent.ItemType<SilvaWings>(),
                 ModContent.ItemType<DarkSunRing>(),
                 ModContent.ItemType<DimensionalSoulArtifact>(),
                 ModContent.ItemType<EclipseMirror>(),
                 ModContent.ItemType<ElementalGauntlet>(),
-                ModContent.ItemType<ElementalQuiver>(),
+                ModContent.ItemType<PlanebreakersPouch>(),
                 ModContent.ItemType<EtherealTalisman>(),
                 ModContent.ItemType<Nanotech>(),
                 ModContent.ItemType<NebulousCore>(),
@@ -1163,8 +1137,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<CosmicShiv>(),
                 ModContent.ItemType<DevilsDevastation>(),
                 ModContent.ItemType<EssenceFlayer>(),
-                ModContent.ItemType<TheEnforcer>(),
-                ModContent.ItemType<Excelsus>(),
+                ModContent.ItemType<MawOfInfinity>(),
                 ModContent.ItemType<Orderbringer>(),
                 ModContent.ItemType<PrismaticBreaker>(),
                 ModContent.ItemType<TheObliterator>(),
@@ -1179,8 +1152,8 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Murasama>(),
                 //Ranged Weapons
                 ModContent.ItemType<Alluvion>(),
-                ModContent.ItemType<Deathwind>(),
-                ModContent.ItemType<Phangasm>(),
+                ModContent.ItemType<ThreadOfEradication>(),
+                ModContent.ItemType<Riftburst>(),
                 ModContent.ItemType<Ultima>(),
                 ModContent.ItemType<AntiMaterielRifle>(),
                 ModContent.ItemType<Infinity>(),
@@ -1196,7 +1169,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<Norfleet>(),
                 ModContent.ItemType<Starmada>(),
                 //Magic Weapons
-                ModContent.ItemType<DeathhailStaff>(),
+                ModContent.ItemType<HyperdeathRiftScepter>(),
                 ModContent.ItemType<IceBarrage>(),
                 ModContent.ItemType<SoulPiercer>(),
                 ModContent.ItemType<VoltaicClimax>(),
@@ -1213,11 +1186,11 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 ModContent.ItemType<EndoHydraStaff>(),
                 ModContent.ItemType<PoleWarper>(),
                 ModContent.ItemType<SarosPossession>(),
-                ModContent.ItemType<StaffoftheMechworm>(),
+                ModContent.ItemType<VoidEaterMarionette>(),
                 //Rogue Weapons
                 ModContent.ItemType<Penumbra>(),
                 ModContent.ItemType<PlasmaGrenade>(),
-                ModContent.ItemType<Eradicator>(),
+                ModContent.ItemType<DimensionTearingDisk>(),
                 ModContent.ItemType<EclipsesFall>(),
                 ModContent.ItemType<GodsParanoia>(),
                 ModContent.ItemType<ExecutionersBlade>(),
@@ -1226,7 +1199,6 @@ namespace MidnightNohit.Core.Systems.TieringSystems
 
             BossLockInformation.AddLockInformation(() => DownedBossSystem.downedYharon, $"Mods.MidnightNohit.UI.Tiering.YharonShort",
             [
-                ModContent.ItemType<TracersCelestial>(),
                 ModContent.ItemType<WingsofRebirth>(),
                 ModContent.ItemType<DragonScales>(),
                 ModContent.ItemType<YharimsGift>(),
@@ -1324,10 +1296,9 @@ namespace MidnightNohit.Core.Systems.TieringSystems
                 //Weapons
                 ModContent.ItemType<DraconicDestruction>(),
                 ModContent.ItemType<Earth>(),
-                ModContent.ItemType<IridescentExcalibur>(),
                 ModContent.ItemType<RedSun>(),
                 ModContent.ItemType<Ozzathoth>(),
-                ModContent.ItemType<TriactisTruePaladinianMageHammerofMightMelee>(),
+                ModContent.ItemType<TriactisTruePaladinianMageHammerofMight>(),
                 ModContent.ItemType<IllustriousKnives>(),
                 //Ranged Weapons
                 ModContent.ItemType<Contagion>(),
@@ -1358,7 +1329,7 @@ namespace MidnightNohit.Core.Systems.TieringSystems
 
             BossLockInformation.AddLockInformation(() => DownedBossSystem.downedPerforator && DownedBossSystem.downedHiveMind, $"Mods.MidnightNohit.UI.Evils2",
             [
-                ModContent.ItemType<TeslaPotion>()
+                ModContent.ItemType<TeslasAmulet>()
             ], true);
 
             BossLockInformation.AddLockInformation(() => NPC.downedBoss3, $"NPCName.SkeletronHead",

@@ -78,7 +78,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems.Sets
             [NPCID.MoonLordCore] = 7200,
             // PostMoonlord
             [ModContent.NPCType<ProfanedGuardianCommander>()] = 4200,
-            [ModContent.NPCType<Bumblefuck>()] = 3900,
+            [ModContent.NPCType<Dragonfolly>()] = 3900,
             [ModContent.NPCType<Providence>()] = 7200,
             [ModContent.NPCType<StormWeaverHead>()] = 3600,
             [ModContent.NPCType<CeaselessVoid>()] = 5100,
