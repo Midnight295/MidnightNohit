@@ -166,7 +166,7 @@ namespace MidnightNohit.Content.UI
             float distance = 55f;
             float opacity = 1f;
 
-            Main.NewText("hi");
+            //Main.NewText("hi");
 
             for (int i = 0; i < elementCount; i++)
             {
