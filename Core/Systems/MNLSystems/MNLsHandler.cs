@@ -7,7 +7,6 @@ using MidnightNohit.Core.Systems.MNLSystems.Sets;
 
 namespace MidnightNohit.Core.Systems.MNLSystems;
 
-//Ported from Imogen QoL, with permission from it's creator.
 public class MNLsHandler : ModSystem
 {
     public enum BossStatuses

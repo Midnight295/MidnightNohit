@@ -9,7 +9,6 @@ using static MidnightNohit.Core.Systems.MNLSystems.MNLsHandler;
 
 namespace MidnightNohit.Core.Systems.MNLSystems;
 
-//Ported from Imogen QoL, with permission from it's creator.
 public class MNLMonitor
 {
     public NPC NPCToMonitor

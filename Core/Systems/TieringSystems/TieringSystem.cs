@@ -1,5 +1,4 @@
-﻿
-using MidnightNohit.Config;
+﻿using MidnightNohit.Config;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -8,8 +7,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-
-//Ported from Imogen QoL, with permission from it's creator.
 namespace MidnightNohit.Core.Systems.TieringSystems;
 
 // This is forced to be quite large considering the sheer amount of bosses that exist.

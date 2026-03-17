@@ -3,7 +3,6 @@ using Terraria.ID;
 
 namespace MidnightNohit.Core.Systems.MNLSystems.Sets;
 
-//Ported from Imogen QoL, with permission from it's creator.
 public static class ExpertSet
 {
     public static Dictionary<int, int> ExpertMNLs => new()
