@@ -2,8 +2,6 @@
 
 namespace MidnightNohit.Core.Systems.MNLSystems
 {
-    //Ported from Imogen QoL, with permission from it's creator.
-    // This is used to pick which of the loaded MNL sets should have its MNLs used.
     public class MNLWeights
     {
         public const float NoWeight = -1f;
@@ -14,7 +12,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems
 
         public const float Rev = 2f;
 
-        public const float Death = 3f;
+        //public const float Death = 3f; //obsolete.
 
         public const float Infernum = 4f;
 

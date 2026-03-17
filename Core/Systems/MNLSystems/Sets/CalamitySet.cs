@@ -36,7 +36,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems.Sets
 { 
     [JITWhenModsEnabled(ModCompatability.Calamity.Name)]
     [ExtendsFromMod(ModCompatability.Calamity.Name)]
-    public static class RevSet
+    public static class CalamitySet
     {
         public static Dictionary<int, int> RevMNLS => new()
         {
@@ -46,7 +46,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems.Sets
             [NPCID.EyeofCthulhu] = 2700,
             [ModContent.NPCType<Crabulon>()] = 2700,
             [NPCID.EaterofWorldsHead] = 3000,
-            [NPCID.BrainofCthulhu] = 3000,
+            [NPCID.BrainofCthulhu] = 4200,
             [ModContent.NPCType<HiveMind>()] = 3600,
             [ModContent.NPCType<PerforatorHive>()] = 3600,
             [NPCID.QueenBee] = 2700,
@@ -98,7 +98,7 @@ namespace MidnightNohit.Core.Systems.MNLSystems.Sets
         {
             MNLSet revset = new(RevMNLS, () =>
             {
-                if (!CalamityWorld.revenge)
+                if (!CalamityWorld.revenge && !CalamityWorld.death)
                     return MNLWeights.NoWeight;
 
                 return MNLWeights.Rev;

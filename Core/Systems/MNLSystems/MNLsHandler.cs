@@ -80,20 +80,13 @@ namespace MidnightNohit.Core.Systems.MNLSystems
             ExpertSet.Load();
 
             if (ModCompatability.Calamity.Loaded)
-            {
-                RevSet.Load();
-                DeathSet.Load();
-            }
-
+                CalamitySet.Load();
+            
             if (ModCompatability.Infernum.Loaded)
-            {
                 InfSet.Load();
-            }
-
+            
             if (ModCompatability.FargoSouls.Loaded)
-            {
-                FargoSet.Load();
-            }
+                FargoSet.Load();         
         }
 
         public override void Unload()
