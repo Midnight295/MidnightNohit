@@ -12,9 +12,11 @@ namespace MidnightNohit;
 	{
     internal static MidnightNohit Instance;
 
+    public static ModKeybind TimerToCursor { get; private set; }
     public override void Load()
     {
         Instance = this;
+        TimerToCursor = KeybindLoader.RegisterKeybind(this, "TimerToCursor", Microsoft.Xna.Framework.Input.Keys.LeftAlt);
         //UIManagerAutoloader.InitializeLocks();
         NohitUIButton.Load();
 
@@ -35,6 +37,7 @@ namespace MidnightNohit;
 
     public override void Unload()
     {
+        TimerToCursor = null;
         Instance = null;
     }
 }

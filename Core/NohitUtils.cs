@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MidnightNohit.Content.UI;
 using System;
+using System.Diagnostics;
 using System.Reflection;
 using Terraria;
 
@@ -43,33 +44,5 @@ public static partial class NohitUtils
         }
     }
 
-    public static void MNLTimer()
-    {
-        if (!Main.CurrentFrameFlags.AnyActiveBossNPC)
-        {
-            MainTimer = 0;
-            --MainTimer;
-            Seconds = 0;
-            Minutes = 0;
-            return;
-        }
-
-        if (++MainTimer >= 60)
-        {
-            Seconds += 1;
-            MainTimer = 0;
-        }
-
-        if (Seconds < 10)
-            DeadSpace = "0";
-        else
-            DeadSpace = ""; 
-
-        if (Seconds >= 60)
-        {
-            Seconds = 0;
-            Minutes += 1;
-        }
-
-    }
+    public static Stopwatch MNLTimer = new();
 }

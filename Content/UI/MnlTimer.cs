@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.GameContent;
 using MidnightNohit.Core;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
+using System;
+using Terraria.Audio;
+using Terraria.ID;
 
 namespace MidnightNohit.Content.UI;
 
@@ -13,12 +14,44 @@ public class MnlTimer
     internal const float defaultX = 97.5f;
     internal const float defaultY = 54.17f;
     public static string text;
+    public static float Opacity;
+    public static int disablingLerp;
+    public static int enablingLerp;
+    public static TimeSpan Time;
     public static void Draw(Player player)
     {
-        if (Main.gameMenu || !NohitConfig.Instance.MNLTimer || !Main.CurrentFrameFlags.AnyActiveBossNPC)
+        if (!NohitConfig.Instance.MNLTimer)
             return;
 
-        //Main.NewText("I AM GETTING DRAWN");
+        Color color = Color.White;
+
+        if (!Main.CurrentFrameFlags.AnyActiveBossNPC)
+        {
+            enablingLerp = 0;
+            Opacity = MathHelper.Lerp(1, 0, ++disablingLerp * (player.dead? 0.03f : 0.01f));
+            if (player.dead)
+                color = Color.Red;
+            else
+                color = Color.Green;
+        }
+        else
+        {
+            disablingLerp = 0;
+            Opacity = MathHelper.Lerp(0, 1, ++enablingLerp * 0.03f);
+
+            if (Main.gamePaused)
+            {
+                if (NohitUtils.MNLTimer.IsRunning)
+                    NohitUtils.MNLTimer.Stop();
+            }
+            else
+                NohitUtils.MNLTimer.Start();
+
+            Time = NohitUtils.MNLTimer.Elapsed;
+        }
+        string secondSplit = Time.Seconds <= 9 ? "0" : "";
+        string milisecondSplit = Time.Milliseconds <= 9 ? "00" : Time.Milliseconds <= 99 ? "0" : "";
+        text = Time.Minutes + ":" + secondSplit + Time.Seconds + ":" + milisecondSplit + Time.Milliseconds;
 
         Vector2 screenRatioPosition = new Vector2(NohitConfig.Instance.MNLX, NohitConfig.Instance.MNLY) * 10;
         if (screenRatioPosition.X < 0f || screenRatioPosition.X > 100f)
@@ -30,32 +63,9 @@ public class MnlTimer
         screenpos.X = (int)(screenpos.X * 0.01f * Main.screenWidth);
         screenpos.Y = (int)(screenpos.Y * 0.01f * Main.screenWidth);
 
-        text =  NohitUtils.Minutes + ":" + NohitUtils.DeadSpace + NohitUtils.Seconds;
+        if (MidnightNohit.TimerToCursor.Current)
+            screenpos = Main.MouseWorld + new Vector2(0, FontAssets.ItemStack.Value.MeasureString(text).Y) - Main.screenPosition;
 
-        if (ModCompatability.WrathoftheGods.Loaded)
-        {
-            FunnyAvatarCompatability();
-        }
-
-        Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.MouseText.Value, text, screenpos.X, screenpos.Y, Color.White, Color.Black, default, 1.01f);           
-    }
-
-    [JITWhenModsEnabled(ModCompatability.WrathoftheGods.Name)]
-    public static void FunnyAvatarCompatability()
-    {
-        if (Main.LocalPlayer.name != "midnight295.")
-            return;
-
-        if (AvatarOfEmptiness.Myself is not null)
-        {
-            for (int i = 0; i < Main.maxNPCs; i++)
-            {
-                if (Main.npc[i].type == ModContent.NPCType<AvatarOfEmptiness>() && Main.npc[i].active)
-                    if (Main.npc[i].life <= Main.npc[i].lifeMax * 0.6f)
-                    {
-                        text = Main.rand.Next(1, 10) + ":" + NohitUtils.DeadSpace + Main.rand.Next(1, 100);
-                    }
-            }
-        }
+        Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.ItemStack.Value, text, screenpos.X, screenpos.Y, color * Opacity, Color.Black * Opacity, default, 1f);
     }
 }

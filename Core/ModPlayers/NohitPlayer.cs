@@ -39,14 +39,13 @@ public class NohitPlayer : ModPlayer
 
         if (Main.CurrentFrameFlags.AnyActiveBossNPC)
         {
-            NohitUtils.MNLTimer();
+            if (!NohitUtils.MNLTimer.IsRunning)
+                NohitUtils.MNLTimer.Start();
         }
         else
         {
-            --NohitUtils.MainTimer;
-            NohitUtils.MainTimer = 0;
-            NohitUtils.Minutes = 0;
-            NohitUtils.Seconds = 0;             
+            if (NohitUtils.MNLTimer.IsRunning)
+                NohitUtils.MNLTimer.Reset();
         }
 
 
