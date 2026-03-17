@@ -45,12 +45,6 @@ public class MNLMonitor
         private set;
     }
 
-    public List<int> DPSDamage
-    {
-        get;
-        private set;
-    }
-
     public MNLMonitor(NPC npcToMonitor)
     {
         NPCToMonitor = npcToMonitor;
@@ -58,20 +52,14 @@ public class MNLMonitor
         ReadyToDisplay = 0;
         BossStatus = BossStatuses.Default;
         FramesAlive = 0;
-        DPSDamage = new();
     }
 
     public void Update()
     {
         if (ReadyToDisplay > 0)
             ReadyToDisplay++;
-        else
-        {
+        else      
             FramesAlive++;
-            // Only do this on singleplayer. Why are you using this mod on MP anyway.
-            if (Main.netMode is NetmodeID.SinglePlayer && Main.LocalPlayer.getDPS() != DPSDamage.LastOrDefault())
-                DPSDamage.Add(Main.LocalPlayer.getDPS());
-        }
     }
 
     /// <summary>
@@ -109,14 +97,6 @@ public class MNLMonitor
             timeover = (float)Math.Truncate((double)timeover * 100f) / 100f;
             Main.NewText(Language.GetTextValue($"Mods.MidnightNohit.UI.MNL.Above", timeover));
         }
-
-        // Display DPS message if required.
-        //if (Toggles.BossDPS && DPSDamage.Any())
-        //    MidnightNohitUtils.DisplayText($"[c/e7684b:Average DPS:] [c/fccccf:{(int)DPSDamage.Average()}]");
-
-        // Say any sass message if required.
-        //if (Toggles.SassMode)
-        //    SassModeSystem.SassModeHandler(NPCToMonitor, BossStatus is BossStatuses.Dead);
     }
 
     /// <summary>
