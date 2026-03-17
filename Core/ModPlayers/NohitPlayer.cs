@@ -5,10 +5,6 @@ using Terraria.DataStructures;
 using Terraria.Localization;
 using MidnightNohit.Core.Systems.MNLSystems;
 using MidnightNohit.Content.UI;
-using Terraria.Audio;
-using Terraria.GameInput;
-using Terraria.ID;
-using MidnightNohit.Core.Systems;
 
 
 namespace MidnightNohit.Core.ModPlayers;

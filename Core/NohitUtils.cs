@@ -3,9 +3,6 @@ using MidnightNohit.Content.UI;
 using System;
 using System.Reflection;
 using Terraria;
-using Terraria.Chat;
-using Terraria.ID;
-using Terraria.Localization;
 
 
 namespace MidnightNohit.Core;

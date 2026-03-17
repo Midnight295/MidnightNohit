@@ -1,16 +1,9 @@
 ﻿using MidnightNohit.Core;
-using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using CalamityMod.NPCs.ExoMechs;
-using Mono.Cecil;
 using Microsoft.Xna.Framework;
 using CalamityMod.Rarities;
 

@@ -1,18 +1,13 @@
-﻿using InfernumMode;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MidnightNohit.Config;
 using MidnightNohit.Core;
 using ReLogic.Content;
-using System;
-using System.Reflection;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Config;
 using static MidnightNohit.Content.UI.Pages.TogglesPage;
 
 namespace MidnightNohit.Content.UI.Pages;

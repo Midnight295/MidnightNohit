@@ -6,13 +6,9 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using MidnightNohit.Core;
-using Terraria.DataStructures;
 using MidnightNohit.Config;
-using Microsoft.Xna.Framework.Design;
-using Terraria.UI;
 using Terraria.GameContent.UI.Elements;
 using ReLogic.Content;
-using CalamityMod.Projectiles.Summon;
 
 namespace MidnightNohit.Content.UI.MiscUI;
 

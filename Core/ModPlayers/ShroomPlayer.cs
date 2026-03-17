@@ -1,19 +1,10 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using CalamityMod;
-using CalamityMod.World;
-using Terraria.ID;
-using CalamityMod.Graphics.Renderers.CalamityRenderers;
-using CalamityMod.Particles;
 
 namespace MidnightNohit.Core.ModPlayers;
 

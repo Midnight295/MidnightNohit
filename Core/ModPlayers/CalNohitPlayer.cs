@@ -1,24 +1,13 @@
 ﻿using CalamityMod.Buffs.DamageOverTime;
 using MidnightNohit.Config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using CalamityMod.Buffs.StatBuffs;
 using CalamityMod;
 using Terraria;
-using CalamityMod.CalPlayer;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent;
-using CalamityMod.Buffs.Mounts;
-using System.Security.Cryptography.X509Certificates;
 using CalamityMod.UI.Rippers;
-using Terraria.Graphics.Effects;
 using ReLogic.Content;
 
 namespace MidnightNohit.Core.ModPlayers;

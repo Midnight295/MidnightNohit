@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -13,8 +12,6 @@ using MidnightNohit.Content.UI.SingleElements;
 using MidnightNohit.Core.ModPlayers;
 using MidnightNohit.Core;
 using MidnightNohit.Content.UI.Pages;
-using MidnightNohit.Config;
-using Terraria.Graphics.Renderers;
 using MidnightNohit.Content.UI.MiscUI;
 
 namespace MidnightNohit.Content.UI;

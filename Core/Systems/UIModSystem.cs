@@ -1,8 +1,4 @@
 ﻿using MidnightNohit.Content.UI;
-using Terraria.Audio;
-using Terraria.GameInput;
-using Terraria.ID;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace MidnightNohit.Core.Systems;

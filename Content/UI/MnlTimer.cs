@@ -1,21 +1,9 @@
 ﻿using MidnightNohit.Config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
-using ReLogic.Graphics;
 using Terraria.GameContent;
-using Terraria.Localization;
 using MidnightNohit.Core;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Terraria.UI;
-using Terraria.GameContent.UI.Elements;
-using CalamityMod;
-using Microsoft.Xna.Framework.Graphics;
-using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 
 namespace MidnightNohit.Content.UI;

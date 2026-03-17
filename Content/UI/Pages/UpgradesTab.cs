@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using MidnightNohit.Core;
 using MidnightNohit.Content.UI.Pages.Configs;
 
 namespace MidnightNohit.Content.UI.Pages;

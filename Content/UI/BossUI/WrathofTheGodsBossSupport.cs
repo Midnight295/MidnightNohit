@@ -1,11 +1,4 @@
-﻿using FargowiltasSouls.Core.Systems;
-using MidnightNohit.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.Localization;
+﻿using MidnightNohit.Core;
 using Terraria.ModLoader;
 
 namespace MidnightNohit.Content.UI.BossUI;

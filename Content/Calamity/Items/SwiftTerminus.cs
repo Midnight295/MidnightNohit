@@ -1,14 +1,8 @@
 ﻿using CalamityMod.Events;
 using CalamityMod.NPCs.Leviathan;
 using CalamityMod.NPCs.ProfanedGuardians;
-using CalamityMod.NPCs.Yharon;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using MidnightNohit.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;

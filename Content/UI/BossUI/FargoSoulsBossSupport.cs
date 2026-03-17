@@ -1,14 +1,9 @@
 ﻿using MidnightNohit.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using FargowiltasSouls.Core.Systems;
 using System.Reflection;
-using MidnightNohit.Core.Systems;
 
 namespace MidnightNohit.Content.UI.BossUI;
 

@@ -26,7 +26,6 @@ using FargowiltasSouls.Content.Patreon.Volknet;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
 using FargowiltasSouls.Content.Items.Ammos;
 using FargowiltasSouls.Content.Items.Accessories.Expert;
-using FargowiltasSouls.Content.Projectiles.ChallengerItems;
 
 namespace MidnightNohit.Core.Systems.TieringSystems;
 

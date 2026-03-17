@@ -1,15 +1,8 @@
-﻿using MidnightNohit.Content.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using MidnightNohit.Core;
 using Terraria.Audio;
-using MidnightNohit.Core.ModPlayers;
 using FargowiltasSouls.Core.Systems;
 
 namespace MidnightNohit.Content.Fargo.Items;

@@ -1,6 +1,4 @@
-﻿using FargowiltasSouls.Content.NPCs.EternityModeNPCs.VanillaEnemies.Crimson;
-
-namespace MidnightNohit.Core.Systems.MNLSystems;
+﻿namespace MidnightNohit.Core.Systems.MNLSystems;
 
 public class MNLWeights
 {

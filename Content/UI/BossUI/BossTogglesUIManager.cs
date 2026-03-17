@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
@@ -13,8 +12,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using MidnightNohit.Core.Systems.TieringSystems;
 using MidnightNohit.Core;
-using Terraria.GameContent;
-using FargowiltasSouls.Core.Systems;
 using MidnightNohit.Config;
 using MidnightNohit.Content.UI.MiscUI;
 
