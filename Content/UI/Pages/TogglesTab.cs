@@ -10,23 +10,22 @@ using MidnightNohit.Core;
 using MidnightNohit.Config;
 using MidnightNohit.Content.UI.Pages.Configs;
 
-namespace MidnightNohit.Content.UI.Pages
+namespace MidnightNohit.Content.UI.Pages;
+
+public static partial class UIManagerAutoloader
 {
-    public static partial class UIManagerAutoloader
+    public const string ToggleUIName = "TogglesUI";
+    public static string miscToggles = GameCulture.FromCultureName(GameCulture.CultureName.Chinese).IsActive? "杂项设置":"Misc Toggles";
+
+    public static void InitializeToggles()
     {
-        public const string ToggleUIName = "TogglesUI";
-        public static string miscToggles = GameCulture.FromCultureName(GameCulture.CultureName.Chinese).IsActive? "杂项设置":"Misc Toggles";
-
-        public static void InitializeToggles()
+        List<PageUIElement> uIElements = new()
         {
-            List<PageUIElement> uIElements = new()
-            {
-                new InstantKill(),
-                new IFrames(),
-            };
+            new InstantKill(),
+            new IFrames(),
+        };
 
-            TogglesPage uIManager = new(uIElements, ToggleUIName, "Mods.MidnightNohit.UI.UIButtons.TogglesUI" /*Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.MiscUI")*/, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/ToggleUI", AssetRequestMode.ImmediateLoad).Value, 5f);
-            uIManager.TryRegister();
-        }   
-    }
+        TogglesPage uIManager = new(uIElements, ToggleUIName, "Mods.MidnightNohit.UI.UIButtons.TogglesUI" /*Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.MiscUI")*/, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/ToggleUI", AssetRequestMode.ImmediateLoad).Value, 5f);
+        uIManager.TryRegister();
+    }   
 }

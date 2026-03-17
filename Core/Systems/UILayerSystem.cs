@@ -10,41 +10,40 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace MidnightNohit.Core.Systems
+namespace MidnightNohit.Core.Systems;
+
+public class UILayerSystem : ModSystem
 {
-    public class UILayerSystem : ModSystem
+    public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
     {
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+
+        int mouseIndex = layers.FindIndex((layer) => layer.Name == "Vanilla: Mouse Text");
+        if (mouseIndex == -1)
+            return;
+
+        layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Mnl Timer", delegate ()
         {
+            MnlTimer.Draw(Main.LocalPlayer);
+            return true;
+        }, InterfaceScaleType.None));
 
-            int mouseIndex = layers.FindIndex((layer) => layer.Name == "Vanilla: Mouse Text");
-            if (mouseIndex == -1)
-                return;
-
-            layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Mnl Timer", delegate ()
-            {
-                MnlTimer.Draw(Main.LocalPlayer);
-                return true;
-            }, InterfaceScaleType.None));
-
-            layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Special UIs", () =>
-            {
-                
-                if (!Main.inFancyUI && Main.playerInventory)
-                {
-                    NohitUIButton.Draw(Main.spriteBatch);
-                }
-                if (!Main.inFancyUI)
-                {
-                    TogglesUIManager.Draw(Main.spriteBatch);
-                }
-                return true;
-            }, InterfaceScaleType.UI));
-        }
-
-        public override void UpdateUI(GameTime gameTime)
+        layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Special UIs", () =>
         {
-            base.UpdateUI(gameTime);
-        }
+            
+            if (!Main.inFancyUI && Main.playerInventory)
+            {
+                NohitUIButton.Draw(Main.spriteBatch);
+            }
+            if (!Main.inFancyUI)
+            {
+                TogglesUIManager.Draw(Main.spriteBatch);
+            }
+            return true;
+        }, InterfaceScaleType.UI));
+    }
+
+    public override void UpdateUI(GameTime gameTime)
+    {
+        base.UpdateUI(gameTime);
     }
 }

@@ -11,36 +11,35 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
 
-namespace MidnightNohit
-{
+namespace MidnightNohit;
+
 	public partial class MidnightNohit : Mod
 	{
-        internal static MidnightNohit Instance;
+    internal static MidnightNohit Instance;
 
-        public override void Load()
-        {
-            Instance = this;
-            //UIManagerAutoloader.InitializeLocks();
-            NohitUIButton.Load();
+    public override void Load()
+    {
+        Instance = this;
+        //UIManagerAutoloader.InitializeLocks();
+        NohitUIButton.Load();
 
-            UIManagerAutoloader.InitializeToggles();
-            //UIManagerAutoloader.InitializePermanentUpgrades();
-            SingleElementAutoloader.Initialize();
-            BossTogglesUIManager.InitializeBossElements();
-        }
+        UIManagerAutoloader.InitializeToggles();
+        //UIManagerAutoloader.InitializePermanentUpgrades();
+        SingleElementAutoloader.Initialize();
+        BossTogglesUIManager.InitializeBossElements();
+    }
 
-        public override void PostSetupContent()
-        {
-            if (ModCompatability.Calamity.Loaded)
-                CalamityBossSupport.InitializeCalamityBossSupport();
+    public override void PostSetupContent()
+    {
+        if (ModCompatability.Calamity.Loaded)
+            CalamityBossSupport.InitializeCalamityBossSupport();
 
-            if (ModCompatability.FargoSouls.Loaded)
-                FargoSoulsBossSupport.InitializeFargoBossSupport();
-        }
+        if (ModCompatability.FargoSouls.Loaded)
+            FargoSoulsBossSupport.InitializeFargoBossSupport();
+    }
 
-        public override void Unload()
-        {
-            Instance = null;
-        }
+    public override void Unload()
+    {
+        Instance = null;
     }
 }

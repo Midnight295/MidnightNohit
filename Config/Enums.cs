@@ -4,19 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MidnightNohit.Config
-{
-    public enum Defiled
-    {
-        Off,
-        Normal,
-        True,
-    }
+namespace MidnightNohit.Config;
 
-    public enum Debuffs
-    {
-        Off,
-        Specific,
-        All,
-    }
+public enum Defiled
+{
+    Off,
+    Normal,
+    True,
+}
+
+public enum Debuffs
+{
+    Off,
+    Specific,
+    All,
 }

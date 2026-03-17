@@ -12,59 +12,58 @@ using Terraria.Audio;
 using MidnightNohit.Core.ModPlayers;
 using FargowiltasSouls.Core.Systems;
 
-namespace MidnightNohit.Content.Fargo.Items
-{
-    [JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
-    [ExtendsFromMod(ModCompatability.FargoSouls.Name)]
-    public class PhaseSkipPreventerDisabled : ModItem
-    {
-        public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
-        public override void SetDefaults()
-        {
-            Item.width = 38;
-            Item.height = 50;
-            Item.maxStack = 1;
-            Item.rare = ItemRarityID.Cyan;
-        }
+namespace MidnightNohit.Content.Fargo.Items;
 
-        public override bool CanUseItem(Player player) => false;
-        public override bool CanRightClick() => true;
-        public override void RightClick(Player player)
-        {
-            player.SwitchItem(Item, ModContent.ItemType<PhaseSkipPreventerEnabled>());
-            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
-        }   
+[JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
+[ExtendsFromMod(ModCompatability.FargoSouls.Name)]
+public class PhaseSkipPreventerDisabled : ModItem
+{
+    public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
+    public override void SetDefaults()
+    {
+        Item.width = 38;
+        Item.height = 50;
+        Item.maxStack = 1;
+        Item.rare = ItemRarityID.Cyan;
     }
 
-    [JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
-    [ExtendsFromMod(ModCompatability.FargoSouls.Name)]
-    public class PhaseSkipPreventerEnabled : ModItem
+    public override bool CanUseItem(Player player) => false;
+    public override bool CanRightClick() => true;
+    public override void RightClick(Player player)
     {
-        public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
-        public override void SetDefaults()
-        {
-            Item.width = 38;
-            Item.height = 50;
-            Item.maxStack = 1;
-            Item.rare = ItemRarityID.Cyan;
-        }
+        player.SwitchItem(Item, ModContent.ItemType<PhaseSkipPreventerEnabled>());
+        SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
+    }   
+}
 
-        public override void UpdateInventory(Player player)
-        {   
-            if (WorldSavingSystem.SkipMutantP1 != 0)
-            {
-                WorldSavingSystem.SkipMutantP1 = 0;
-            }
-                
-            //Main.NewText(WorldSavingSystem.SkipMutantP1.ToString());
-        }
+[JITWhenModsEnabled(ModCompatability.FargoSouls.Name)]
+[ExtendsFromMod(ModCompatability.FargoSouls.Name)]
+public class PhaseSkipPreventerEnabled : ModItem
+{
+    public override string Texture => "MidnightNohit/Content/Fargo/Items/PhaseSkipPreventer";
+    public override void SetDefaults()
+    {
+        Item.width = 38;
+        Item.height = 50;
+        Item.maxStack = 1;
+        Item.rare = ItemRarityID.Cyan;
+    }
 
-        public override bool CanUseItem(Player player) => false;
-        public override bool CanRightClick() => true;
-        public override void RightClick(Player player)
+    public override void UpdateInventory(Player player)
+    {   
+        if (WorldSavingSystem.SkipMutantP1 != 0)
         {
-            player.SwitchItem(Item, ModContent.ItemType<PhaseSkipPreventerDisabled>());
-            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
+            WorldSavingSystem.SkipMutantP1 = 0;
         }
+            
+        //Main.NewText(WorldSavingSystem.SkipMutantP1.ToString());
+    }
+
+    public override bool CanUseItem(Player player) => false;
+    public override bool CanRightClick() => true;
+    public override void RightClick(Player player)
+    {
+        player.SwitchItem(Item, ModContent.ItemType<PhaseSkipPreventerDisabled>());
+        SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
     }
 }

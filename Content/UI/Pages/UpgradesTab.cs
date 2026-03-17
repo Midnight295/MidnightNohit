@@ -6,21 +6,20 @@ using Terraria.ModLoader;
 using MidnightNohit.Core;
 using MidnightNohit.Content.UI.Pages.Configs;
 
-namespace MidnightNohit.Content.UI.Pages
+namespace MidnightNohit.Content.UI.Pages;
+
+public static partial class UIManagerAutoloader
 {
-    public static partial class UIManagerAutoloader
+    public const string PowerUIName = "UpgradesUI";
+
+    public static void InitializePermanentUpgrades()
     {
-        public const string PowerUIName = "UpgradesUI";
-
-        public static void InitializePermanentUpgrades()
+        List<PageUIElement> uIElements = new()
         {
-            List<PageUIElement> uIElements = new()
-            {
-                new IFrames(),
-            };
+            new IFrames(),
+        };
 
-            TogglesPage uIManager = new(uIElements, PowerUIName, "Mods.MidnightNohit.UI.UIButtons.UpgradesUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/UpgradesUI", AssetRequestMode.ImmediateLoad).Value, 6f);
-            uIManager.TryRegister();
-        }
+        TogglesPage uIManager = new(uIElements, PowerUIName, "Mods.MidnightNohit.UI.UIButtons.UpgradesUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/UpgradesUI", AssetRequestMode.ImmediateLoad).Value, 6f);
+        uIManager.TryRegister();
     }
 }

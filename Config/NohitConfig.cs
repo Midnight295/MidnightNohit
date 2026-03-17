@@ -10,69 +10,68 @@ using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
-namespace MidnightNohit.Config
+namespace MidnightNohit.Config;
+
+[BackgroundColor(25, 25, 112, 216)]
+public class NohitConfig : ModConfig
 {
-    [BackgroundColor(25, 25, 112, 216)]
-    public class NohitConfig : ModConfig
-    {
-        public static NohitConfig Instance => ModContent.GetInstance<NohitConfig>();
+    public static NohitConfig Instance => ModContent.GetInstance<NohitConfig>();
 
-        public override ConfigScope Mode => ConfigScope.ClientSide;
-        public const string ModName = "MidnightNohit";
+    public override ConfigScope Mode => ConfigScope.ClientSide;
+    public const string ModName = "MidnightNohit";
 
-        [Header("Nohit")]
-        //[DefaultValue(0)]
-        //[Slider]
-        //[DrawTicks]
-        //public Defiled defiled;
-        [DefaultValue(false)]
-        public bool InstantKill;
+    [Header("Nohit")]
+    //[DefaultValue(0)]
+    //[Slider]
+    //[DrawTicks]
+    //public Defiled defiled;
+    [DefaultValue(false)]
+    public bool InstantKill;
 
-        //[DefaultValue(false)]
-        //[JsonIgnore]
-        //public bool GodMode;
+    //[DefaultValue(false)]
+    //[JsonIgnore]
+    //public bool GodMode;
 
-        [DefaultValue(false)]
-        public bool DisableIframes;
+    [DefaultValue(false)]
+    public bool DisableIframes;
 
-        [DefaultValue(true)]
-        public bool MNLChatMessage;
+    [DefaultValue(true)]
+    public bool MNLChatMessage;
 
-        [DefaultValue(false)]
-        public bool FPSCounter;
+    [DefaultValue(false)]
+    public bool FPSCounter;
 
-        [DefaultValue(true)]
-        public bool InventoryStations;
+    [DefaultValue(true)]
+    public bool InventoryStations;
 
-        [Header("Debuffs")]
+    [Header("Debuffs")]
 
-        [DefaultValue(0)]
-        [Slider]
-        [DrawTicks]
-        public Debuffs debuffs;
+    [DefaultValue(0)]
+    [Slider]
+    [DrawTicks]
+    public Debuffs debuffs;
 
-        [Header("Locks")]
+    [Header("Locks")]
 
-        [DefaultValue(true)]
-        public bool ItemLocks;
+    [DefaultValue(true)]
+    public bool ItemLocks;
 
-        [DefaultValue(true)]
-        public bool PotionLocks;
+    [DefaultValue(true)]
+    public bool PotionLocks;
 
-        [Header("UI")]
+    [Header("UI")]
 
-        [DefaultValue(true)]
-        public bool MNLTimer;
+    [DefaultValue(true)]
+    public bool MNLTimer;
 
-        [Range(0f, 10f)]
-        [DefaultValue(MnlTimer.defaultX / 10)]
-        public float MNLX;
+    [Range(0f, 10f)]
+    [DefaultValue(MnlTimer.defaultX / 10)]
+    public float MNLX;
 
-        [Range(0f, 10f)]
-        [DefaultValue(MnlTimer.defaultY / 10)]
-        public float MNLY;
+    [Range(0f, 10f)]
+    [DefaultValue(MnlTimer.defaultY / 10)]
+    public float MNLY;
 
-        [DefaultValue(typeof(Color), "255, 255, 255, 255")]
-        public Color UIColor;
-    }
+    [DefaultValue(typeof(Color), "255, 255, 255, 255")]
+    public Color UIColor;
 }

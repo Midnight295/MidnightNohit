@@ -11,96 +11,95 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MidnightNohit.Content.Items
+namespace MidnightNohit.Content.Items;
+
+public class ShroomToggler : ModItem
 {
-    public class ShroomToggler : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Item.width = 38;
-            Item.height = 50;
-            Item.maxStack = 1;
-            Item.rare = ItemRarityID.LightRed;
-        }
-
-        public override bool CanUseItem(Player player) => false;
-        public override bool CanRightClick() => true;
-        public override void RightClick(Player player)
-        {
-            player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT1>());
-            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
-        }
+        Item.width = 38;
+        Item.height = 50;
+        Item.maxStack = 1;
+        Item.rare = ItemRarityID.LightRed;
     }
 
-    public class ShroomTogglerT1 : ModItem
+    public override bool CanUseItem(Player player) => false;
+    public override bool CanRightClick() => true;
+    public override void RightClick(Player player)
     {
-        public override string Texture => "MidnightNohit/Content/Items/ShroomToggler";
-        public override void SetDefaults()
-        {
-            Item.width = 38;
-            Item.height = 50;
-            Item.maxStack = 1;
-            Item.rare = ItemRarityID.LightRed;
-        }
-        public override bool CanUseItem(Player player) => false;
-        public override void UpdateInventory(Player player)
-        {
-            Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippy = true;
-            Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippyLevel = 1;
-        }
-        public override bool CanRightClick() => true;
-        public override void RightClick(Player player)
-        {
-            player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT2>());
-            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
-        }
+        player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT1>());
+        SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
     }
+}
 
-    public class ShroomTogglerT2 : ModItem
+public class ShroomTogglerT1 : ModItem
+{
+    public override string Texture => "MidnightNohit/Content/Items/ShroomToggler";
+    public override void SetDefaults()
     {
-        public override string Texture => "MidnightNohit/Content/Items/ShroomToggler";
-        public override void SetDefaults()
-        {
-            Item.width = 38;
-            Item.height = 50;
-            Item.maxStack = 1;
-            Item.rare = ItemRarityID.LightRed;
-        }
-        public override bool CanUseItem(Player player) => false;
-        public override void UpdateInventory(Player player)
-        {
-            Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippy = true;
-            Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippyLevel = 2;
-        }
-        public override bool CanRightClick() => true;
-        public override void RightClick(Player player)
-        {
-            player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT3>());
-            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
-        }
+        Item.width = 38;
+        Item.height = 50;
+        Item.maxStack = 1;
+        Item.rare = ItemRarityID.LightRed;
     }
-
-    public class ShroomTogglerT3 : ModItem
+    public override bool CanUseItem(Player player) => false;
+    public override void UpdateInventory(Player player)
     {
-        public override string Texture => "MidnightNohit/Content/Items/ShroomToggler";
-        public override void SetDefaults()
-        {
-            Item.width = 38;
-            Item.height = 50;
-            Item.maxStack = 1;
-            Item.rare = ItemRarityID.LightRed;
-        }
-        public override bool CanUseItem(Player player) => false;
-        public override void UpdateInventory(Player player)
-        {
-            Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippy = true;
-            Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippyLevel = 3;
-        }
-        public override bool CanRightClick() => true;
-        public override void RightClick(Player player)
-        {
-            player.SwitchItem(Item, ModContent.ItemType<ShroomToggler>());
-            SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
-        }
+        Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippy = true;
+        Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippyLevel = 1;
+    }
+    public override bool CanRightClick() => true;
+    public override void RightClick(Player player)
+    {
+        player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT2>());
+        SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
+    }
+}
+
+public class ShroomTogglerT2 : ModItem
+{
+    public override string Texture => "MidnightNohit/Content/Items/ShroomToggler";
+    public override void SetDefaults()
+    {
+        Item.width = 38;
+        Item.height = 50;
+        Item.maxStack = 1;
+        Item.rare = ItemRarityID.LightRed;
+    }
+    public override bool CanUseItem(Player player) => false;
+    public override void UpdateInventory(Player player)
+    {
+        Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippy = true;
+        Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippyLevel = 2;
+    }
+    public override bool CanRightClick() => true;
+    public override void RightClick(Player player)
+    {
+        player.SwitchItem(Item, ModContent.ItemType<ShroomTogglerT3>());
+        SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
+    }
+}
+
+public class ShroomTogglerT3 : ModItem
+{
+    public override string Texture => "MidnightNohit/Content/Items/ShroomToggler";
+    public override void SetDefaults()
+    {
+        Item.width = 38;
+        Item.height = 50;
+        Item.maxStack = 1;
+        Item.rare = ItemRarityID.LightRed;
+    }
+    public override bool CanUseItem(Player player) => false;
+    public override void UpdateInventory(Player player)
+    {
+        Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippy = true;
+        Main.LocalPlayer.GetModPlayer<ShroomPlayer>().trippyLevel = 3;
+    }
+    public override bool CanRightClick() => true;
+    public override void RightClick(Player player)
+    {
+        player.SwitchItem(Item, ModContent.ItemType<ShroomToggler>());
+        SoundEngine.PlaySound(SoundID.Unlock, Main.LocalPlayer.Center);
     }
 }
