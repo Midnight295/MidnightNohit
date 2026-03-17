@@ -49,7 +49,7 @@ public static class FargoSet
         [NPCID.HallowBoss] = 5400,
         [NPCID.DukeFishron] = 5400,
         [NPCID.CultistBoss] = 5400,
-        [NPCID.MoonLordCore] = 7200,
+        [NPCID.MoonLordCore] = 8100,
         [ModContent.NPCType<TimberChampionHead>()] = 5400,
         [ModContent.NPCType<TerraChampion>()] = 5400,
         [ModContent.NPCType<EarthChampion>()] = 5400,
@@ -58,7 +58,7 @@ public static class FargoSet
         [ModContent.NPCType<ShadowChampion>()] = 5400,
         [ModContent.NPCType<SpiritChampion>()] = 5400,
         [ModContent.NPCType<WillChampion>()] = 5400,
-        [ModContent.NPCType<CosmosChampion>()] = 5400,           
+        [ModContent.NPCType<CosmosChampion>()] = 7200,           
     };
 
     public static void Load()
