@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static MidnightNohit.Content.UI.Pages.TogglesPage;
+using static MidnightNohit.Content.UI.Pages.ATogglesPage;
 
 namespace MidnightNohit.Content.UI.Pages;
 

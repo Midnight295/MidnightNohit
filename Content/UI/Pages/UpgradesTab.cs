@@ -17,7 +17,7 @@ public static partial class UIManagerAutoloader
             new IFrames(),
         };
 
-        TogglesPage uIManager = new(uIElements, PowerUIName, "Mods.MidnightNohit.UI.UIButtons.UpgradesUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/UpgradesUI", AssetRequestMode.ImmediateLoad).Value, 6f);
+        UpgradesPage uIManager = new(uIElements, PowerUIName, "Mods.MidnightNohit.UI.UIButtons.UpgradesUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/UpgradesUI", AssetRequestMode.ImmediateLoad).Value, 6f);
         uIManager.TryRegister();
     }
 }

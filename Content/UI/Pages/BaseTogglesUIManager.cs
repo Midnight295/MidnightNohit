@@ -15,10 +15,10 @@ using Terraria.ModLoader;
 
 namespace MidnightNohit.Content.UI.Pages;
 
-public class TogglesPage : IToggleWheelElement
+public abstract class ATogglesPage : IToggleWheelElement
 {
     #region Statics/Constants
-    public static Dictionary<string, TogglesPage> UIManagers
+    public static Dictionary<string, ATogglesPage> UIManagers
     {
         get;
         private set;
@@ -29,7 +29,9 @@ public class TogglesPage : IToggleWheelElement
     public static Texture2D HoverBackgroundSmallTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/SmallerWhiteRect", AssetRequestMode.ImmediateLoad).Value;
     public static Texture2D ArrowTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/Arrow").Value;
     public static Texture2D ArrowGlowTexture => ModContent.Request<Texture2D>("MidnightNohit/Content/UI/Textures/Powers/ArrowGlow").Value;
-    public static Texture2D TogglesUITexture => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/TogglesUI/TogglesUIBackground", AssetRequestMode.ImmediateLoad).Value;
+    public virtual Texture2D TogglesUITexture => ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/TogglesUI/TogglesUIBackground", AssetRequestMode.ImmediateLoad).Value;
+
+    public virtual string PageName => Language.GetTextValue("Mods.MidnightNohit.UI.UIButtons.TogglesUI");
 
     public const int MaxElementsPerPage = 5;
 
@@ -60,8 +62,6 @@ public class TogglesPage : IToggleWheelElement
 
     public readonly string Name;
 
-    public readonly bool UseSmallerBackground;
-
     /// <summary>
     /// The offset to draw the UI at from the center of the screen. 300, 0  is default.
     /// </summary>
@@ -84,14 +84,13 @@ public class TogglesPage : IToggleWheelElement
     /// <param name="name">The lookup name for this UI manager internally</param>
     /// <param name="useSmallerBackground">Whether to use a smaller background for the UI</param>
     /// <param name="drawOffset">Whether to use a different offset from the center of the screen from the default of 300, 0</param>
-    public TogglesPage(List<PageUIElement> uIElements, string name, string description, Texture2D wheelIconTexture, float layer, bool useSmallerBackground = false)
+    public ATogglesPage(List<PageUIElement> uIElements, string name, string description, Texture2D wheelIconTexture, float layer)
     {
         UIElements = uIElements;
         Name = name;
         Description = description;
         IconTexture = wheelIconTexture;
         Layer = layer;
-        UseSmallerBackground = useSmallerBackground;
         OnClick = null;
         BaseDrawPositionOffset = new(300f, 0f);
     }
@@ -120,7 +119,7 @@ public class TogglesPage : IToggleWheelElement
     /// <summary>
     /// Call this to register the manager into the dictonary.
     /// </summary>
-    public TogglesPage TryRegister()
+    public ATogglesPage TryRegister()
     {
         if (UIManagers.ContainsKey(Name))
         {
@@ -135,7 +134,6 @@ public class TogglesPage : IToggleWheelElement
         TogglesUIManager.SortWheel();
         return this;
     }
-
     public void Draw(SpriteBatch spriteBatch)
     {
         // Draw the UI background.
@@ -146,7 +144,7 @@ public class TogglesPage : IToggleWheelElement
         // this vector, unless they are a completely new one and use Main.screenWidth.Height themselves for the VERY BASE of their definition.
         Vector2 spawnPos = drawCenter * Main.UIScale - new Vector2(NohitUIButton.HorizontalOffset - 1000, -15);
         spriteBatch.Draw(UIBackgroundTexture, spawnPos, null, Color.White, 0f, UIBackgroundTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
-        Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, Language.GetTextValue("Mods.MidnightNohit.UI.UIButtons.TogglesUI"), spawnPos.X - 33, spawnPos.Y - 193, Color.White, Color.Black, Vector2.Zero, 1);
+        Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, PageName, spawnPos.X - 33, spawnPos.Y - 193, Color.White, Color.Black, Vector2.Zero, 1);
 
         // Block the mouse if the background is behing hovered over.
         Rectangle hoverArea = Utils.CenteredRectangle(spawnPos, UIBackgroundTexture.Size());
@@ -159,7 +157,7 @@ public class TogglesPage : IToggleWheelElement
         int maxElement = CurrentPage * MaxElementsPerPage;
         int minElement = maxElement - MaxElementsPerPage;
 
-        float baseDrawOffset = UseSmallerBackground ? UIBackgroundTexture.Height * 0.15f : UIBackgroundTexture.Height * 0.25f;
+        float baseDrawOffset = UIBackgroundTexture.Height * 0.25f;
         if (MaxPages <= 1)
             baseDrawOffset = UIBackgroundTexture.Height * 0.31f;
 
@@ -192,7 +190,7 @@ public class TogglesPage : IToggleWheelElement
         {
             for (int i = -1; i <= 1; i += 2)
             {
-                Vector2 arrowDrawPosition = spawnPos - new Vector2(UIBackgroundTexture.Width * 0.345f * i, UIBackgroundTexture.Height * (UseSmallerBackground ? 0.345f : 0.392f));
+                Vector2 arrowDrawPosition = spawnPos - new Vector2(UIBackgroundTexture.Width * 0.345f * i, UIBackgroundTexture.Height * 0.392f);
 
                 Rectangle whiteHitbox = Utils.CenteredRectangle(arrowDrawPosition, HoverBackgroundSmallTexture.Size());
                 if (whiteHitbox.Intersects(NohitUtils.MouseRectangle))
@@ -226,4 +224,11 @@ public class TogglesPage : IToggleWheelElement
         }
     }
     #endregion
+}
+
+public class TogglesPage : ATogglesPage
+{
+    public TogglesPage(List<PageUIElement> uIElements, string name, string description, Texture2D wheelIconTexture, float layer) : base(uIElements, name, description, wheelIconTexture, layer)
+    {
+    }
 }

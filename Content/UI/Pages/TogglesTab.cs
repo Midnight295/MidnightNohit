@@ -21,7 +21,7 @@ public static partial class UIManagerAutoloader
             new PracticeMode(),
         };
 
-        TogglesPage uIManager = new(uIElements, ToggleUIName, "Mods.MidnightNohit.UI.UIButtons.TogglesUI" /*Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.MiscUI")*/, ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/ToggleUI", AssetRequestMode.ImmediateLoad).Value, 5f);
+        TogglesPage uIManager = new(uIElements, ToggleUIName, "Mods.MidnightNohit.UI.UIButtons.TogglesUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/ToggleUI", AssetRequestMode.ImmediateLoad).Value, 5f);
         uIManager.TryRegister();
     }   
 }
