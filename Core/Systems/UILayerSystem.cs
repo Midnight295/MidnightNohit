@@ -12,7 +12,6 @@ public class UILayerSystem : ModSystem
 {
     public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
     {
-
         int mouseIndex = layers.FindIndex((layer) => layer.Name == "Vanilla: Mouse Text");
         if (mouseIndex == -1)
             return;
@@ -22,6 +21,12 @@ public class UILayerSystem : ModSystem
             MnlTimer.Draw(Main.LocalPlayer);
             return true;
         }, InterfaceScaleType.None));
+
+        layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Practice Mode Hitcounter", delegate ()
+        {
+            PracticeModeHitcounter.Draw(Main.LocalPlayer);
+            return true;
+        }, InterfaceScaleType.UI));
 
         layers.Insert(mouseIndex, new LegacyGameInterfaceLayer("Special UIs", () =>
         {

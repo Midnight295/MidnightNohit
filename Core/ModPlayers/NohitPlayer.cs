@@ -5,19 +5,26 @@ using Terraria.DataStructures;
 using Terraria.Localization;
 using MidnightNohit.Core.Systems.MNLSystems;
 using MidnightNohit.Content.UI;
+using static MidnightNohit.Config.NohitConfig;
+using Terraria.GameContent.UI.Elements;
 
 
 namespace MidnightNohit.Core.ModPlayers;
 
 public class NohitPlayer : ModPlayer
 {
+    public int PracticeHitsTaken;
+    public override void UpdateDead()
+    {
+        PracticeHitsTaken = 0;
+    }
     public override void PreUpdate()
     {
-        if (!Main.showFrameRate && NohitConfig.Instance.FPSCounter)
+        if (!Main.showFrameRate && Instance.FPSCounter)
             Main.showFrameRate = true;
 
         Player player = Main.LocalPlayer;
-        if (NohitConfig.Instance.DisableIframes)
+        if (Instance.DisableIframes)
         {
             //player.immune = false;
             player.immuneTime = 0;
@@ -36,7 +43,7 @@ public class NohitPlayer : ModPlayer
         if (MidnightNohit.TimerToCursor.JustPressed && Main.CurrentFrameFlags.AnyActiveBossNPC)
             MnlTimer.AtCursor = !MnlTimer.AtCursor;
 
-        if (NohitConfig.Instance.debuffs == Debuffs.All)
+        if (Instance.debuffs == Debuffs.All && !Instance.PracticeMode)
         {
             if (player.lifeRegen < 0)
             {
@@ -52,9 +59,19 @@ public class NohitPlayer : ModPlayer
         }
         else
         {
+            PracticeHitsTaken--;
+            if (PracticeHitsTaken <= 0)
+                PracticeHitsTaken = 0;
             if (NohitUtils.MNLTimer.IsRunning)
                 NohitUtils.MNLTimer.Reset();
         }
+
+        if (Instance.PracticeMode)
+        {
+            if (player.statLife < player.statLifeMax)
+                player.statLife = player.statLifeMax;
+        }
+            
 
 
         /*Player player = Main.LocalPlayer;
@@ -98,7 +115,7 @@ public class NohitPlayer : ModPlayer
 
     public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
     {
-        if (NohitConfig.Instance.InstantKill)
+        if (Instance.InstantKill)
         {
             string messagetouse = "" + Main.rand.Next(1, 15);
             if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
@@ -113,7 +130,7 @@ public class NohitPlayer : ModPlayer
 
     public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
     {
-        if (NohitConfig.Instance.InstantKill)
+        if (Instance.InstantKill)
         {
             string messagetouse = "" + Main.rand.Next(1, 15);
             if (Main.LocalPlayer.wingsLogic > 0 && Main.LocalPlayer.wingTime == 0)
@@ -124,13 +141,26 @@ public class NohitPlayer : ModPlayer
             Player.KillMe(PlayerDeathReason.ByCustomReason(DeathText.ToNetworkText(proj.Name, Player.name)), 1000, 0, false);
         };
     }
-
+    public override void ModifyHurt(ref Player.HurtModifiers modifiers)
+    {
+        if (Instance.PracticeMode)
+        {   
+            modifiers.FinalDamage *= 0;
+            modifiers.Knockback *= 0;
+            PracticeHitsTaken++;
+        }
+    }
     public override void OnHurt(Player.HurtInfo info)
-    {   
-        if (NohitConfig.Instance.InstantKill)
+    {
+        if (Instance.InstantKill)
         {
             Player.KillMe(PlayerDeathReason.LegacyEmpty(), 1000, 0, false);
         }
+    }
+    public override void UpdateBadLifeRegen()
+    {
+        if (Instance.PracticeMode)
+            Main.LocalPlayer.lifeRegen = 0;
     }
 
     public override void OnRespawn()

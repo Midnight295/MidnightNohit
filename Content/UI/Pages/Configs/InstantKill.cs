@@ -18,6 +18,7 @@ public class InstantKill : PageUIElement
     public override void OnClick()
     {
         NohitConfig.Instance.InstantKill = !NohitConfig.Instance.InstantKill;
+        NohitConfig.Instance.PracticeMode = false;
         NohitConfig.Instance.SaveChanges();
     }
 }

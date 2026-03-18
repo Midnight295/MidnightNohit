@@ -18,6 +18,7 @@ public class IFrames : PageUIElement
     public override void OnClick()
     {
         NohitConfig.Instance.DisableIframes = !NohitConfig.Instance.DisableIframes;
+        NohitConfig.Instance.PracticeMode = false;
         NohitConfig.Instance.SaveChanges();
     }
 }

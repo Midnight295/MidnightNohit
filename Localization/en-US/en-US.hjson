@@ -105,6 +105,16 @@ Mods: {
 					Label: "[i:17] FPS Counter"
 					Tooltip: Automatically enables the built in FPS Counter from Vanilla Terraria when enabled
 				}
+
+				PracticeMode: {
+					Label: Practice Mode
+					Tooltip:
+						'''
+						Toggles whether or not Practice Mode should be enabled.
+						In Practice Mode, all hits are nullified and a UI element shows how many hits you have taken in the current life.
+						'''
+					ShortenedTooltip: Toggles whether or not Practice Mode should be enabled.
+				}
 			}
 
 			Defiled: {

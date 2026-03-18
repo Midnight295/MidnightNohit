@@ -23,6 +23,7 @@ public class NohitUIButton
     public UIImageButton heartButton;
 
     private static Asset<Texture2D> heartTexture;
+    private static Asset<Texture2D> practiceMode;
     private static Asset<Texture2D> heartTexture_glow;
     private static Asset<Texture2D> instantDeath;
     private static Asset<Texture2D> instantDeath_glow;
@@ -31,6 +32,7 @@ public class NohitUIButton
     {
         heartTexture = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIcon");
         instantDeath = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconInstantDeath");
+        practiceMode = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconPracticeMode");
         heartTexture_glow = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconGlow");
         instantDeath_glow = ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/HeartIconInstantDeathGlow");
     }
@@ -44,6 +46,8 @@ public class NohitUIButton
         Texture2D Icon;
         if (NohitConfig.Instance.InstantKill)
             Icon = instantDeath.Value;
+        else if (NohitConfig.Instance.PracticeMode)
+            Icon = practiceMode.Value;
         else
             Icon = heartTexture.Value;
 
@@ -67,6 +71,8 @@ public class NohitUIButton
             string IconHighlight;
             if (NohitConfig.Instance.InstantKill)
                 IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.InstantDeath");
+            else if (NohitConfig.Instance.PracticeMode)
+                IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.PracticeMode");
             else
                 IconHighlight = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.PlayerCheat.None");
 

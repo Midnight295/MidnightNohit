@@ -23,9 +23,8 @@ public class NohitConfig : ModConfig
     [DefaultValue(false)]
     public bool InstantKill;
 
-    //[DefaultValue(false)]
-    //[JsonIgnore]
-    //public bool GodMode;
+    [DefaultValue(false)]
+    public bool PracticeMode;
 
     [DefaultValue(false)]
     public bool DisableIframes;

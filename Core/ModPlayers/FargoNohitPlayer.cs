@@ -14,7 +14,7 @@ public class FargoNohitPlayer : ModPlayer
 {
     public override void PreUpdate()
     {
-        if (NohitConfig.Instance.debuffs == Debuffs.Specific)
+        if (NohitConfig.Instance.debuffs == Debuffs.Specific && !NohitConfig.Instance.PracticeMode)
         {
             if (Player.FindBuffIndex(ModContent.BuffType<BaronsBurdenBuff>()) > -1 && !Main.LocalPlayer.wet)
                 Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + Language.GetTextValue($"Mods.MidnightNohit.DeathMessages.Baron" + Main.rand.Next(1, 3))), 1000.0, 0, false);
