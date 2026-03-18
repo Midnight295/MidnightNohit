@@ -16,7 +16,6 @@ public class NohitPlayer : ModPlayer
         if (!Main.showFrameRate && NohitConfig.Instance.FPSCounter)
             Main.showFrameRate = true;
 
-
         Player player = Main.LocalPlayer;
         if (NohitConfig.Instance.DisableIframes)
         {
@@ -26,6 +25,12 @@ public class NohitPlayer : ModPlayer
             player.eocDash = 0;
             player.hurtCooldowns[0] = 0;
             player.hurtCooldowns[1] = 0;             
+        }
+
+        if (MidnightNohit.KillBind.JustPressed)
+        {
+            LocalizedText DeathText = Language.GetText($"Mods.MidnightNohit.DeathMessages.KillBind.{Main.rand.Next(1,6)}");
+            Player.KillMe(PlayerDeathReason.ByCustomReason(DeathText.ToNetworkText(Player.name)), 9999, 0, false);
         }
 
         if (NohitConfig.Instance.debuffs == Debuffs.All)

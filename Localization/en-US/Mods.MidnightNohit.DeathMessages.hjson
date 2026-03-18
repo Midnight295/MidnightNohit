@@ -30,3 +30,11 @@ InstantKill: {
 	14: "{1} beheld the power of {0}"
 	NoWingTime: "{1} was caught by {0} whilst they needed their wings most."
 }
+
+KillBind: {
+	1: "{0} imploded."
+	2: "{0} gave up."
+	3: "{0} ceased to live."
+	4: "{0} went kablooey."
+	5: "{0} tripped."
+}
