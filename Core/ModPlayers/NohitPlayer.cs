@@ -33,6 +33,9 @@ public class NohitPlayer : ModPlayer
             Player.KillMe(PlayerDeathReason.ByCustomReason(DeathText.ToNetworkText(Player.name)), 9999, 0, false);
         }
 
+        if (MidnightNohit.TimerToCursor.JustPressed && Main.CurrentFrameFlags.AnyActiveBossNPC)
+            MnlTimer.AtCursor = !MnlTimer.AtCursor;
+
         if (NohitConfig.Instance.debuffs == Debuffs.All)
         {
             if (player.lifeRegen < 0)

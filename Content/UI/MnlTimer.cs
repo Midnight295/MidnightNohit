@@ -18,6 +18,8 @@ public class MnlTimer
     public static int disablingLerp;
     public static int enablingLerp;
     public static TimeSpan Time;
+
+    public static bool AtCursor = false;
     public static void Draw(Player player)
     {
         if (!NohitConfig.Instance.MNLTimer)
@@ -63,7 +65,7 @@ public class MnlTimer
         screenpos.X = (int)(screenpos.X * 0.01f * Main.screenWidth);
         screenpos.Y = (int)(screenpos.Y * 0.01f * Main.screenWidth);
 
-        if (MidnightNohit.TimerToCursor.Current)
+        if (AtCursor)
             screenpos = Main.MouseWorld + new Vector2(0, FontAssets.ItemStack.Value.MeasureString(text).Y) - Main.screenPosition;
 
         Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.ItemStack.Value, text, screenpos.X, screenpos.Y, color * Opacity, Color.Black * Opacity, default, 1f);

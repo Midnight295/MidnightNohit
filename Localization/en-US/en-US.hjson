@@ -137,7 +137,7 @@ Mods: {
 		Keybinds: {
 			"Open Toggles UI.DisplayName": Open Toggles UI
 			"Open Potions UI.DisplayName": Open Potions UI
-			TimerToCursor.DisplayName: Timer To Cursor
+			TimerToCursor.DisplayName: Toggle Timer Position
 			KillBind.DisplayName: Kill Bind
 		}
 	}
