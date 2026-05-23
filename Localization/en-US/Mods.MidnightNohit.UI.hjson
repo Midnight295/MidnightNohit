@@ -57,6 +57,25 @@ UIButtons: {
 	}
 }
 
+Upgrades: {
+	LeftRight: Left Click to increment, Right Click to decrement.
+
+	LifeCrystal: {
+		Name: Life Crystals consumed
+		Description: Modifies how many Life Crystals the player has consumed.
+	}
+
+	LifeFruit: {
+		Name: Life Fruits consumed
+		Description: Modifies how many Life Fruits the player has consumed.
+	}
+
+	ManaCrystal: {
+		Name: Mana Crystals consumed
+		Description: Modifies how many Mana Crystals the player has consumed.
+	}
+}
+
 Toggles: {
 	Gravestones: {
 		Name: Toggle Gravestones

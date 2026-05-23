@@ -3,6 +3,7 @@ using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using MidnightNohit.Content.UI.Pages.Configs;
+using MidnightNohit.Content.UI.Pages.PermanentUpgrades;
 
 namespace MidnightNohit.Content.UI.Pages;
 
@@ -14,7 +15,9 @@ public static partial class UIManagerAutoloader
     {
         List<PageUIElement> uIElements = new()
         {
-            new IFrames(),
+            new LifeCrystalCount(),
+            new LifeFruitCount(),
+            new ManaCrystalCount(),
         };
 
         UpgradesPage uIManager = new(uIElements, PowerUIName, "Mods.MidnightNohit.UI.UIButtons.UpgradesUI", ModContent.Request<Texture2D>("MidnightNohit/Assets/UI/Buttons/UpgradesUI", AssetRequestMode.ImmediateLoad).Value, 6f);

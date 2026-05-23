@@ -79,7 +79,7 @@ public class NohitUIButton
             Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.UIButtons.{State}") + "\n" + IconHighlight;
 
             Main.blockMouse = Main.LocalPlayer.mouseInterface = true;
-            if (NohitUtils.CanAndHasClickedUIElement)
+            if (NohitUtils.AnyClick)
             {
                 if (TogglesUIManager.UIOpen)
                     TogglesUIManager.CloseUI();

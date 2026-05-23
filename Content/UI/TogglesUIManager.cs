@@ -181,7 +181,7 @@ public static class TogglesUIManager
                 scale *= progress;
             }
 
-            Vector2 drawPosition = new Vector2(Main.screenWidth * Main.UIScale - (NohitUIButton.HorizontalOffset - 19), ((i + elementCount) * distance) + 165);
+            Vector2 drawPosition = new Vector2(Main.screenWidth * Main.UIScale - (NohitUIButton.HorizontalOffset - 19), (i * distance) + 85 * elementCount);
 
             // Draw the bloom texture.
             spriteBatch.Draw(BloomTexture, drawPosition, null, new Color(59, 50, 77, 0) * 0.9f * opacity, 0f, BloomTexture.Size() * 0.5f, scale * 0.4f, SpriteEffects.None, 0f);
@@ -198,7 +198,7 @@ public static class TogglesUIManager
                 Main.hoverItemName = LocalizedDescription;
 
                 // Handle clicking on the icon.
-                if (NohitUtils.CanAndHasClickedUIElement)
+                if (NohitUtils.AnyClick)
                 {
                     ClickCooldownTimer = NohitPlayer.UICooldownTimerLength;
                     SoundEngine.PlaySound(SoundID.MenuTick, Main.LocalPlayer.Center);

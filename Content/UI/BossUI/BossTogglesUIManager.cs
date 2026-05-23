@@ -420,7 +420,7 @@ public class BossTogglesUIManager
                         //spriteBatch.Draw(element.GlowTexture, drawPositionFinal, null, Color.White, 0, element.GlowTexture.Size() * 0.5f, element.Scale, 0, 0);
                         Main.hoverItemName = Language.GetTextValue($"Mods.MidnightNohit.UI.Toggles.BossUI.Toggle", element.Name);
                     }
-                    if (NohitUtils.CanAndHasClickedUIElement)
+                    if (NohitUtils.AnyClick)
                     {   
                         //TODO: fix??
                         if (Main.keyState.PressingShift())

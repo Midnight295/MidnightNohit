@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<!-- Import tModLoader mod properties -->
 	<Import Project="..\tModLoader.targets" />
@@ -24,7 +24,10 @@
 	  </Reference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Content\UI\Pages\PermanentUpgrades\" />
+	  <EditorConfigFiles Remove="C:\Users\Hayde\Documents\My Games\Terraria\tModLoader\ModSources\MidnightNohit\.editorconfig" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="C:\Users\Hayde\Documents\My Games\Terraria\tModLoader\ModSources\MidnightNohit\.editorconfig" />
 	</ItemGroup>
 
 </Project>

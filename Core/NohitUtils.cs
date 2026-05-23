@@ -17,7 +17,9 @@ public static partial class NohitUtils
     public static string DeadSpace;      
     public static Rectangle MouseRectangle => new(Main.mouseX, Main.mouseY, 2, 2);
 
-    public static bool CanAndHasClickedUIElement => (Main.mouseLeft && Main.mouseLeftRelease || Main.mouseRight && Main.mouseRightRelease) && TogglesUIManager.ClickCooldownTimer == 0;
+    public static bool AnyClick => (Main.mouseLeft && Main.mouseLeftRelease || Main.mouseRight && Main.mouseRightRelease) && TogglesUIManager.ClickCooldownTimer == 0;
+    public static bool LeftClick => Main.mouseLeft && Main.mouseLeftRelease && TogglesUIManager.ClickCooldownTimer == 0;
+    public static bool RightClick => Main.mouseRight && Main.mouseRightRelease && TogglesUIManager.ClickCooldownTimer == 0;
 
     public static float EaseInOutSine(float value) => -(MathF.Cos(MathF.PI * value) - 1) / 2;
 

@@ -197,7 +197,7 @@ public abstract class ATogglesPage : IToggleWheelElement
                 {
                     spriteBatch.Draw(HoverBackgroundSmallTexture, arrowDrawPosition, null, Color.White * 0.3f, 0f, HoverBackgroundSmallTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
 
-                    if (NohitUtils.CanAndHasClickedUIElement)
+                    if (NohitUtils.AnyClick)
                     {
                         // On click effects.
                         TogglesUIManager.ClickCooldownTimer = TogglesUIManager.ClickCooldownLength;
