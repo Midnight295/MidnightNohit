@@ -25,7 +25,7 @@ public partial class MidnightNohit : Mod
         NohitUIButton.Load();
 
         UIManagerAutoloader.InitializeToggles();
-        UIManagerAutoloader.InitializePermanentUpgrades();
+        //UIManagerAutoloader.InitializePermanentUpgrades();
         SingleElementAutoloader.Initialize();
         BossTogglesUIManager.InitializeBossElements();
     }
