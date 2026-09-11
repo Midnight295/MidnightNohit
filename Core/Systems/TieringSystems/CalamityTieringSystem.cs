@@ -1,4 +1,4 @@
-﻿using CalamityMod;
+using CalamityMod;
 using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
 using CalamityMod.Items.Fishing.AstralCatches;
@@ -202,6 +202,10 @@ public static class CalamityTieringSystem
             
         ]);
 
+        BossLockInformation.AddLockInformation(() => NPC.downedDeerclops, $"NPCName.Deerclops",
+        [
+            ModContent.ItemType<WalkingCane>()
+        ]);
         BossLockInformation.AddLockInformation(() => NPC.downedBoss3, $"NPCName.SkeletronHead",
         [
             //Accessories
@@ -250,8 +254,7 @@ public static class CalamityTieringSystem
             ModContent.ItemType<AbyssalTome>(),
             ModContent.ItemType<EldritchTome>(),
             //Summon Weapons
-            ModContent.ItemType<CorroslimeStaff>(),
-            ModContent.ItemType<CrimslimeStaff>(),
+            ModContent.ItemType<BlightedSlimeStaff>(),
             ModContent.ItemType<SlimePuppetStaff>(),
             //Rogue Weapons
             ModContent.ItemType<GelDart>(),
@@ -324,7 +327,6 @@ public static class CalamityTieringSystem
             ModContent.ItemType<WaveSkipper>(),
             ModContent.ItemType<BurningStrife>(),
             ModContent.ItemType<GacruxianMollusk>(),
-            ModContent.ItemType<SlickCane>(),
             //Classless
             ModContent.ItemType<LunicEye>(),
             ModContent.ItemType<StarStruckWater>(),
@@ -938,7 +940,7 @@ public static class CalamityTieringSystem
             ModContent.ItemType<TarragonWings>(),
             ModContent.ItemType<BloodflareCore>(),
             ModContent.ItemType<BadgeofBravery>(),
-            ModContent.ItemType<BlazingCore>(),
+            ModContent.ItemType<DivineProvidence>(),
             ModContent.ItemType<ElysianAegis>(),
             ModContent.ItemType<ProfanedSoulArtifact>(),               
             //Weapons
